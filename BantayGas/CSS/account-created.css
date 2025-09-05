@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    background-image: url('../Logos and BG/bantaygas-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.7);
+    z-index: 1;
+}
+
+.account-created-container {
+    background: transparent;
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-section {
+    margin-bottom: 40px;
+}
+
+.logo-icon {
+    margin-bottom: 20px;
+}
+
+.shield-circle {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, #4a90e2 0%, #357abd 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+}
+
+.shield-flame {
+    width: 70px;
+    height: 70px;
+}
+
+.logo-text {
+    color: #4a90e2;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-section {
+    margin-bottom: 40px;
+}
+
+.welcome-heading {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-message {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.5;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(145deg, #6c757d 0%, #495057 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 20px rgba(108, 117, 125, 0.3);
+}
+
+.dashboard-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(108, 117, 125, 0.4);
+}
+
+.dashboard-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 15px rgba(108, 117, 125, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .account-created-container {
+        margin: 20px;
+        padding: 30px 20px;
+        max-width: 100%;
+    }
+
+    .welcome-heading {
+        font-size: 28px;
+    }
+
+    .logo-text {
+        font-size: 24px;
+    }
+
+    .shield-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .shield-flame {
+        width: 60px;
+        height: 60px;
+    }
+
+    .welcome-message {
+        font-size: 16px;
+    }
+}

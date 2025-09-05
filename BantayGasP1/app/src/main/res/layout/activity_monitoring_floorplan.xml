@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MonitoringFloorPlanActivity">
+
+    <Spinner
+        android:id="@+id/floorSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_rounded_bg"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="16dp"/>
+
+    <com.example.bantaygasp1.ui.InteractiveFloorPlanView
+        android:id="@+id/interactiveFloorPlan"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/floorplan_border"
+        android:padding="3dp"
+        app:layout_constraintTop_toBottomOf="@id/floorSpinner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.95"
+        app:layout_constraintHeight_percent="0.7"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="60dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

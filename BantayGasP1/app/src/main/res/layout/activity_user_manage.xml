@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="#F5F5F5"
+	tools:context=".ui.UserManageActivity">
+
+	<!-- Status Bar Margin for Notch Phones -->
+	<View
+		android:id="@+id/statusBarMargin"
+		android:layout_width="match_parent"
+		android:layout_height="35dp"
+		android:background="@android:color/transparent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<!-- Header -->
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/headerLayout"
+		android:layout_width="match_parent"
+		android:layout_height="90dp"
+		android:background="#1A237E"
+		app:layout_constraintTop_toBottomOf="@id/statusBarMargin">
+
+		<ImageView
+			android:id="@+id/backButton"
+			android:layout_width="48dp"
+			android:layout_height="48dp"
+			android:layout_marginStart="16dp"
+			android:background="?attr/selectableItemBackgroundBorderless"
+			android:contentDescription="Back"
+			android:padding="12dp"
+			android:src="@drawable/ic_back_white"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/headerTitle"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="User Management"
+			android:textColor="#FFFFFF"
+			android:textSize="22sp"
+			android:textStyle="bold"
+			android:gravity="center"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+	<!-- Content -->
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:fillViewport="true"
+		app:layout_constraintTop_toBottomOf="@id/headerLayout"
+		app:layout_constraintBottom_toTopOf="@id/bottomNavigationView">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="16dp">
+
+			<!-- Search bar -->
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/searchContainer"
+				android:layout_width="0dp"
+				android:layout_height="56dp"
+				android:background="@drawable/bg_search"
+				android:paddingStart="12dp"
+				android:paddingEnd="12dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toStartOf="@id/roleSpinner"
+				app:layout_constraintTop_toTopOf="parent">
+
+				<ImageView
+					android:id="@+id/searchIcon"
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:layout_marginStart="8dp"
+					android:contentDescription="Search"
+					android:src="@drawable/ic_search"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+				<EditText
+					android:id="@+id/searchEditText"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:hint="Search here..."
+					android:background="@android:color/transparent"
+					android:textColor="#FFFFFF"
+					android:textColorHint="#B0B0B0"
+					android:inputType="text"
+					app:layout_constraintStart_toEndOf="@id/searchIcon"
+					app:layout_constraintEnd_toStartOf="@id/micIcon"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintHorizontal_bias="0" />
+
+				<ImageView
+					android:id="@+id/micIcon"
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:contentDescription="Voice"
+					android:src="@drawable/ic_mic"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<!-- Role filter -->
+			<Spinner
+				android:id="@+id/roleSpinner"
+				android:layout_width="120dp"
+				android:layout_height="56dp"
+				android:layout_marginStart="12dp"
+				android:background="@drawable/button_outline"
+				android:paddingStart="12dp"
+				android:paddingEnd="12dp"
+				android:entries="@array/roles_array"
+				app:layout_constraintTop_toTopOf="@id/searchContainer"
+				app:layout_constraintEnd_toEndOf="parent" />
+
+			<!-- Section title -->
+			<TextView
+				android:id="@+id/sectionTitle"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:text="All Users"
+				android:textColor="#1A237E"
+				android:textSize="16sp"
+				android:textStyle="bold"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/searchContainer" />
+
+			<!-- Users list card -->
+			<androidx.cardview.widget.CardView
+				android:id="@+id/usersCard"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="12dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="6dp"
+				app:layout_constraintTop_toBottomOf="@id/sectionTitle">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="16dp">
+
+					<!-- Header row -->
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:paddingBottom="12dp"
+						android:paddingTop="4dp"
+						android:paddingStart="12dp"
+						android:paddingEnd="12dp">
+
+						<TextView
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="3"
+							android:text="Users"
+							android:textColor="#666666"
+							android:textStyle="bold"
+							android:textSize="14sp"
+							android:paddingStart="8dp" />
+
+						<TextView
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1.5"
+							android:text="Role"
+							android:textColor="#666666"
+							android:textStyle="bold"
+							android:textSize="14sp"
+							android:paddingStart="4dp" />
+
+						<TextView
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1.5"
+							android:text="Last Active"
+							android:textColor="#666666"
+							android:textStyle="bold"
+							android:textSize="14sp"
+							android:paddingStart="4dp" />
+
+						<TextView
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="2"
+							android:text="Actions"
+							android:textColor="#666666"
+							android:textStyle="bold"
+							android:textSize="14sp"
+							android:gravity="center" />
+
+					</LinearLayout>
+
+					<!-- First user row -->
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:padding="12dp"
+						android:gravity="center_vertical"
+						android:minHeight="48dp">
+
+						<TextView
+							android:id="@+id/userName1"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="3"
+							android:text="Christian Baguio"
+							android:textColor="#1A237E"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:gravity="start|center_vertical"
+							android:maxLines="2"
+							android:ellipsize="end"
+							android:paddingStart="8dp"
+							android:paddingEnd="8dp"
+							android:background="?attr/selectableItemBackgroundBorderless"
+							android:clickable="true"
+							android:focusable="true" />
+
+						<TextView
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1.5"
+							android:text="Staff"
+							android:textColor="#666666"
+							android:textSize="12sp"
+							android:gravity="center_vertical"
+							android:paddingStart="4dp" />
+
+						<TextView
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1.5"
+							android:text="6 hrs ago"
+							android:textColor="#666666"
+							android:textSize="12sp"
+							android:gravity="center_vertical"
+							android:paddingStart="4dp" />
+
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="2"
+							android:gravity="center"
+							android:orientation="horizontal">
+
+							<ImageButton
+								android:id="@+id/deleteButton1"
+								android:layout_width="24dp"
+								android:layout_height="24dp"
+								android:layout_marginEnd="6dp"
+								android:background="?attr/selectableItemBackgroundBorderless"
+								android:contentDescription="Delete Account"
+								android:src="@drawable/del_account_icon"
+								android:padding="2dp"
+								android:scaleType="centerInside"
+								android:tint="#FF5722" />
+
+							<ImageButton
+								android:id="@+id/roleButton1"
+								android:layout_width="24dp"
+								android:layout_height="24dp"
+								android:layout_marginEnd="6dp"
+								android:background="?attr/selectableItemBackgroundBorderless"
+								android:contentDescription="Change Role"
+								android:src="@drawable/role_change_icon"
+								android:padding="2dp"
+								android:scaleType="centerInside"
+								android:tint="#2196F3" />
+
+							<ImageButton
+								android:id="@+id/resetButton1"
+								android:layout_width="24dp"
+								android:layout_height="24dp"
+								android:background="?attr/selectableItemBackgroundBorderless"
+								android:contentDescription="Reset Password"
+								android:src="@drawable/reset_icon"
+								android:padding="2dp"
+								android:scaleType="centerInside"
+								android:tint="#FF9800" />
+
+						</LinearLayout>
+
+					</LinearLayout>
+
+					<!-- Divider -->
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:background="#E0E0E0"
+						android:layout_marginStart="16dp"
+						android:layout_marginEnd="16dp" />
+
+					<!-- User row 2 -->
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:padding="12dp"
+						android:gravity="center_vertical"
+						android:minHeight="48dp">
+
+						<TextView
+							android:id="@+id/userName2"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="3"
+							android:text="Maria Santos"
+							android:textColor="#1A237E"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:gravity="start|center_vertical"
+							android:maxLines="2"
+							android:ellipsize="end"
+							android:paddingStart="8dp"
+							android:paddingEnd="8dp"
+							android:background="?attr/selectableItemBackgroundBorderless"
+							android:clickable="true"
+							android:focusable="true" />
+
+						<TextView
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1.5"
+							android:text="Admin"
+							android:textColor="#666666"
+							android:textSize="12sp"
+							android:gravity="center_vertical"
+							android:paddingStart="4dp" />
+
+						<TextView
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1.5"
+							android:text="2 hrs ago"
+							android:textColor="#666666"
+							android:textSize="12sp"
+							android:gravity="center_vertical"
+							android:paddingStart="4dp" />
+
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="2"
+							android:gravity="center"
+							android:orientation="horizontal">
+
+							<ImageButton
+								android:id="@+id/deleteButton2"
+								android:layout_width="24dp"
+								android:layout_height="24dp"
+								android:layout_marginEnd="6dp"
+								android:background="?attr/selectableItemBackgroundBorderless"
+								android:contentDescription="Delete Account"
+								android:src="@drawable/del_account_icon"
+								android:padding="2dp"
+								android:scaleType="centerInside"
+								android:tint="#FF5722" />
+
+							<ImageButton
+								android:id="@+id/roleButton2"
+								android:layout_width="24dp"
+								android:layout_height="24dp"
+								android:layout_marginEnd="6dp"
+								android:background="?attr/selectableItemBackgroundBorderless"
+								android:contentDescription="Change Role"
+								android:src="@drawable/role_change_icon"
+								android:padding="2dp"
+								android:scaleType="centerInside"
+								android:tint="#2196F3" />
+
+							<ImageButton
+								android:id="@+id/resetButton2"
+								android:layout_width="24dp"
+								android:layout_height="24dp"
+								android:background="?attr/selectableItemBackgroundBorderless"
+								android:contentDescription="Reset Password"
+								android:src="@drawable/reset_icon"
+								android:padding="2dp"
+								android:scaleType="centerInside"
+								android:tint="#FF9800" />
+
+						</LinearLayout>
+
+					</LinearLayout>
+
+					<!-- Divider -->
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:background="#E0E0E0"
+						android:layout_marginStart="16dp"
+						android:layout_marginEnd="16dp" />
+
+					<!-- User row 3 -->
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:padding="12dp"
+						android:gravity="center_vertical"
+						android:minHeight="48dp">
+
+						<TextView
+							android:id="@+id/userName3"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="3"
+							android:text="John Dela Cruz"
+							android:textColor="#1A237E"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:gravity="start|center_vertical"
+							android:maxLines="2"
+							android:ellipsize="end"
+							android:paddingStart="8dp"
+							android:paddingEnd="8dp"
+							android:background="?attr/selectableItemBackgroundBorderless"
+							android:clickable="true"
+							android:focusable="true" />
+
+						<TextView
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1.5"
+							android:text="Manager"
+							android:textColor="#666666"
+							android:textSize="12sp"
+							android:gravity="center_vertical"
+							android:paddingStart="4dp" />
+
+						<TextView
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1.5"
+							android:text="1 day ago"
+							android:textColor="#666666"
+							android:textSize="12sp"
+							android:gravity="center_vertical"
+							android:paddingStart="4dp" />
+
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="2"
+							android:gravity="center"
+							android:orientation="horizontal">
+
+							<ImageButton
+								android:id="@+id/deleteButton3"
+								android:layout_width="24dp"
+								android:layout_height="24dp"
+								android:layout_marginEnd="6dp"
+								android:background="?attr/selectableItemBackgroundBorderless"
+								android:contentDescription="Delete Account"
+								android:src="@drawable/del_account_icon"
+								android:padding="2dp"
+								android:scaleType="centerInside"
+								android:tint="#FF5722" />
+
+							<ImageButton
+								android:id="@+id/roleButton3"
+								android:layout_width="24dp"
+								android:layout_height="24dp"
+								android:layout_marginEnd="6dp"
+								android:background="?attr/selectableItemBackgroundBorderless"
+								android:contentDescription="Change Role"
+								android:src="@drawable/role_change_icon"
+								android:padding="2dp"
+								android:scaleType="centerInside"
+								android:tint="#2196F3" />
+
+							<ImageButton
+								android:id="@+id/resetButton3"
+								android:layout_width="24dp"
+								android:layout_height="24dp"
+								android:background="?attr/selectableItemBackgroundBorderless"
+								android:contentDescription="Reset Password"
+								android:src="@drawable/reset_icon"
+								android:padding="2dp"
+								android:scaleType="centerInside"
+								android:tint="#FF9800" />
+
+						</LinearLayout>
+
+					</LinearLayout>
+
+					<!-- Divider -->
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:background="#E0E0E0"
+						android:layout_marginStart="16dp"
+						android:layout_marginEnd="16dp" />
+
+					<!-- User row 4 -->
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:padding="12dp"
+						android:gravity="center_vertical"
+						android:minHeight="48dp">
+
+						<TextView
+							android:id="@+id/userName4"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="3"
+							android:text="Ana Rodriguez"
+							android:textColor="#1A237E"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:gravity="start|center_vertical"
+							android:maxLines="2"
+							android:ellipsize="end"
+							android:paddingStart="8dp"
+							android:paddingEnd="8dp"
+							android:background="?attr/selectableItemBackgroundBorderless"
+							android:clickable="true"
+							android:focusable="true" />
+
+						<TextView
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1.5"
+							android:text="Staff"
+							android:textColor="#666666"
+							android:textSize="12sp"
+							android:gravity="center_vertical"
+							android:paddingStart="4dp" />
+
+						<TextView
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1.5"
+							android:text="3 days ago"
+							android:textColor="#666666"
+							android:textSize="12sp"
+							android:gravity="center_vertical"
+							android:paddingStart="4dp" />
+
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="2"
+							android:gravity="center"
+							android:orientation="horizontal">
+
+							<ImageButton
+								android:id="@+id/deleteButton4"
+								android:layout_width="24dp"
+								android:layout_height="24dp"
+								android:layout_marginEnd="6dp"
+								android:background="?attr/selectableItemBackgroundBorderless"
+								android:contentDescription="Delete Account"
+								android:src="@drawable/del_account_icon"
+								android:padding="2dp"
+								android:scaleType="centerInside"
+								android:tint="#FF5722" />
+
+							<ImageButton
+								android:id="@+id/roleButton4"
+								android:layout_width="24dp"
+								android:layout_height="24dp"
+								android:layout_marginEnd="6dp"
+								android:background="?attr/selectableItemBackgroundBorderless"
+								android:contentDescription="Change Role"
+								android:src="@drawable/role_change_icon"
+								android:padding="2dp"
+								android:scaleType="centerInside"
+								android:tint="#2196F3" />
+
+							<ImageButton
+								android:id="@+id/resetButton4"
+								android:layout_width="24dp"
+								android:layout_height="24dp"
+								android:background="?attr/selectableItemBackgroundBorderless"
+								android:contentDescription="Reset Password"
+								android:src="@drawable/reset_icon"
+								android:padding="2dp"
+								android:scaleType="centerInside"
+								android:tint="#FF9800" />
+
+						</LinearLayout>
+
+					</LinearLayout>
+
+					<!-- Divider -->
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:background="#E0E0E0"
+						android:layout_marginStart="16dp"
+						android:layout_marginEnd="16dp" />
+
+				</LinearLayout>
+
+			</androidx.cardview.widget.CardView>
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</ScrollView>
+
+	<!-- Bottom Navigation -->
+	<com.google.android.material.bottomnavigation.BottomNavigationView
+		android:id="@+id/bottomNavigationView"
+		android:layout_width="match_parent"
+		android:layout_height="70dp"
+		android:background="#1A237E"
+		android:foreground="@drawable/bottom_nav_ripple"
+		app:itemIconTint="@color/navigation_item_color"
+		app:itemTextColor="@color/navigation_item_color"
+		app:itemRippleColor="#4CAF50"
+		app:labelVisibilityMode="labeled"
+		app:itemIconSize="32dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:menu="@menu/bottom_navigation_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANTAYGAS - Sign Up</title>
+    <link rel="stylesheet" href="../CSS/sign-up.css">
+</head>
+<body>
+    <div class="signup-container">
+        <a href="login.html" class="back-link">← Back to Login</a>
+        
+        <div class="logo-section">
+            <div class="logo">
+                <img src="../Logos and BG/bantaygas-logo.png" alt="BANTAYGAS Logo" style="width: 120%; height: 120%; object-fit: contain;">
+            </div>
+            <div class="brand-name">BANTAYGAS</div>
+        </div>
+        
+        <h1 class="signup-heading">Sign Up</h1>
+        
+        <form class="signup-form">
+            <div class="form-group">
+                <input type="email" class="form-input" id="email" placeholder="Email" required>
+            </div>
+            
+            <div class="name-group">
+                <div class="form-group">
+                    <input type="text" class="form-input" id="firstName" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-input" id="lastName" placeholder="Last Name" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <input type="password" class="form-input" id="password" placeholder="Password" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="password" class="form-input" id="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+            
+            <button type="button" class="signup-btn" onclick="window.location.href='email-otp-verify.html'">Sign Up</button>
+        </form>
+        
+        <div class="signin-section">
+            <p class="signin-text">Already have an account? <a href="login.html" class="signin-link">Sign In</a></p>
+        </div>
+    </div>
+</body>
+</html>

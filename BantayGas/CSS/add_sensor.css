@@ -1,0 +1,744 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Layout */
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* User Profile Section */
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    background: #93c5fd;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.profile-info .name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.profile-info .role {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.view-profile {
+    color: #4fc3f7;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.view-profile:hover {
+    text-decoration: underline;
+}
+
+/* Navigation Menu */
+.nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: #60a5fa;
+    border-radius: 50%;
+}
+
+.nav-item .icon {
+    margin-right: 12px;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+}
+
+.nav-item span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Logout Section */
+.logout-btn {
+    margin-top: auto;
+    padding: 12px 15px;
+    background: white;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #f8f9fa;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    padding: 22px 26px;
+}
+
+/* Page Header */
+.page-header {
+    margin-bottom: 24px;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #e6ecfb;
+    border: 1px solid #c9d4f0;
+    border-radius: 8px;
+    color: #0f172a;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.back-link:hover {
+    background: #dbe7ff;
+    transform: translateX(-2px);
+}
+
+.header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #1f2a64;
+    border-radius: 8px;
+    color: white;
+}
+
+.breadcrumb h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+/* Main Content Layout */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    height: calc(100vh - 140px);
+}
+
+/* Form Section */
+.form-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+}
+
+.form-header {
+    margin-bottom: 24px;
+}
+
+.form-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+/* Form Styles */
+.sensor-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 14px;
+}
+
+.form-group input {
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #1f2a64;
+    box-shadow: 0 0 0 3px rgba(31, 42, 100, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+/* Select Wrapper */
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.select-wrapper select:focus {
+    outline: none;
+    border-color: #1f2a64;
+    box-shadow: 0 0 0 3px rgba(31, 42, 100, 0.1);
+}
+
+.select-arrow {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    pointer-events: none;
+}
+
+/* Form Actions */
+.form-actions {
+    margin-top: 8px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    width: 100%;
+}
+
+.btn-primary {
+    background: #1f2a64;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1b265b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(31, 42, 100, 0.3);
+}
+
+.btn-secondary {
+    background: #e6ecfb;
+    color: #0f172a;
+    border: 1px solid #c9d4f0;
+}
+
+.btn-secondary:hover {
+    background: #dbe7ff;
+}
+
+/* Floor Plan Section */
+.floorplan-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.floorplan-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.floorplan-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.floorplan-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.floorplan-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.floorplan-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.sensor-count {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* Floor Plan Container */
+.floorplan-container {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.floorplan-image {
+    position: relative;
+    flex: 1;
+    background: #f9fafb;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.floorplan-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+/* Sensor Indicators */
+.sensor-indicator {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.sensor-dot {
+    width: 16px;
+    height: 16px;
+    background: #10b981;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.sensor-label {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.sensor-indicator:hover .sensor-label {
+    opacity: 1;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+/* Room Labels */
+.room-label {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    color: #374151;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    font-family: monospace;
+}
+
+/* Floor Plan Legend */
+.floorplan-legend {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    padding: 12px;
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #374151;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #d1d5db;
+}
+
+.legend-dot.existing {
+    background: #10b981;
+}
+
+.legend-dot.new {
+    background: #3b82f6;
+}
+
+.legend-dot.available {
+    background: #f3f4f6;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 8, 23, 0.35);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-dialog {
+    width: 600px;
+    max-width: 90vw;
+    background: #fff;
+    border: 2px solid #0d1b3d;
+    border-radius: 16px;
+    box-shadow: 0 14px 40px rgba(2, 6, 23, 0.25);
+    overflow: hidden;
+}
+
+.modal-content {
+    padding: 0;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: white;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background: #fef2f2;
+    color: #dc2626;
+    border-color: #fecaca;
+}
+
+/* Configuration Form */
+.config-form {
+    padding: 32px;
+}
+
+.config-form .form-group {
+    margin-bottom: 20px;
+}
+
+.config-form .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.config-form input[readonly] {
+    background: #f9fafb;
+    color: #6b7280;
+}
+
+/* Location Selector */
+.location-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.location-btn {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: white;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.location-btn:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.location-btn.active {
+    background: #1f2a64;
+    color: white;
+    border-color: #1f2a64;
+}
+
+/* Modal Actions */
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    padding: 24px 32px;
+    border-top: 1px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+/* Success Modal */
+.success-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: #10b981;
+}
+
+.modal-content h3 {
+    margin: 0 0 12px 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+    text-align: center;
+}
+
+.modal-content p {
+    margin: 0 0 24px 0;
+    color: #6b7280;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .floorplan-card {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+        padding: 15px 20px;
+    }
+    
+    .content {
+        padding: 16px;
+    }
+    
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .form-card {
+        padding: 24px;
+    }
+    
+    .floorplan-card {
+        height: 300px;
+    }
+    
+    .floorplan-header {
+        padding: 16px 20px;
+    }
+    
+    .floorplan-container {
+        padding: 16px;
+    }
+    
+    .modal-dialog {
+        width: 95vw;
+    }
+    
+    .modal-header,
+    .config-form,
+    .modal-actions {
+        padding: 20px;
+    }
+    
+    .location-selector {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .form-card {
+        padding: 20px;
+    }
+    
+    .floorplan-card {
+        height: 250px;
+    }
+    
+    .floorplan-legend {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .location-selector {
+        grid-template-columns: 1fr;
+    }
+}

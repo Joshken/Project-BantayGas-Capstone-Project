@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BANTAYGAS - Add Floor Plan</title>
+	<link rel="stylesheet" href="../CSS/add_floorplan.css">
+</head>
+<body>
+	<div class="layout">
+		<aside class="sidebar">
+			<div class="profile">
+				<div class="avatar"></div>
+				<div class="profile-info">
+					<div class="name">Josh Baguio</div>
+					<div class="role">Admin</div>
+					<a class="view-profile" href="#">View Profile Info</a>
+				</div>
+			</div>
+
+			<nav class="nav">
+				<a class="nav-item" href="#">
+					<span class="icon">🔍</span>
+					<span>Monitoring</span>
+				</a>
+				<a class="nav-item active" href="#">
+					<span class="icon">📡</span>
+					<span>Sensors</span>
+				</a>
+				<a class="nav-item" href="#">
+					<span class="icon">⚠️</span>
+					<span>Alert Section</span>
+				</a>
+				<a class="nav-item" href="#">
+					<span class="icon">👥</span>
+					<span>Staff Management</span>
+				</a>
+				<a class="nav-item" href="#">
+					<span class="icon">⚙️</span>
+					<span>Settings</span>
+				</a>
+			</nav>
+
+			<button class="logout-btn">Logout</button>
+		</aside>
+
+		<main class="content">
+			<header class="page-header">
+				<div class="breadcrumb">
+					<a href="sensors.html" class="back-link">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M19 12H5"/>
+							<path d="M12 19l-7-7 7-7"/>
+						</svg>
+					</a>
+					<div class="header-icon">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<circle cx="12" cy="12" r="10"/>
+							<circle cx="12" cy="12" r="6"/>
+							<circle cx="12" cy="12" r="2"/>
+						</svg>
+					</div>
+					<h1>Add Floor Plan</h1>
+				</div>
+			</header>
+
+			<section class="form-container">
+				<div class="form-card">
+					<div class="form-header">
+						<div class="form-title">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+								<path d="M21 3v5h-5"/>
+								<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+								<path d="M3 21v-5h5"/>
+							</svg>
+							<h2>Add Floor Plan</h2>
+						</div>
+					</div>
+
+					<form class="floor-plan-form" id="floorPlanForm">
+						<div class="form-group">
+							<label for="floor-plan-name">Floor Plan Name</label>
+							<input type="text" id="floor-plan-name" name="floorPlanName" placeholder="e.g., Ground Floor, First Floor" required>
+						</div>
+
+						<div class="form-group">
+							<label for="sensor-name">Enter Sensor Name</label>
+							<input type="text" id="sensor-name" name="sensorName" placeholder="e.g., Sensor_001, Gas_Detector_01" required>
+						</div>
+
+						<div class="form-group">
+							<label>Upload a floorplan</label>
+							<div class="upload-section">
+								<div class="upload-area" id="uploadArea">
+									<div class="upload-icon">
+										<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+											<polyline points="7,10 12,15 17,10"/>
+											<line x1="12" y1="15" x2="12" y2="3"/>
+										</svg>
+										<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="plus-icon">
+											<line x1="12" y1="5" x2="12" y2="19"/>
+											<line x1="5" y1="12" x2="19" y2="12"/>
+										</svg>
+									</div>
+									<p class="upload-text">Click to upload floor plan image</p>
+									<p class="upload-hint">Supports: JPG, PNG, PDF (Max 10MB)</p>
+								</div>
+								
+								<div class="preview-area" id="previewArea" style="display: none;">
+									<div class="preview-header">
+										<h4>Floor Plan Preview</h4>
+										<button type="button" class="remove-btn" id="removeBtn">
+											<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+												<line x1="18" y1="6" x2="6" y2="18"/>
+												<line x1="6" y1="6" x2="18" y2="18"/>
+											</svg>
+										</button>
+									</div>
+									<div class="preview-content">
+										<img id="previewImage" src="" alt="Floor Plan Preview">
+									</div>
+								</div>
+							</div>
+							<input type="file" id="fileInput" name="floorPlanFile" accept="image/*,.pdf" style="display: none;">
+						</div>
+
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary">
+								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M12 5l0 14"/>
+									<path d="M5 12l7 -7 7 7"/>
+								</svg>
+								Add Floor Plan
+							</button>
+						</div>
+					</form>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<!-- Success Modal -->
+	<div class="modal" id="successModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="success-icon">
+					<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+						<polyline points="22,4 12,14.01 9,11.01"/>
+					</svg>
+				</div>
+				<h3>Floor Plan Added Successfully!</h3>
+				<p>Your floor plan has been uploaded and is ready for sensor configuration.</p>
+				<div class="modal-actions">
+					<button class="btn btn-primary" onclick="window.location.href='sensors.html'">Continue to Sensors</button>
+					<button class="btn btn-secondary" onclick="closeModal(document.getElementById('successModal'))">Add Another</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// File upload functionality
+		const uploadArea = document.getElementById('uploadArea');
+		const previewArea = document.getElementById('previewArea');
+		const fileInput = document.getElementById('fileInput');
+		const previewImage = document.getElementById('previewImage');
+		const removeBtn = document.getElementById('removeBtn');
+
+		// Click upload area to trigger file input
+		uploadArea.addEventListener('click', () => {
+			fileInput.click();
+		});
+
+		// Drag and drop functionality
+		uploadArea.addEventListener('dragover', (e) => {
+			e.preventDefault();
+			uploadArea.classList.add('drag-over');
+		});
+
+		uploadArea.addEventListener('dragleave', () => {
+			uploadArea.classList.remove('drag-over');
+		});
+
+		uploadArea.addEventListener('drop', (e) => {
+			e.preventDefault();
+			uploadArea.classList.remove('drag-over');
+			const files = e.dataTransfer.files;
+			if (files.length > 0) {
+				handleFile(files[0]);
+			}
+		});
+
+		// Handle file selection
+		fileInput.addEventListener('change', (e) => {
+			if (e.target.files.length > 0) {
+				handleFile(e.target.files[0]);
+			}
+		});
+
+		// Remove uploaded file
+		removeBtn.addEventListener('click', () => {
+			fileInput.value = '';
+			uploadArea.style.display = 'flex';
+			previewArea.style.display = 'none';
+			previewImage.src = '';
+		});
+
+		function handleFile(file) {
+			// Validate file type
+			const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'];
+			if (!validTypes.includes(file.type)) {
+				alert('Please select a valid image file (JPG, PNG, GIF) or PDF.');
+				return;
+			}
+
+			// Validate file size (10MB max)
+			if (file.size > 10 * 1024 * 1024) {
+				alert('File size must be less than 10MB.');
+				return;
+			}
+
+			// Show preview
+			if (file.type.startsWith('image/')) {
+				const reader = new FileReader();
+				reader.onload = (e) => {
+					previewImage.src = e.target.result;
+					uploadArea.style.display = 'none';
+					previewArea.style.display = 'block';
+				};
+				reader.readAsDataURL(file);
+			} else {
+				// For PDF files, show a PDF icon
+				previewImage.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM2YjcyODAiIHN0cm9rZS13aWR0aD0iMiI+PHBhdGggZD0iTTE0IDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY4eiI+PHBvbHlsaW5lIHBvaW50cz0iMTQsMiAxNCw4IDIwLDgiPjwvcG9seWxpbmU+PC9wYXRoPjxsaW5lIHgxPSIxNiIgMT0iMTMiIHgyPSI4IiB5Mj0iMTMiPjwvbGluZT48bGluZSB4MT0iMTYiIDE9IjE3IiB4Mj0iOCIgeTI9IjE3Ij48L2xpbmU+PHBvbHlsaW5lIHBvaW50cz0iMTAsOSA5LDkgOCw5Ij48L3BvbHlsaW5lPjwvc3ZnPg==';
+				uploadArea.style.display = 'none';
+				previewArea.style.display = 'block';
+			}
+		}
+
+		// Form submission
+		document.getElementById('floorPlanForm').addEventListener('submit', (e) => {
+			e.preventDefault();
+			
+			const floorPlanName = document.getElementById('floor-plan-name').value;
+			const sensorName = document.getElementById('sensor-name').value;
+			const file = fileInput.files[0];
+
+			if (!floorPlanName || !sensorName || !file) {
+				alert('Please fill in all fields and upload a floor plan.');
+				return;
+			}
+
+			// Simulate form submission
+			console.log('Floor Plan Name:', floorPlanName);
+			console.log('Sensor Name:', sensorName);
+			console.log('File:', file.name);
+
+			// Show success modal
+			openModal('successModal');
+		});
+
+		// Modal helpers
+		function openModal(id) {
+			document.getElementById(id).classList.add('open');
+			document.getElementById(id).setAttribute('aria-hidden', 'false');
+		}
+
+		function closeModal(el) {
+			const modal = el.closest('.modal');
+			modal.classList.remove('open');
+			modal.setAttribute('aria-hidden', 'true');
+		}
+
+		// Close modal when clicking outside
+		document.addEventListener('click', function(e) {
+			if (e.target.classList.contains('modal')) {
+				e.target.classList.remove('open');
+				e.target.setAttribute('aria-hidden', 'true');
+			}
+		});
+	</script>
+</body>
+</html>
+

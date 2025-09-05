@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANTAYGAS - User Management</title>
+    <link rel="stylesheet" href="../CSS/user_management.css">
+</head>
+<body>
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- User Profile Section -->
+            <div class="profile">
+                <div class="avatar">
+                    <img src="../Logos and BG/bantaygas-logo.png" alt="Josh Baguio">
+                </div>
+                <div class="profile-info">
+                    <div class="name">Josh Baguio</div>
+                    <div class="role">Admin</div>
+                    <a href="#" class="view-profile">View Profile Info ></a>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="nav">
+                <a href="#" class="nav-item">
+                    <span class="icon">🔍</span>
+                    <span>Monitoring</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">📡</span>
+                    <span>Sensors</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">⚠️</span>
+                    <span>Alert Section</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <span class="icon">👥</span>
+                    <span>Staff Management</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <!-- Logout Button -->
+            <button class="logout-btn">Logout</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Header -->
+            <header class="page-header">
+                <div class="header-left">
+                    <h1>User Management</h1>
+                    <div class="subheader">
+                        <span>All Users</span>
+                        <span class="count">12</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="search-container">
+                        <div class="search-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                        </div>
+                        <input type="search" class="search-input" placeholder="Search here....">
+                        <div class="mic-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                <line x1="12" y1="19" x2="12" y2="23"/>
+                                <line x1="8" y1="23" x2="16" y2="23"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <select class="role-filter">
+                        <option value="">Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="operator">Operator</option>
+                        <option value="viewer">Viewer</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- User Table -->
+            <section class="card">
+                <div class="table">
+                    <div class="thead">
+                        <div class="th th-user">Users</div>
+                        <div class="th th-role">Roles</div>
+                        <div class="th th-active">Last Active</div>
+                        <div class="th th-actions">Other Actions</div>
+                    </div>
+
+                    <!-- User Rows -->
+                    <div class="row">
+                        <div class="td td-user">
+                            <div class="user">
+                                <div class="avatar small">
+                                    <img src="../Logos and BG/bantaygas-logo.png" alt="Christian Josh Bagulo">
+                                </div>
+                                <div class="user-info">
+                                    <div class="user-name">Christian Josh Bagulo</div>
+                                    <div class="user-email">chanbags@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="td td-role">
+                            <span class="badge">Admin</span>
+                        </div>
+                        <div class="td td-active">Yesterday</div>
+                        <div class="td td-actions">
+                            <button class="action-btn" title="Change Role">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 .6 1.65 1.65 0 0 0-.33 1.82l.03.07a2 2 0 1 1-3.4 0l.03-.07A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82-.33l-.06.03a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-.6-1 1.65 1.65 0 0 0-1.82-.33l-.07.03a2 2 0 1 1 0-3.4l.07.03A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-.6 1.65 1.65 0 0 0 .33-1.82l-.03-.07a2 2 0 1 1 3.4 0l-.03.07A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82.33l.06-.03a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.23.6.23 1.4 0 2a1.65 1.65 0 0 0 .6 1z"/>
+                                </svg>
+                                <span>Change Role</span>
+                            </button>
+                            <button class="action-btn" title="Reset Password">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <circle cx="12" cy="16" r="1"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                                <span>Reset Pass</span>
+                            </button>
+                            <button class="action-btn danger" title="Deactivate Account">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <line x1="8" y1="8" x2="16" y2="16"/>
+                                </svg>
+                                <span>Deact Acc</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate rows for demonstration -->
+                    <div class="row">
+                        <div class="td td-user">
+                            <div class="user">
+                                <div class="avatar small">
+                                    <img src="../Logos and BG/bantaygas-logo.png" alt="Christian Josh Bagulo">
+                                </div>
+                                <div class="user-info">
+                                    <div class="user-name">Christian Josh Bagulo</div>
+                                    <div class="user-email">chanbags@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="td td-role">
+                            <span class="badge">Admin</span>
+                        </div>
+                        <div class="td td-active">Yesterday</div>
+                        <div class="td td-actions">
+                            <button class="action-btn" title="Change Role">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 .6 1.65 1.65 0 0 0-.33 1.82l.03.07a2 2 0 1 1-3.4 0l.03-.07A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82-.33l-.06.03a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-.6-1 1.65 1.65 0 0 0-1.82-.33l-.07.03a2 2 0 1 1 0-3.4l.07.03A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-.6 1.65 1.65 0 0 0 .33-1.82l-.03-.07a2 2 0 1 1 3.4 0l-.03.07A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82.33l.06-.03a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.23.6.23 1.4 0 2a1.65 1.65 0 0 0 .6 1z"/>
+                                </svg>
+                                <span>Change Role</span>
+                            </button>
+                            <button class="action-btn" title="Reset Password">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <circle cx="12" cy="16" r="1"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                                <span>Reset Pass</span>
+                            </button>
+                            <button class="action-btn danger" title="Deactivate Account">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <line x1="8" y1="8" x2="16" y2="16"/>
+                                </svg>
+                                <span>Deact Acc</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="td td-user">
+                            <div class="user">
+                                <div class="avatar small">
+                                    <img src="../Logos and BG/bantaygas-logo.png" alt="Christian Josh Bagulo">
+                                </div>
+                                <div class="user-info">
+                                    <div class="user-name">Christian Josh Bagulo</div>
+                                    <div class="user-email">chanbags@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="td td-role">
+                            <span class="badge">Admin</span>
+                        </div>
+                        <div class="td td-active">Yesterday</div>
+                        <div class="td td-actions">
+                            <button class="action-btn" title="Change Role">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 .6 1.65 1.65 0 0 0-.33 1.82l.03.07a2 2 0 1 1-3.4 0l.03-.07A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82-.33l-.06.03a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-.6-1 1.65 1.65 0 0 0-1.82-.33l-.07.03a2 2 0 1 1 0-3.4l.07.03A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-.6 1.65 1.65 0 0 0 .33-1.82l-.03-.07a2 2 0 1 1 3.4 0l-.03.07A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82.33l.06-.03a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.23.6.23 1.4 0 2a1.65 1.65 0 0 0 .6 1z"/>
+                                </svg>
+                                <span>Change Role</span>
+                            </button>
+                            <button class="action-btn" title="Reset Password">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <circle cx="12" cy="16" r="1"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                                <span>Reset Pass</span>
+                            </button>
+                            <button class="action-btn danger" title="Deactivate Account">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <line x1="8" y1="8" x2="16" y2="16"/>
+                                </svg>
+                                <span>Deact Acc</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="td td-user">
+                            <div class="user">
+                                <div class="avatar small">
+                                    <img src="../Logos and BG/bantaygas-logo.png" alt="Christian Josh Bagulo">
+                                </div>
+                                <div class="user-info">
+                                    <div class="user-name">Christian Josh Bagulo</div>
+                                    <div class="user-email">chanbags@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="td td-role">
+                            <span class="badge">Admin</span>
+                        </div>
+                        <div class="td td-active">Yesterday</div>
+                        <div class="td td-actions">
+                            <button class="action-btn" title="Change Role">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 .6 1.65 1.65 0 0 0-.33 1.82l.03.07a2 2 0 1 1-3.4 0l.03-.07A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82-.33l-.06.03a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-.6-1 1.65 1.65 0 0 0-1.82-.33l-.07.03a2 2 0 1 1 0-3.4l.07.03A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-.6 1.65 1.65 0 0 0 .33-1.82l-.03-.07a2 2 0 1 1 3.4 0l-.03.07A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82.33l.06-.03a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.23.6.23 1.4 0 2a1.65 1.65 0 0 0 .6 1z"/>
+                                </svg>
+                                <span>Change Role</span>
+                            </button>
+                            <button class="action-btn" title="Reset Password">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <circle cx="12" cy="16" r="1"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                                <span>Reset Pass</span>
+                            </button>
+                            <button class="action-btn danger" title="Deactivate Account">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <line x1="8" y1="8" x2="16" y2="16"/>
+                                </svg>
+                                <span>Deact Acc</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="td td-user">
+                            <div class="user">
+                                <div class="avatar small">
+                                    <img src="../Logos and BG/bantaygas-logo.png" alt="Christian Josh Bagulo">
+                                </div>
+                                <div class="user-info">
+                                    <div class="user-name">Christian Josh Bagulo</div>
+                                    <div class="user-email">chanbags@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="td td-role">
+                            <span class="badge">Admin</span>
+                        </div>
+                        <div class="td td-active">Yesterday</div>
+                        <div class="td td-actions">
+                            <button class="action-btn" title="Change Role">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 .6 1.65 1.65 0 0 0-.33 1.82l.03.07a2 2 0 1 1-3.4 0l.03-.07A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82-.33l-.06.03a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-.6-1 1.65 1.65 0 0 0-1.82-.33l-.07.03a2 2 0 1 1 0-3.4l.07.03A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-.6 1.65 1.65 0 0 0 .33-1.82l-.03-.07a2 2 0 1 1 3.4 0l-.03.07A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82.33l.06-.03a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.23.6.23 1.4 0 2a1.65 1.65 0 0 0 .6 1z"/>
+                                </svg>
+                                <span>Change Role</span>
+                            </button>
+                            <button class="action-btn" title="Reset Password">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <circle cx="12" cy="16" r="1"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                                <span>Reset Pass</span>
+                            </button>
+                            <button class="action-btn danger" title="Deactivate Account">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <line x1="8" y1="8" x2="16" y2="16"/>
+                                </svg>
+                                <span>Deact Acc</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="td td-user">
+                            <div class="user">
+                                <div class="avatar small">
+                                    <img src="../Logos and BG/bantaygas-logo.png" alt="Christian Josh Bagulo">
+                                </div>
+                                <div class="user-info">
+                                    <div class="user-name">Christian Josh Bagulo</div>
+                                    <div class="user-email">chanbags@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="td td-role">
+                            <span class="badge">Admin</span>
+                        </div>
+                        <div class="td td-active">Yesterday</div>
+                        <div class="td td-actions">
+                            <button class="action-btn" title="Change Role">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 .6 1.65 1.65 0 0 0-.33 1.82l.03.07a2 2 0 1 1-3.4 0l.03-.07A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82-.33l-.06.03a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-.6-1 1.65 1.65 0 0 0-1.82-.33l-.07.03a2 2 0 1 1 0-3.4l.07.03A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-.6 1.65 1.65 0 0 0 .33-1.82l-.03-.07a2 2 0 1 1 3.4 0l-.03.07A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82.33l.06-.03a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.23.6.23 1.4 0 2a1.65 1.65 0 0 0 .6 1z"/>
+                                </svg>
+                                <span>Change Role</span>
+                            </button>
+                            <button class="action-btn" title="Reset Password">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <circle cx="12" cy="16" r="1"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                                <span>Reset Pass</span>
+                            </button>
+                            <button class="action-btn danger" title="Deactivate Account">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <line x1="8" y1="8" x2="16" y2="16"/>
+                                </svg>
+                                <span>Deact Acc</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Change Role Modal -->
+    <div class="modal" id="changeRoleModal">
+        <div class="modal-content">
+            <h2>Change Role</h2>
+            <p>Do you want to change Christian Baguio's Role?</p>
+            <div class="role-options">
+                <button class="role-btn selected" data-role="manager">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    Manager
+                </button>
+                <button class="role-btn" data-role="staff">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    Staff
+                </button>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="confirmRoleChange()">Confirm Changes</button>
+                <button class="btn btn-secondary" onclick="closeModal('changeRoleModal')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reset Password Modal -->
+    <div class="modal" id="resetPasswordModal">
+        <div class="modal-content">
+            <h2>Reset Password</h2>
+            <p>Christian Josh Bagiuo wants to Reset Password</p>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="sendResetCode()">Send a Code</button>
+                <button class="btn btn-secondary" onclick="closeModal('resetPasswordModal')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deactivate Account Modal -->
+    <div class="modal" id="deactivateModal">
+        <div class="modal-content">
+            <h2>Deactivate User's Account?</h2>
+            <p>Do you want to Deactivate Christian Baguio's Account?</p>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="deactivateUser()">Deactivate</button>
+                <button class="btn btn-secondary" onclick="closeModal('deactivateModal')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Search functionality
+        document.querySelector('.search-input').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('.row');
+            
+            rows.forEach(row => {
+                const userName = row.querySelector('.user-name').textContent.toLowerCase();
+                const userEmail = row.querySelector('.user-email').textContent.toLowerCase();
+                
+                if (userName.includes(searchTerm) || userEmail.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Role filter functionality
+        document.querySelector('.role-filter').addEventListener('change', function() {
+            const selectedRole = this.value.toLowerCase();
+            const rows = document.querySelectorAll('.row');
+            
+            rows.forEach(row => {
+                const userRole = row.querySelector('.badge').textContent.toLowerCase();
+                
+                if (!selectedRole || userRole === selectedRole) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Action button functionality
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const action = this.querySelector('span').textContent;
+                const userName = this.closest('.row').querySelector('.user-name').textContent;
+                
+                if (action === 'Change Role') {
+                    openModal('changeRoleModal');
+                } else if (action === 'Reset Pass') {
+                    openModal('resetPasswordModal');
+                } else if (action === 'Deact Acc') {
+                    openModal('deactivateModal');
+                }
+            });
+        });
+
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Role selection functionality
+        document.querySelectorAll('.role-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // Modal action functions
+        function confirmRoleChange() {
+            const selectedRole = document.querySelector('.role-btn.selected').getAttribute('data-role');
+            console.log('Role changed to:', selectedRole);
+            closeModal('changeRoleModal');
+            // Add your role change logic here
+        }
+
+        function sendResetCode() {
+            console.log('Reset code sent');
+            closeModal('resetPasswordModal');
+            // Add your reset code logic here
+        }
+
+        function deactivateUser() {
+            console.log('User deactivated');
+            closeModal('deactivateModal');
+            // Add your deactivate logic here
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

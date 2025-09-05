@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANTAYGAS - Email OTP Verification</title>
+    <link rel="stylesheet" href="../CSS/email-otp-verify.css">
+</head>
+<body>
+    <div class="otp-container">
+        <div class="logo-section">
+            <div class="logo-icon">
+
+                <div class="shield-circle">
+                    <svg class="shield-flame" width="60" height="60" viewBox="0 0 60 60" fill="none">
+                        <img src="../Logos and BG/bantaygas-logo.png" alt="BANTAYGAS Logo" style="width: 120%; height: 120%; object-fit: contain;">
+                </svg>
+            </div>
+            </div>
+            <h2 class="logo-text">BANTAYGAS</h2>
+        </div>
+        
+        <p class="instruction-text">We have sent an OTP verification to your Email</p>
+        
+        <form class="otp-form">
+            <div class="form-group">
+                <input type="text" class="otp-input" id="otp" placeholder="Enter OTP" maxlength="6" required>
+            </div>
+            
+            <button type="button" class="enter-btn" onclick="window.location.href='account-created.html'">Enter</button>
+        </form>
+        
+        <div class="resend-section">
+            <p class="resend-text">Didn't receive the code? <a href="#" class="resend-link">Resend</a></p>
+        </div>
+    </div>
+</body>
+</html>

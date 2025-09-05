@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BANTAYGAS - Monitoring Overview</title>
+	<link rel="stylesheet" href="../CSS/monitoring.css">
+</head>
+<body>
+	<div class="layout">
+		<aside class="sidebar">
+			<div class="profile">
+				<div class="avatar"></div>
+				<div class="profile-info">
+					<div class="name">Josh Baguio</div>
+					<div class="role">Admin</div>
+					<a class="view-profile" href="#">View Profile Info</a>
+				</div>
+			</div>
+
+			<nav class="nav">
+				<a class="nav-item active" href="#">
+					<span class="icon">🏠</span>
+					<span>Monitoring</span>
+				</a>
+				<a class="nav-item" href="#">
+					<span class="icon">📡</span>
+					<span>Sensors</span>
+				</a>
+				<a class="nav-item" href="#">
+					<span class="icon">⚠️</span>
+					<span>Alert Section</span>
+				</a>
+				<a class="nav-item" href="#">
+					<span class="icon">👥</span>
+					<span>Staff Management</span>
+				</a>
+				<a class="nav-item" href="#">
+					<span class="icon">⚙️</span>
+					<span>Settings</span>
+				</a>
+			</nav>
+
+			<button class="logout-btn">Logout</button>
+		</aside>
+
+		<main class="content">
+			<header class="page-header">
+				<h1>Monitoring Overview</h1>
+				<div class="tools">
+					<div class="floor-selector">
+						<select id="floorSelect">
+							<option value="ground">Ground Floor</option>
+							<option value="first">First Floor</option>
+							<option value="second">Second Floor</option>
+						</select>
+					</div>
+				</div>
+			</header>
+
+			<section class="card">
+				<div class="floor-plan-container">
+					<div class="floor-plan">
+						<!-- Floor Plan Background -->
+						<div class="floor-plan-bg">
+							<img src="../Logos and BG/sample_floorplan.jpg" alt="Floor Plan" class="floor-plan-image">
+						</div>
+
+						<!-- Sensor Indicators -->
+						<div class="sensor sensor-critical" style="top: 15%; left: 75%;">
+							<div class="sensor-pin"></div>
+							<div class="sensor-info">
+								<div class="sensor-name">Sensor_001</div>
+								<div class="sensor-type">CO</div>
+								<div class="sensor-value">88 ppm</div>
+								<div class="sensor-status critical">Status: Critical</div>
+							</div>
+						</div>
+
+						<div class="sensor sensor-critical" style="top: 45%; left: 20%;">
+							<div class="sensor-pin"></div>
+							<div class="sensor-info">
+								<div class="sensor-name">Sensor_002</div>
+								<div class="sensor-type">CO</div>
+								<div class="sensor-value">88 ppm</div>
+								<div class="sensor-status critical">Status: Critical</div>
+							</div>
+						</div>
+
+						<div class="sensor sensor-critical" style="top: 75%; left: 80%;">
+							<div class="sensor-pin"></div>
+							<div class="sensor-info">
+								<div class="sensor-name">Sensor_003</div>
+								<div class="sensor-type">CO</div>
+								<div class="sensor-value">88 ppm</div>
+								<div class="sensor-status critical">Status: Critical</div>
+							</div>
+						</div>
+
+						<div class="sensor sensor-normal" style="top: 85%; left: 15%;">
+							<div class="sensor-pin"></div>
+							<div class="sensor-info">
+								<div class="sensor-name">Sensor_004</div>
+								<div class="sensor-status normal">Status: Normal</div>
+								<div class="sensor-action">
+									<a href="#" class="view-details">View Details</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="sensor sensor-warning" style="top: 25%; left: 50%;">
+							<div class="sensor-pin"></div>
+							<div class="sensor-info">
+								<div class="sensor-name">Sensor_005</div>
+								<div class="sensor-type">Smoke</div>
+								<div class="sensor-value">45 ppm</div>
+								<div class="sensor-status warning">Status: Warning</div>
+							</div>
+						</div>
+
+						<div class="sensor sensor-normal" style="top: 60%; left: 60%;">
+							<div class="sensor-pin"></div>
+							<div class="sensor-info">
+								<div class="sensor-name">Sensor_006</div>
+								<div class="sensor-type">Temp</div>
+								<div class="sensor-value">22°C</div>
+								<div class="sensor-status normal">Status: Normal</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Sensor Legend -->
+			<section class="sensor-legend">
+				<h3>Sensor Status Legend</h3>
+				<div class="legend-items">
+					<div class="legend-item">
+						<div class="legend-color critical"></div>
+						<span>Critical</span>
+					</div>
+					<div class="legend-item">
+						<div class="legend-color warning"></div>
+						<span>Warning</span>
+					</div>
+					<div class="legend-item">
+						<div class="legend-color normal"></div>
+						<span>Normal</span>
+					</div>
+					<div class="legend-item">
+						<div class="legend-color offline"></div>
+						<span>Offline</span>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<!-- Sensor Details Modal -->
+	<div class="modal" id="modal-sensor-details" aria-hidden="true">
+		<div class="modal-dialog">
+			<h2 class="modal-title">Sensor Details</h2>
+			<div class="sensor-details">
+				<div class="detail-item">
+					<label>Sensor ID:</label>
+					<span id="modal-sensor-id">Sensor_001</span>
+				</div>
+				<div class="detail-item">
+					<label>Type:</label>
+					<span id="modal-sensor-type">CO</span>
+				</div>
+				<div class="detail-item">
+					<label>Current Value:</label>
+					<span id="modal-sensor-value">88 ppm</span>
+				</div>
+				<div class="detail-item">
+					<label>Status:</label>
+					<span id="modal-sensor-status" class="badge critical">Critical</span>
+				</div>
+				<div class="detail-item">
+					<label>Last Updated:</label>
+					<span id="modal-sensor-time">2 minutes ago</span>
+				</div>
+			</div>
+			<div class="modal-actions">
+				<button class="btn btn-primary" data-close>Close</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// Floor selector functionality
+		document.getElementById('floorSelect').addEventListener('change', function() {
+			// Handle floor selection
+			console.log('Floor selected:', this.value);
+			// Here you would typically load different floor plan data
+		});
+
+		// Sensor hover effects
+		document.querySelectorAll('.sensor').forEach(sensor => {
+			sensor.addEventListener('mouseenter', function() {
+				this.querySelector('.sensor-info').style.opacity = '1';
+			});
+			
+			sensor.addEventListener('mouseleave', function() {
+				this.querySelector('.sensor-info').style.opacity = '0';
+			});
+
+			// Click to show details
+			sensor.addEventListener('click', function() {
+				const sensorInfo = this.querySelector('.sensor-info');
+				const sensorName = sensorInfo.querySelector('.sensor-name').textContent;
+				const sensorType = sensorInfo.querySelector('.sensor-type')?.textContent || 'N/A';
+				const sensorValue = sensorInfo.querySelector('.sensor-value')?.textContent || 'N/A';
+				const sensorStatus = sensorInfo.querySelector('.sensor-status').textContent.replace('Status: ', '');
+
+				// Update modal content
+				document.getElementById('modal-sensor-id').textContent = sensorName;
+				document.getElementById('modal-sensor-type').textContent = sensorType;
+				document.getElementById('modal-sensor-value').textContent = sensorValue;
+				document.getElementById('modal-sensor-status').textContent = sensorStatus;
+				document.getElementById('modal-sensor-status').className = 'badge ' + sensorStatus.toLowerCase();
+
+				// Show modal
+				openModal('modal-sensor-details');
+			});
+		});
+
+		// Modal helpers
+		function openModal(id){
+			document.getElementById(id).classList.add('open');
+			document.getElementById(id).setAttribute('aria-hidden','false');
+		}
+		function closeModal(el){
+			const modal = el.closest('.modal');
+			modal.classList.remove('open');
+			modal.setAttribute('aria-hidden','true');
+		}
+
+		// Wire modal close buttons
+		document.addEventListener('click', function(e){
+			if(e.target.matches('[data-close]')){ closeModal(e.target); }
+			if(e.target.classList.contains('modal')){ 
+				e.target.classList.remove('open'); 
+				e.target.setAttribute('aria-hidden','true'); 
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BantayGasP1"
+        tools:targetApi="31">
+        
+        <!-- Login Activity (Main Launcher) -->
+        <activity
+            android:name=".ui.LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.BantayGasP1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <!-- Forgot Password Activity -->
+        <activity
+            android:name=".ui.ForgotPasswordActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <!-- Verify Account Activity -->
+        <activity
+            android:name=".ui.VerifyAccountActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <!-- New Password Activity -->
+        <activity
+            android:name=".ui.NewPasswordActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <!-- Password Updated Activity -->
+        <activity
+            android:name=".ui.PasswordUpdatedActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <!-- Sign Up Activity -->
+        <activity
+            android:name=".ui.SignUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <!-- Welcome Activity -->
+        <activity
+            android:name=".ui.WelcomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <!-- Monitoring Activities -->
+        <activity
+            android:name=".ui.MonitoringActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+
+        
+        <!-- Sensors Activity -->
+        <activity
+            android:name=".ui.SensorsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <!-- User Management Activity -->
+        <activity
+            android:name=".ui.UserManageActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <!-- Settings Activity -->
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <!-- Profile Information Activity -->
+        <activity
+            android:name=".ui.ProfileInformationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <!-- Edit Profile Information Activity -->
+        <activity
+            android:name=".ui.EditProfileInformationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <!-- Language & App Preferences Activity -->
+        <activity
+            android:name=".ui.LanguageAppPreferencesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <!-- Help & Support Activity -->
+        <activity
+            android:name=".ui.HelpSupportActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <!-- Developers Activity -->
+        <activity
+            android:name=".ui.DevelopersActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        <activity
+            android:name=".ui.DeveloperBaguioActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        <activity
+            android:name=".ui.DeveloperBarabatActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        <activity
+            android:name=".ui.DeveloperMalicayActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        <activity
+            android:name=".ui.DeveloperMamaliasActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        <activity
+            android:name=".ui.AlertHistoryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+
+        
+        <!-- User Overview Activity -->
+        <activity
+            android:name=".ui.UserOverviewActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1.Dialog" />
+        
+        <activity
+            android:name=".ui.MonitoringViewDetailsCriticalActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+        <activity
+            android:name=".ui.MonitoringViewDetailsNormalActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BantayGasP1" />
+        
+    </application>
+
+</manifest>

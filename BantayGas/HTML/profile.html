@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BANTAYGAS - Profile</title>
+	<link rel="stylesheet" href="../CSS/profile.css">
+</head>
+<body>
+	<div class="layout">
+		<aside class="sidebar">
+			<div class="profile">
+				<div class="avatar"></div>
+				<div class="profile-info">
+					<div class="name">Josh Baguio</div>
+					<div class="role">Admin</div>
+					<a class="view-profile" href="#">View Profile Info</a>
+				</div>
+			</div>
+
+			<nav class="nav">
+				<a class="nav-item" href="#">
+					<span class="icon">🔍</span>
+					<span>Monitoring</span>
+				</a>
+				<a class="nav-item" href="#">
+					<span class="icon">📡</span>
+					<span>Sensors</span>
+				</a>
+				<a class="nav-item" href="#">
+					<span class="icon">⚠️</span>
+					<span>Alert Section</span>
+				</a>
+				<a class="nav-item" href="#">
+					<span class="icon">👥</span>
+					<span>Staff Management</span>
+				</a>
+				<a class="nav-item" href="#">
+					<span class="icon">⚙️</span>
+					<span>Settings</span>
+				</a>
+			</nav>
+
+			<button class="logout-btn">Logout</button>
+		</aside>
+
+		<main class="content">
+			<header class="page-header">
+				<div class="header-left">
+					<a href="settings.html" class="back-link">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="15,18 9,12 15,6"/>
+						</svg>
+					</a>
+					<h1>Profile</h1>
+				</div>
+			</header>
+
+			<section class="profile-content">
+				<!-- Profile Header -->
+				<div class="profile-header">
+					<div class="profile-avatar-container">
+						<div class="profile-avatar">
+							<img src="../Logos and BG/bantaygas-logo.png" alt="Joshua Bags" class="avatar-image">
+						</div>
+					</div>
+					<div class="profile-name">Joshua Bags</div>
+					<button class="edit-profile-btn" onclick="window.location.href='edit_profile.html'">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+							<path d="m18.5 2.5 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+						</svg>
+						Edit Profile
+					</button>
+				</div>
+
+				<!-- Profile Information -->
+				<div class="profile-info-section">
+					<h2 class="section-title">Profile Information:</h2>
+					
+					<div class="info-grid">
+						<!-- Left Column -->
+						<div class="info-column">
+							<div class="info-field">
+								<label for="name">Name</label>
+								<input type="text" id="name" value="Joshua Bags" readonly>
+							</div>
+							
+							<div class="info-field">
+								<label for="username">Username</label>
+								<input type="text" id="username" value="Joshken123" readonly>
+							</div>
+							
+							<div class="info-field">
+								<label for="email">Email</label>
+								<input type="email" id="email" value="joshken123@gmail.com" readonly>
+							</div>
+							
+							<div class="info-field">
+								<label for="sms-alerts">Receive Alerts via SMS</label>
+								<div class="toggle-container">
+									<label class="toggle-switch">
+										<input type="checkbox" id="sms-alerts" checked>
+										<span class="toggle-slider"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Right Column -->
+						<div class="info-column">
+							<div class="info-field">
+								<label for="contact">Contact No.</label>
+								<input type="tel" id="contact" value="09876543211" readonly>
+							</div>
+							
+							<div class="info-field">
+								<label for="access-level">Access Level/Permissions</label>
+								<input type="text" id="access-level" value="Machine Operator" readonly>
+							</div>
+							
+							<div class="info-field">
+								<label for="department">Department</label>
+								<input type="text" id="department" value="asdas" readonly>
+							</div>
+							
+							<div class="info-field">
+								<button class="change-password-btn" onclick="openChangePasswordModal()">
+									Change Password
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<!-- Change Password Modal -->
+	<div class="modal" id="changePasswordModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Change Password</h3>
+					<button class="close-btn" onclick="closeModal(document.getElementById('changePasswordModal'))">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<line x1="18" y1="6" x2="6" y2="18"/>
+							<line x1="6" y1="6" x2="18" y2="18"/>
+						</svg>
+					</button>
+				</div>
+				
+				<div class="password-form">
+					<div class="form-group">
+						<label for="current-password">Current Password</label>
+						<input type="password" id="current-password" placeholder="Enter current password">
+					</div>
+					
+					<div class="form-group">
+						<label for="new-password">New Password</label>
+						<input type="password" id="new-password" placeholder="Enter new password">
+					</div>
+					
+					<div class="form-group">
+						<label for="confirm-password">Confirm New Password</label>
+						<input type="password" id="confirm-password" placeholder="Confirm new password">
+					</div>
+					
+					<div class="password-requirements">
+						<h4>Password Requirements:</h4>
+						<ul>
+							<li>At least 8 characters long</li>
+							<li>Contains at least one uppercase letter</li>
+							<li>Contains at least one lowercase letter</li>
+							<li>Contains at least one number</li>
+							<li>Contains at least one special character</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="modal-actions">
+					<button class="btn btn-secondary" onclick="closeModal(document.getElementById('changePasswordModal'))">Cancel</button>
+					<button class="btn btn-primary" onclick="changePassword()">Change Password</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// SMS Toggle functionality
+		document.getElementById('sms-alerts').addEventListener('change', function() {
+			const isEnabled = this.checked;
+			console.log('SMS alerts:', isEnabled ? 'enabled' : 'disabled');
+			
+			// In a real application, you would save this preference to the server
+			// For now, we'll just show a confirmation
+			if (isEnabled) {
+				alert('SMS alerts have been enabled');
+			} else {
+				alert('SMS alerts have been disabled');
+			}
+		});
+
+		// Change Password Modal
+		function openChangePasswordModal() {
+			openModal('changePasswordModal');
+		}
+
+		function changePassword() {
+			const currentPassword = document.getElementById('current-password').value;
+			const newPassword = document.getElementById('new-password').value;
+			const confirmPassword = document.getElementById('confirm-password').value;
+			
+			// Basic validation
+			if (!currentPassword || !newPassword || !confirmPassword) {
+				alert('Please fill in all password fields');
+				return;
+			}
+			
+			if (newPassword !== confirmPassword) {
+				alert('New passwords do not match');
+				return;
+			}
+			
+			if (newPassword.length < 8) {
+				alert('Password must be at least 8 characters long');
+				return;
+			}
+			
+			// In a real application, you would validate and save the password
+			alert('Password changed successfully!');
+			closeModal(document.getElementById('changePasswordModal'));
+			
+			// Clear the form
+			document.getElementById('current-password').value = '';
+			document.getElementById('new-password').value = '';
+			document.getElementById('confirm-password').value = '';
+		}
+
+		// Modal helpers
+		function openModal(id) {
+			document.getElementById(id).classList.add('open');
+			document.getElementById(id).setAttribute('aria-hidden', 'false');
+		}
+
+		function closeModal(el) {
+			const modal = el.closest('.modal');
+			modal.classList.remove('open');
+			modal.setAttribute('aria-hidden', 'true');
+		}
+
+		// Close modal when clicking outside
+		document.addEventListener('click', function(e) {
+			if (e.target.classList.contains('modal')) {
+				e.target.classList.remove('open');
+				e.target.setAttribute('aria-hidden', 'true');
+			}
+		});
+
+		// Add hover effects to buttons
+		document.querySelectorAll('.edit-profile-btn, .change-password-btn').forEach(btn => {
+			btn.addEventListener('mouseenter', function() {
+				this.style.transform = 'translateY(-1px)';
+			});
+			
+			btn.addEventListener('mouseleave', function() {
+				this.style.transform = 'translateY(0)';
+			});
+		});
+	</script>
+</body>
+</html>
