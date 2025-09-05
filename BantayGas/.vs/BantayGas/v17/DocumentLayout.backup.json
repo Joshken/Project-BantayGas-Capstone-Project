@@ -1,0 +1,73 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\CHAN\\Documents\\GitHub\\Project-BantayGas-Capstone-Project\\BantayGas\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|BantayGas.csproj|c:\\users\\chan\\documents\\github\\project-bantaygas-capstone-project\\bantaygas\\html\\monitoring.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|BantayGas.csproj|solutionrelative:html\\monitoring.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|BantayGas.csproj|C:\\Users\\CHAN\\Documents\\GitHub\\Project-BantayGas-Capstone-Project\\BantayGas\\html\\settings.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|BantayGas.csproj|solutionrelative:html\\settings.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|BantayGas.csproj|C:\\Users\\CHAN\\Documents\\GitHub\\Project-BantayGas-Capstone-Project\\BantayGas\\html\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|BantayGas.csproj|solutionrelative:html\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "settings.html",
+              "DocumentMoniker": "C:\\Users\\CHAN\\Documents\\GitHub\\Project-BantayGas-Capstone-Project\\BantayGas\\HTML\\settings.html",
+              "RelativeDocumentMoniker": "HTML\\settings.html",
+              "ToolTip": "C:\\Users\\CHAN\\Documents\\GitHub\\Project-BantayGas-Capstone-Project\\BantayGas\\HTML\\settings.html",
+              "RelativeToolTip": "HTML\\settings.html",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAiwAwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-09-05T08:13:11.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "monitoring.html",
+              "DocumentMoniker": "C:\\Users\\CHAN\\Documents\\GitHub\\Project-BantayGas-Capstone-Project\\BantayGas\\HTML\\monitoring.html",
+              "RelativeDocumentMoniker": "HTML\\monitoring.html",
+              "ToolTip": "C:\\Users\\CHAN\\Documents\\GitHub\\Project-BantayGas-Capstone-Project\\BantayGas\\HTML\\monitoring.html",
+              "RelativeToolTip": "HTML\\monitoring.html",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-09-05T08:10:25.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "login.html",
+              "DocumentMoniker": "C:\\Users\\CHAN\\Documents\\GitHub\\Project-BantayGas-Capstone-Project\\BantayGas\\HTML\\login.html",
+              "RelativeDocumentMoniker": "HTML\\login.html",
+              "ToolTip": "C:\\Users\\CHAN\\Documents\\GitHub\\Project-BantayGas-Capstone-Project\\BantayGas\\HTML\\login.html",
+              "RelativeToolTip": "HTML\\login.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-09-05T08:08:41.574Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

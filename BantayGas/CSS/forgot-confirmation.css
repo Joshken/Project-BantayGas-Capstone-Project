@@ -29,39 +29,28 @@ body::before {
     z-index: 1;
 }
 
-.verification-container {
+.confirmation-card {
     background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
     border: 2px solid #d4af37;
     border-radius: 20px;
     padding: 40px;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 2;
     text-align: center;
 }
 
-.back-link {
-    color: #4a90e2;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    display: block;
-    text-align: left;
+.logo-section {
     margin-bottom: 30px;
-    transition: color 0.3s ease;
 }
 
-.back-link:hover {
-    color: #357abd;
-}
-
-.shield-icon {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 30px;
-    background: linear-gradient(145deg, #4a90e2 0%, #357abd 100%);
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    background: linear-gradient(145deg, #4a90e2 0%, #1a1a2e 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -69,144 +58,100 @@ body::before {
     position: relative;
 }
 
-.shield-icon::before {
-    content: '🛡️';
-    font-size: 60px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.checkmark {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 40px;
-    font-weight: bold;
-    color: #ffffff;
-    margin-top: -5px;
-    margin-left: 2px;
-}
-
-.verification-heading {
+.brand-name {
     color: #4a90e2;
     font-size: 28px;
     font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.confirmation-icon {
+    color: #3b82f6;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.confirmation-heading {
+    color: #e0e0e0;
+    font-size: 24px;
+    font-weight: 600;
     margin-bottom: 15px;
 }
 
-.instruction-text {
-    color: #e0e0e0;
+.confirmation-text {
+    color: #b0b0b0;
     font-size: 16px;
     margin-bottom: 30px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
-.verification-form {
-    width: 100%;
-}
-
-.code-inputs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+.confirmation-actions {
     margin-bottom: 25px;
 }
 
-.code-input {
-    width: 50px;
-    height: 50px;
-    border: 2px solid #444;
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
     border-radius: 10px;
-    background: #ffffff;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    color: #333;
-    transition: all 0.3s ease;
-}
-
-.code-input:focus {
-    outline: none;
-    border-color: #4a90e2;
-    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
-    transform: scale(1.05);
-}
-
-.code-input::placeholder {
-    color: #999;
-}
-
-.resend-section {
-    margin-bottom: 25px;
-}
-
-.resend-link {
-    color: #4a90e2;
-    text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
-    transition: color 0.3s ease;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
 }
 
-.resend-link:hover {
-    color: #357abd;
-    text-decoration: underline;
-}
-
-.next-btn {
-    width: 100%;
-    padding: 15px;
+.btn-primary {
     background: linear-gradient(145deg, #4a90e2 0%, #357abd 100%);
     color: white;
     border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-.next-btn:hover {
+.btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
 }
 
+.help-section {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+}
+
+.help-section p {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.help-link {
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.help-link:hover {
+    color: #357abd;
+    text-decoration: underline;
+}
+
 /* Responsive design */
 @media (max-width: 480px) {
-    .verification-container {
+    .confirmation-card {
         margin: 20px;
         padding: 30px 20px;
     }
 
-    .verification-heading {
+    .brand-name {
         font-size: 24px;
     }
 
-    .shield-icon {
-        width: 100px;
-        height: 100px;
-    }
-
-    .shield-icon::before {
-        font-size: 50px;
-    }
-
-    .checkmark {
-        font-size: 30px;
-    }
-
-    .code-inputs {
-        gap: 8px;
-    }
-
-    .code-input {
-        width: 45px;
-        height: 45px;
+    .confirmation-heading {
         font-size: 20px;
+    }
+
+    .confirmation-text {
+        font-size: 14px;
     }
 }

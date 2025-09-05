@@ -8,34 +8,35 @@
 </head>
 <body>
 	<div class="layout">
-		<aside class="sidebar">
+
+		<aside class="sidebar" id="sidebar">
 			<div class="profile">
 				<div class="avatar"></div>
 				<div class="profile-info">
 					<div class="name">Josh Baguio</div>
 					<div class="role">Admin</div>
-					<a class="view-profile" href="#">View Profile Info</a>
+					<a class="view-profile" href="profile.html">View Profile Info</a>
 				</div>
 			</div>
 
 			<nav class="nav">
-				<a class="nav-item" href="#">
+				<a class="nav-item" href="monitoring.html">
 					<span class="icon">🔍</span>
 					<span>Monitoring</span>
 				</a>
-				<a class="nav-item" href="#">
+				<a class="nav-item" href="sensors.html">
 					<span class="icon">📡</span>
 					<span>Sensors</span>
 				</a>
-				<a class="nav-item" href="#">
+				<a class="nav-item" href="alert_sections.html">
 					<span class="icon">⚠️</span>
 					<span>Alert Section</span>
 				</a>
-				<a class="nav-item" href="#">
+				<a class="nav-item" href="user_management.html">
 					<span class="icon">👥</span>
 					<span>Staff Management</span>
 				</a>
-				<a class="nav-item" href="#">
+				<a class="nav-item" href="settings.html">
 					<span class="icon">⚙️</span>
 					<span>Settings</span>
 				</a>
@@ -99,10 +100,10 @@
 							<div class="info-field">
 								<label for="sms-alerts">Receive Alerts via SMS</label>
 								<div class="toggle-container">
-									<label class="toggle-switch">
+									<div class="toggle-switch">
 										<input type="checkbox" id="sms-alerts" checked>
 										<span class="toggle-slider"></span>
-									</label>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -268,5 +269,6 @@
 			});
 		});
 	</script>
+	<script src="../JS/auth.js"></script>
 </body>
 </html>

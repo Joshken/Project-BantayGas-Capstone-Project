@@ -1,380 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>BANTAYGAS - Edit Profile</title>
-	<link rel="stylesheet" href="../CSS/profile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANTAYGAS - Edit Profile</title>
+    	<link rel="stylesheet" href="../CSS/profile.css">
 </head>
 <body>
-	<div class="layout">
-		<aside class="sidebar">
-			<div class="profile">
-				<div class="avatar"></div>
-				<div class="profile-info">
-					<div class="name">Josh Baguio</div>
-					<div class="role">Admin</div>
-					<a class="view-profile" href="#">View Profile Info</a>
-				</div>
-			</div>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="profile">
+                <div class="avatar"></div>
+                <div class="profile-info">
+                    <div class="name">Josh Baguio</div>
+                    <div class="role">Admin</div>
+                    <a class="view-profile" href="profile.html">View Profile Info</a>
+                </div>
+            </div>
 
-			<nav class="nav">
-				<a class="nav-item" href="#">
-					<span class="icon">🔍</span>
-					<span>Monitoring</span>
-				</a>
-				<a class="nav-item" href="#">
-					<span class="icon">📡</span>
-					<span>Sensors</span>
-				</a>
-				<a class="nav-item" href="#">
-					<span class="icon">⚠️</span>
-					<span>Alert Section</span>
-				</a>
-				<a class="nav-item" href="#">
-					<span class="icon">👥</span>
-					<span>Staff Management</span>
-				</a>
-				<a class="nav-item active" href="#">
-					<span class="icon">⚙️</span>
-					<span>Settings</span>
-				</a>
-			</nav>
+            <nav class="nav">
+                <a class="nav-item" href="monitoring.html">
+                    <span class="icon">🔍</span>
+                    <span>Monitoring</span>
+                </a>
+                <a class="nav-item" href="sensors.html">
+                    <span class="icon">📡</span>
+                    <span>Sensors</span>
+                </a>
+                <a class="nav-item" href="alert_sections.html">
+                    <span class="icon">⚠️</span>
+                    <span>Alert Section</span>
+                </a>
+                <a class="nav-item" href="user_management.html">
+                    <span class="icon">👥</span>
+                    <span>Staff Management</span>
+                </a>
+                <a class="nav-item" href="settings.html">
+                    <span class="icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
 
-			<button class="logout-btn">Logout</button>
-		</aside>
+            <button class="logout-btn">Logout</button>
+        </aside>
 
-		<main class="content">
-			<header class="page-header">
-				<div class="header-left">
-					<a href="profile.html" class="back-link">
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<polyline points="15,18 9,12 15,6"/>
-						</svg>
-					</a>
-					<h1>Edit Profile</h1>
-				</div>
-			</header>
+        <main class="content">
+            <header class="page-header">
+                <div class="header-left">
+                    <a href="profile.html" class="back-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15,18 9,12 15,6"/>
+                        </svg>
+                    </a>
+                    <h1>Edit Profile</h1>
+                </div>
+            </header>
 
-			<section class="profile-content">
-				<!-- Profile Picture Section -->
-				<div class="profile-picture-section">
-					<div class="profile-avatar-container">
-						<div class="profile-avatar">
-							<img src="../Logos and BG/bantaygas-logo.png" alt="Joshua Bags" class="avatar-image">
-							<div class="camera-overlay" onclick="document.getElementById('profile-photo-input').click()">
-								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-									<path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
-									<circle cx="12" cy="13" r="4"/>
-								</svg>
-							</div>
-						</div>
-					</div>
-					<div class="profile-role">Staff</div>
-					<input type="file" id="profile-photo-input" accept="image/*" style="display: none;">
-				</div>
+            <section class="profile-content">
+                <!-- Profile Picture Section -->
+                <div class="profile-picture-section">
+                    <h2 class="section-title">Profile Picture</h2>
+                    <div class="profile-avatar-container">
+                        <div class="profile-avatar">
+                            <img src="../Logos and BG/bantaygas-logo.png" alt="Joshua Bags" class="avatar-image">
+                            <div class="camera-overlay">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                                    <circle cx="12" cy="13" r="4"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" onclick="changeProfilePicture()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                            <circle cx="12" cy="13" r="4"/>
+                        </svg>
+                        Change Profile Picture
+                    </button>
+                </div>
 
-				<!-- Profile Information Form -->
-				<div class="profile-info-section">
-					<h2 class="section-title">Profile Information:</h2>
-					
-					<form class="edit-profile-form" id="editProfileForm">
-						<div class="info-grid">
-							<!-- Left Column -->
-							<div class="info-column">
-								<div class="info-field">
-									<label for="edit-name">Name</label>
-									<input type="text" id="edit-name" name="name" value="Joshua Bags" required>
-								</div>
-								
-								<div class="info-field">
-									<label for="edit-username">Username</label>
-									<input type="text" id="edit-username" name="username" value="Joshken123" required>
-								</div>
-								
-								<div class="info-field">
-									<label for="edit-email">Email</label>
-									<input type="email" id="edit-email" name="email" value="joshken123@gmail.com" required>
-								</div>
-								
-								<div class="info-field">
-									<label for="edit-sms-alerts">Receive Alerts via SMS</label>
-									<div class="toggle-container">
-										<label class="toggle-switch">
-											<input type="checkbox" id="edit-sms-alerts" name="smsAlerts" checked>
-											<span class="toggle-slider"></span>
-										</label>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Right Column -->
-							<div class="info-column">
-								<div class="info-field">
-									<label for="edit-contact">Contact No.</label>
-									<input type="tel" id="edit-contact" name="contact" value="09876543211" required>
-								</div>
-								
-								<div class="info-field">
-									<label for="edit-access-level">Access Level/Permissions</label>
-									<input type="text" id="edit-access-level" name="accessLevel" value="Machine Operator" required>
-								</div>
-								
-								<div class="info-field">
-									<label for="edit-department">Department</label>
-									<input type="text" id="edit-department" name="department" value="asdas" required>
-								</div>
-								
-								<div class="info-field">
-									<button type="button" class="change-password-btn" onclick="openChangePasswordModal()">
-										Change Password
-									</button>
-								</div>
-							</div>
-						</div>
-						
-						<!-- Form Actions -->
-						<div class="form-actions">
-							<button type="button" class="btn btn-secondary" onclick="window.location.href='profile.html'">Cancel</button>
-							<button type="submit" class="btn btn-primary">Save Changes</button>
-						</div>
-					</form>
-				</div>
-			</section>
-		</main>
-	</div>
+                <!-- Profile Information Section -->
+                <div class="profile-info-section">
+                    <h2 class="section-title">Profile Information</h2>
+                    
+                    <form class="profile-form">
+                        <div class="info-grid">
+                            <!-- Left Column -->
+                            <div class="info-column">
+                                <div class="info-field">
+                                    <label for="name">Name *</label>
+                                    <input type="text" id="name" value="Joshua Bags" required>
+                                </div>
+                                
+                                <div class="info-field">
+                                    <label for="username">Username *</label>
+                                    <input type="text" id="username" value="Joshken123" required>
+                                </div>
+                                
+                                <div class="info-field">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" value="joshken123@gmail.com" required>
+                                </div>
+                                
+                                <div class="info-field">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" value="09876543211">
+                                </div>
+                            </div>
+                            
+                            <!-- Right Column -->
+                            <div class="info-column">
+                                <div class="info-field">
+                                    <label for="department">Department *</label>
+                                    <input type="text" id="department" value="IT Department" required>
+                                </div>
+                                
+                                <div class="info-field">
+                                    <label for="position">Position *</label>
+                                    <input type="text" id="position" value="System Administrator" required>
+                                </div>
+                                
+                                <div class="info-field">
+                                    <label for="access-level">Access Level *</label>
+                                    <select id="access-level" required>
+                                        <option value="admin" selected>Administrator</option>
+                                        <option value="operator">Machine Operator</option>
+                                        <option value="viewer">Viewer Only</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="info-field">
+                                    <label for="hire-date">Hire Date</label>
+                                    <input type="date" id="hire-date" value="2023-01-15">
+                                </div>
+                            </div>
+                        </div>
 
-	<!-- Change Password Modal -->
-	<div class="modal" id="changePasswordModal" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3>Change Password</h3>
-					<button class="close-btn" onclick="closeModal(document.getElementById('changePasswordModal'))">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<line x1="18" y1="6" x2="6" y2="18"/>
-							<line x1="6" y1="6" x2="18" y2="18"/>
-						</svg>
-					</button>
-				</div>
-				
-				<div class="password-form">
-					<div class="form-group">
-						<label for="current-password">Current Password</label>
-						<input type="password" id="current-password" placeholder="Enter current password">
-					</div>
-					
-					<div class="form-group">
-						<label for="new-password">New Password</label>
-						<input type="password" id="new-password" placeholder="Enter new password">
-					</div>
-					
-					<div class="form-group">
-						<label for="confirm-password">Confirm New Password</label>
-						<input type="password" id="confirm-password" placeholder="Confirm new password">
-					</div>
-					
-					<div class="password-requirements">
-						<h4>Password Requirements:</h4>
-						<ul>
-							<li>At least 8 characters long</li>
-							<li>Contains at least one uppercase letter</li>
-							<li>Contains at least one lowercase letter</li>
-							<li>Contains at least one number</li>
-							<li>Contains at least one special character</li>
-						</ul>
-					</div>
-				</div>
-				
-				<div class="modal-actions">
-					<button class="btn btn-secondary" onclick="closeModal(document.getElementById('changePasswordModal'))">Cancel</button>
-					<button class="btn btn-primary" onclick="changePassword()">Change Password</button>
-				</div>
-			</div>
-		</div>
-	</div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="window.location.href='profile.html'">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
 
-	<!-- Success Modal -->
-	<div class="modal" id="successModal" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3>Success</h3>
-					<button class="close-btn" onclick="closeModal(document.getElementById('successModal'))">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<line x1="18" y1="6" x2="6" y2="18"/>
-							<line x1="6" y1="6" x2="18" y2="18"/>
-						</svg>
-					</button>
-				</div>
-				
-				<div class="success-content">
-					<div class="success-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-							<polyline points="22,4 12,14.01 9,11.01"/>
-						</svg>
-					</div>
-					<h4>Profile Updated Successfully!</h4>
-					<p>Your profile information has been saved.</p>
-				</div>
-				
-				<div class="modal-actions">
-					<button class="btn btn-primary" onclick="window.location.href='profile.html'">View Profile</button>
-				</div>
-			</div>
-		</div>
-	</div>
+    <script>
+        // Form submission
+        document.querySelector('.profile-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value,
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                department: document.getElementById('department').value,
+                position: document.getElementById('position').value,
+                accessLevel: document.getElementById('access-level').value,
+                hireDate: document.getElementById('hire-date').value
+            };
 
-	<script>
-		// Profile photo upload functionality
-		document.getElementById('profile-photo-input').addEventListener('change', function(e) {
-			const file = e.target.files[0];
-			if (file) {
-				// Validate file type
-				if (!file.type.startsWith('image/')) {
-					alert('Please select an image file');
-					return;
-				}
-				
-				// Validate file size (max 5MB)
-				if (file.size > 5 * 1024 * 1024) {
-					alert('Image size must be less than 5MB');
-					return;
-				}
-				
-				// Preview the image
-				const reader = new FileReader();
-				reader.onload = function(e) {
-					document.querySelector('.avatar-image').src = e.target.result;
-				};
-				reader.readAsDataURL(file);
-				
-				// In a real application, you would upload the file to the server
-				console.log('Profile photo uploaded:', file.name);
-			}
-		});
+            // Basic validation
+            if (!formData.name || !formData.username || !formData.email || !formData.department || !formData.position) {
+                alert('Please fill in all required fields');
+                return;
+            }
 
-		// Form submission
-		document.getElementById('editProfileForm').addEventListener('submit', function(e) {
-			e.preventDefault();
-			
-			// Collect form data
-			const formData = new FormData(this);
-			const profileData = {
-				name: formData.get('name'),
-				username: formData.get('username'),
-				email: formData.get('email'),
-				contact: formData.get('contact'),
-				accessLevel: formData.get('accessLevel'),
-				department: formData.get('department'),
-				smsAlerts: formData.get('smsAlerts') === 'on'
-			};
-			
-			// Validate email format
-			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-			if (!emailRegex.test(profileData.email)) {
-				alert('Please enter a valid email address');
-				return;
-			}
-			
-			// Validate phone number (basic validation)
-			const phoneRegex = /^\d{11}$/;
-			if (!phoneRegex.test(profileData.contact)) {
-				alert('Please enter a valid 11-digit phone number');
-				return;
-			}
-			
-			// In a real application, you would send this data to the server
-			console.log('Profile data to save:', profileData);
-			
-			// Show success modal
-			openModal('successModal');
-		});
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
 
-		// SMS Toggle functionality
-		document.getElementById('edit-sms-alerts').addEventListener('change', function() {
-			const isEnabled = this.checked;
-			console.log('SMS alerts:', isEnabled ? 'enabled' : 'disabled');
-		});
+            // Simulate saving
+            console.log('Saving profile:', formData);
+            alert('Profile updated successfully!');
+            window.location.href = 'profile.html';
+        });
 
-		// Change Password Modal
-		function openChangePasswordModal() {
-			openModal('changePasswordModal');
-		}
+        function changeProfilePicture() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.querySelector('.avatar-image').src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
+        }
 
-		function changePassword() {
-			const currentPassword = document.getElementById('current-password').value;
-			const newPassword = document.getElementById('new-password').value;
-			const confirmPassword = document.getElementById('confirm-password').value;
-			
-			// Basic validation
-			if (!currentPassword || !newPassword || !confirmPassword) {
-				alert('Please fill in all password fields');
-				return;
-			}
-			
-			if (newPassword !== confirmPassword) {
-				alert('New passwords do not match');
-				return;
-			}
-			
-			if (newPassword.length < 8) {
-				alert('Password must be at least 8 characters long');
-				return;
-			}
-			
-			// In a real application, you would validate and save the password
-			alert('Password changed successfully!');
-			closeModal(document.getElementById('changePasswordModal'));
-			
-			// Clear the form
-			document.getElementById('current-password').value = '';
-			document.getElementById('new-password').value = '';
-			document.getElementById('confirm-password').value = '';
-		}
-
-		// Modal helpers
-		function openModal(id) {
-			document.getElementById(id).classList.add('open');
-			document.getElementById(id).setAttribute('aria-hidden', 'false');
-		}
-
-		function closeModal(el) {
-			const modal = el.closest('.modal');
-			modal.classList.remove('open');
-			modal.setAttribute('aria-hidden', 'true');
-		}
-
-		// Close modal when clicking outside
-		document.addEventListener('click', function(e) {
-			if (e.target.classList.contains('modal')) {
-				e.target.classList.remove('open');
-				e.target.setAttribute('aria-hidden', 'true');
-			}
-		});
-
-		// Add hover effects to buttons
-		document.querySelectorAll('.btn, .change-password-btn').forEach(btn => {
-			btn.addEventListener('mouseenter', function() {
-				this.style.transform = 'translateY(-1px)';
-			});
-			
-			btn.addEventListener('mouseleave', function() {
-				this.style.transform = 'translateY(0)';
-			});
-		});
-
-		// Add focus effects to form inputs
-		document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]').forEach(input => {
-			input.addEventListener('focus', function() {
-				this.parentElement.classList.add('focused');
-			});
-			
-			input.addEventListener('blur', function() {
-				this.parentElement.classList.remove('focused');
-			});
-		});
-	</script>
+        // Add hover effects to buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-1px)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+    	<script src="../JS/auth.js"></script>
 </body>
 </html>

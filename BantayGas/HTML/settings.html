@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BANTAYGAS - Settings</title>
+	<link rel="stylesheet" href="../CSS/settings.css">
+</head>
+<body>
+	<div class="layout">
+
+		<aside class="sidebar" id="sidebar">
+			<div class="profile">
+				<div class="avatar"></div>
+				<div class="profile-info">
+					<div class="name">Josh Baguio</div>
+					<div class="role">Admin</div>
+					<a class="view-profile" href="profile.html">View Profile Info</a>
+				</div>
+			</div>
+
+			<nav class="nav">
+				<a class="nav-item" href="monitoring.html">
+					<span class="icon">🔍</span>
+					<span>Monitoring</span>
+				</a>
+				<a class="nav-item" href="sensors.html">
+					<span class="icon">📡</span>
+					<span>Sensors</span>
+				</a>
+				<a class="nav-item" href="alert_sections.html">
+					<span class="icon">⚠️</span>
+					<span>Alert Section</span>
+				</a>
+				<a class="nav-item" href="user_management.html">
+					<span class="icon">👥</span>
+					<span>Staff Management</span>
+				</a>
+				<a class="nav-item active" href="settings.html">
+					<span class="icon">⚙️</span>
+					<span>Settings</span>
+				</a>
+			</nav>
+
+			<button class="logout-btn">Logout</button>
+		</aside>
+
+		<main class="content">
+			<header class="page-header">
+				<div class="header-left">
+					<h1>Settings</h1>
+				</div>
+			</header>
+
+			<!-- Settings Navigation Tabs -->
+			<div class="settings-nav">
+				<button class="settings-tab active" data-tab="notifications">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+						<path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+					</svg>
+					Notifications
+				</button>
+				<button class="settings-tab" data-tab="system">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+						<line x1="8" y1="21" x2="16" y2="21"/>
+						<line x1="12" y1="17" x2="12" y2="21"/>
+					</svg>
+					System
+				</button>
+				<button class="settings-tab" data-tab="security">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+					</svg>
+					Security
+				</button>
+				<button class="settings-tab" data-tab="appearance">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<circle cx="12" cy="12" r="5"/>
+						<line x1="12" y1="1" x2="12" y2="3"/>
+						<line x1="12" y1="21" x2="12" y2="23"/>
+						<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+						<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+						<line x1="1" y1="12" x2="3" y2="12"/>
+						<line x1="21" y1="12" x2="23" y2="12"/>
+						<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+						<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+					</svg>
+					Appearance
+				</button>
+			</div>
+
+			<!-- Settings Content -->
+			<div class="settings-content">
+				<!-- Notifications Settings -->
+				<div class="settings-section active" id="notifications">
+					<div class="settings-card">
+						<h2 class="section-title">Notification Preferences</h2>
+						
+						<div class="settings-group">
+							<div class="setting-item">
+								<div class="setting-info">
+									<h3>Email Notifications</h3>
+									<p>Receive alerts and updates via email</p>
+								</div>
+								<div class="toggle-switch">
+									<input type="checkbox" id="email-notifications" checked>
+									<span class="toggle-slider"></span>
+								</div>
+							</div>
+
+							<div class="setting-item">
+								<div class="setting-info">
+									<h3>SMS Notifications</h3>
+									<p>Receive critical alerts via SMS</p>
+								</div>
+								<div class="toggle-switch">
+									<input type="checkbox" id="sms-notifications" checked>
+									<span class="toggle-slider"></span>
+								</div>
+							</div>
+
+							<div class="setting-item">
+								<div class="setting-info">
+									<h3>Push Notifications</h3>
+									<p>Receive browser push notifications</p>
+								</div>
+								<div class="toggle-switch">
+									<input type="checkbox" id="push-notifications">
+									<span class="toggle-slider"></span>
+								</div>
+							</div>
+
+							<div class="setting-item">
+								<div class="setting-info">
+									<h3>Critical Alerts Only</h3>
+									<p>Only receive notifications for critical sensor readings</p>
+								</div>
+								<div class="toggle-switch">
+									<input type="checkbox" id="critical-only" checked>
+									<span class="toggle-slider"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="settings-group">
+							<h3>Alert Thresholds</h3>
+							<div class="threshold-settings">
+								<div class="threshold-item">
+									<label for="co-threshold">CO Threshold (ppm)</label>
+									<input type="number" id="co-threshold" value="70" min="0" max="1000">
+								</div>
+								<div class="threshold-item">
+									<label for="smoke-threshold">Smoke Threshold (ppm)</label>
+									<input type="number" id="smoke-threshold" value="150" min="0" max="1000">
+								</div>
+								<div class="threshold-item">
+									<label for="temp-threshold">Temperature Threshold (°C)</label>
+									<input type="number" id="temp-threshold" value="50" min="-10" max="100">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- System Settings -->
+				<div class="settings-section" id="system">
+					<div class="settings-card">
+						<h2 class="section-title">System Configuration</h2>
+						
+						<div class="settings-group">
+							<div class="setting-item">
+								<div class="setting-info">
+									<h3>Auto Refresh</h3>
+									<p>Automatically refresh sensor data</p>
+								</div>
+								<div class="toggle-switch">
+									<input type="checkbox" id="auto-refresh" checked>
+									<span class="toggle-slider"></span>
+								</div>
+							</div>
+
+							<div class="setting-item">
+								<div class="setting-info">
+									<h3>Data Logging</h3>
+									<p>Enable automatic data logging and storage</p>
+								</div>
+								<div class="toggle-switch">
+									<input type="checkbox" id="data-logging" checked>
+									<span class="toggle-slider"></span>
+								</div>
+							</div>
+
+							<div class="setting-item">
+								<div class="setting-info">
+									<h3>Backup System</h3>
+									<p>Automatically backup system data</p>
+								</div>
+								<div class="toggle-switch">
+									<input type="checkbox" id="backup-system" checked>
+									<span class="toggle-slider"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="settings-group">
+							<h3>Refresh Intervals</h3>
+							<div class="interval-settings">
+								<div class="interval-item">
+									<label for="sensor-refresh">Sensor Data Refresh (seconds)</label>
+									<select id="sensor-refresh">
+										<option value="5">5 seconds</option>
+										<option value="10" selected>10 seconds</option>
+										<option value="30">30 seconds</option>
+										<option value="60">1 minute</option>
+									</select>
+								</div>
+								<div class="interval-item">
+									<label for="backup-interval">Backup Interval</label>
+									<select id="backup-interval">
+										<option value="daily" selected>Daily</option>
+										<option value="weekly">Weekly</option>
+										<option value="monthly">Monthly</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="settings-group">
+							<h3>System Maintenance</h3>
+							<div class="maintenance-actions">
+								<button class="btn btn-secondary" onclick="clearCache()">
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<polyline points="3,6 5,6 21,6"/>
+										<path d="M19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"/>
+									</svg>
+									Clear Cache
+								</button>
+								<button class="btn btn-secondary" onclick="exportData()">
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+										<polyline points="7,10 12,15 17,10"/>
+										<line x1="12" y1="15" x2="12" y2="3"/>
+									</svg>
+									Export Data
+								</button>
+								<button class="btn btn-warning" onclick="restartSystem()">
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<polyline points="23,4 23,10 17,10"/>
+										<polyline points="1,20 1,14 7,14"/>
+										<path d="M20.49,9A9,9 0 0,0 5.64,5.64L1,10m22,4l-4.64,4.36A9,9 0 0,1 3.51,15"/>
+									</svg>
+									Restart System
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Security Settings -->
+				<div class="settings-section" id="security">
+					<div class="settings-card">
+						<h2 class="section-title">Security & Privacy</h2>
+						
+						<div class="settings-group">
+							<div class="setting-item">
+								<div class="setting-info">
+									<h3>Two-Factor Authentication</h3>
+									<p>Add an extra layer of security to your account</p>
+								</div>
+								<div class="toggle-switch">
+									<input type="checkbox" id="two-factor">
+									<span class="toggle-slider"></span>
+								</div>
+							</div>
+
+							<div class="setting-item">
+								<div class="setting-info">
+									<h3>Session Timeout</h3>
+									<p>Automatically log out after period of inactivity</p>
+								</div>
+								<div class="toggle-switch">
+									<input type="checkbox" id="session-timeout" checked>
+									<span class="toggle-slider"></span>
+								</div>
+							</div>
+
+							<div class="setting-item">
+								<div class="setting-info">
+									<h3>Login Notifications</h3>
+									<p>Get notified when someone logs into your account</p>
+								</div>
+								<div class="toggle-switch">
+									<input type="checkbox" id="login-notifications" checked>
+									<span class="toggle-slider"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="settings-group">
+							<h3>Password Settings</h3>
+							<div class="password-settings">
+								<button class="btn btn-primary" onclick="openChangePasswordModal()">
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+										<circle cx="12" cy="16" r="1"/>
+										<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+									</svg>
+									Change Password
+								</button>
+								<button class="btn btn-secondary" onclick="viewLoginHistory()">
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<circle cx="12" cy="12" r="10"/>
+										<polyline points="12,6 12,12 16,14"/>
+									</svg>
+									View Login History
+								</button>
+							</div>
+						</div>
+
+						<div class="settings-group">
+							<h3>Data Privacy</h3>
+							<div class="privacy-settings">
+								<div class="setting-item">
+									<div class="setting-info">
+										<h3>Data Collection</h3>
+										<p>Allow collection of usage data for system improvement</p>
+									</div>
+									<div class="toggle-switch">
+										<input type="checkbox" id="data-collection">
+										<span class="toggle-slider"></span>
+									</div>
+								</div>
+								<button class="btn btn-warning" onclick="deleteAccountData()">
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<polyline points="3,6 5,6 21,6"/>
+										<path d="M19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"/>
+									</svg>
+									Delete Account Data
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Appearance Settings -->
+				<div class="settings-section" id="appearance">
+					<div class="settings-card">
+						<h2 class="section-title">Appearance & Display</h2>
+						
+						<div class="settings-group">
+							<h3>Theme</h3>
+							<div class="theme-options">
+								<div class="theme-option">
+									<input type="radio" id="light-theme" name="theme" value="light">
+									<label for="light-theme" class="theme-label">
+										<div class="theme-preview light"></div>
+										<span>Light</span>
+									</label>
+								</div>
+								<div class="theme-option">
+									<input type="radio" id="dark-theme" name="theme" value="dark" checked>
+									<label for="dark-theme" class="theme-label">
+										<div class="theme-preview dark"></div>
+										<span>Dark</span>
+									</label>
+								</div>
+								<div class="theme-option">
+									<input type="radio" id="auto-theme" name="theme" value="auto">
+									<label for="auto-theme" class="theme-label">
+										<div class="theme-preview auto"></div>
+										<span>Auto</span>
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="settings-group">
+							<h3>Display Settings</h3>
+							<div class="display-settings">
+								<div class="setting-item">
+									<div class="setting-info">
+										<h3>Compact Mode</h3>
+										<p>Use a more compact layout to fit more content</p>
+									</div>
+									<div class="toggle-switch">
+										<input type="checkbox" id="compact-mode">
+										<span class="toggle-slider"></span>
+									</div>
+								</div>
+
+								<div class="setting-item">
+									<div class="setting-info">
+										<h3>Show Animations</h3>
+										<p>Enable smooth animations and transitions</p>
+									</div>
+									<div class="toggle-switch">
+										<input type="checkbox" id="show-animations" checked>
+										<span class="toggle-slider"></span>
+									</div>
+								</div>
+
+								<div class="setting-item">
+									<div class="setting-info">
+										<h3>High Contrast</h3>
+										<p>Increase contrast for better visibility</p>
+									</div>
+									<div class="toggle-switch">
+										<input type="checkbox" id="high-contrast">
+										<span class="toggle-slider"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="settings-group">
+							<h3>Language & Region</h3>
+							<div class="language-settings">
+								<div class="language-item">
+									<label for="language">Language</label>
+									<select id="language">
+										<option value="en" selected>English</option>
+										<option value="es">Español</option>
+										<option value="fr">Français</option>
+										<option value="de">Deutsch</option>
+									</select>
+								</div>
+								<div class="language-item">
+									<label for="timezone">Timezone</label>
+									<select id="timezone">
+										<option value="UTC-8" selected>Pacific Time (UTC-8)</option>
+										<option value="UTC-5">Eastern Time (UTC-5)</option>
+										<option value="UTC+0">UTC</option>
+										<option value="UTC+8">Asia/Manila (UTC+8)</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Save Settings Button -->
+			<div class="settings-actions">
+				<button class="btn btn-primary" onclick="saveSettings()">
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+						<polyline points="17,21 17,13 7,13 7,21"/>
+						<polyline points="7,3 7,8 15,8"/>
+					</svg>
+					Save Settings
+				</button>
+				<button class="btn btn-secondary" onclick="resetSettings()">
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<polyline points="23,4 23,10 17,10"/>
+						<polyline points="1,20 1,14 7,14"/>
+						<path d="M20.49,9A9,9 0 0,0 5.64,5.64L1,10m22,4l-4.64,4.36A9,9 0 0,1 3.51,15"/>
+					</svg>
+					Reset to Default
+				</button>
+			</div>
+		</main>
+	</div>
+
+	<!-- Change Password Modal -->
+	<div class="modal" id="changePasswordModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Change Password</h3>
+					<button class="close-btn" onclick="closeModal(document.getElementById('changePasswordModal'))">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<line x1="18" y1="6" x2="6" y2="18"/>
+							<line x1="6" y1="6" x2="18" y2="18"/>
+						</svg>
+					</button>
+				</div>
+				
+				<div class="password-form">
+					<div class="form-group">
+						<label for="current-password">Current Password</label>
+						<input type="password" id="current-password" placeholder="Enter current password">
+					</div>
+					
+					<div class="form-group">
+						<label for="new-password">New Password</label>
+						<input type="password" id="new-password" placeholder="Enter new password">
+					</div>
+					
+					<div class="form-group">
+						<label for="confirm-password">Confirm New Password</label>
+						<input type="password" id="confirm-password" placeholder="Confirm new password">
+					</div>
+					
+					<div class="password-requirements">
+						<h4>Password Requirements:</h4>
+						<ul>
+							<li>At least 8 characters long</li>
+							<li>Contains at least one uppercase letter</li>
+							<li>Contains at least one lowercase letter</li>
+							<li>Contains at least one number</li>
+							<li>Contains at least one special character</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="modal-actions">
+					<button class="btn btn-secondary" onclick="closeModal(document.getElementById('changePasswordModal'))">Cancel</button>
+					<button class="btn btn-primary" onclick="changePassword()">Change Password</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// Settings Tab Navigation
+		document.querySelectorAll('.settings-tab').forEach(tab => {
+			tab.addEventListener('click', function() {
+				const targetTab = this.getAttribute('data-tab');
+				
+				// Remove active class from all tabs and sections
+				document.querySelectorAll('.settings-tab').forEach(t => t.classList.remove('active'));
+				document.querySelectorAll('.settings-section').forEach(s => s.classList.remove('active'));
+				
+				// Add active class to clicked tab and corresponding section
+				this.classList.add('active');
+				document.getElementById(targetTab).classList.add('active');
+			});
+		});
+
+		// Toggle Switch Functionality
+		document.querySelectorAll('.toggle-switch input').forEach(toggle => {
+			toggle.addEventListener('change', function() {
+				const settingName = this.id;
+				const isEnabled = this.checked;
+				console.log(`${settingName}: ${isEnabled ? 'enabled' : 'disabled'}`);
+				
+				// In a real application, you would save this to the server
+				// For now, we'll just show a brief confirmation
+				showNotification(`${settingName.replace('-', ' ')} ${isEnabled ? 'enabled' : 'disabled'}`);
+			});
+		});
+
+		// Theme Selection
+		document.querySelectorAll('input[name="theme"]').forEach(radio => {
+			radio.addEventListener('change', function() {
+				const theme = this.value;
+				console.log('Theme changed to:', theme);
+				showNotification(`Theme changed to ${theme}`);
+			});
+		});
+
+		// Settings Actions
+		function saveSettings() {
+			// Collect all settings
+			const settings = {
+				notifications: {
+					email: document.getElementById('email-notifications').checked,
+					sms: document.getElementById('sms-notifications').checked,
+					push: document.getElementById('push-notifications').checked,
+					criticalOnly: document.getElementById('critical-only').checked,
+					coThreshold: document.getElementById('co-threshold').value,
+					smokeThreshold: document.getElementById('smoke-threshold').value,
+					tempThreshold: document.getElementById('temp-threshold').value
+				},
+				system: {
+					autoRefresh: document.getElementById('auto-refresh').checked,
+					dataLogging: document.getElementById('data-logging').checked,
+					backupSystem: document.getElementById('backup-system').checked,
+					sensorRefresh: document.getElementById('sensor-refresh').value,
+					backupInterval: document.getElementById('backup-interval').value
+				},
+				security: {
+					twoFactor: document.getElementById('two-factor').checked,
+					sessionTimeout: document.getElementById('session-timeout').checked,
+					loginNotifications: document.getElementById('login-notifications').checked,
+					dataCollection: document.getElementById('data-collection').checked
+				},
+				appearance: {
+					theme: document.querySelector('input[name="theme"]:checked').value,
+					compactMode: document.getElementById('compact-mode').checked,
+					showAnimations: document.getElementById('show-animations').checked,
+					highContrast: document.getElementById('high-contrast').checked,
+					language: document.getElementById('language').value,
+					timezone: document.getElementById('timezone').value
+				}
+			};
+
+			console.log('Settings saved:', settings);
+			showNotification('Settings saved successfully!');
+		}
+
+		function resetSettings() {
+			if (confirm('Are you sure you want to reset all settings to default values?')) {
+				// Reset all toggles to default
+				document.getElementById('email-notifications').checked = true;
+				document.getElementById('sms-notifications').checked = true;
+				document.getElementById('push-notifications').checked = false;
+				document.getElementById('critical-only').checked = true;
+				document.getElementById('auto-refresh').checked = true;
+				document.getElementById('data-logging').checked = true;
+				document.getElementById('backup-system').checked = true;
+				document.getElementById('two-factor').checked = false;
+				document.getElementById('session-timeout').checked = true;
+				document.getElementById('login-notifications').checked = true;
+				document.getElementById('data-collection').checked = false;
+				document.getElementById('compact-mode').checked = false;
+				document.getElementById('show-animations').checked = true;
+				document.getElementById('high-contrast').checked = false;
+
+				// Reset values
+				document.getElementById('co-threshold').value = 70;
+				document.getElementById('smoke-threshold').value = 150;
+				document.getElementById('temp-threshold').value = 50;
+				document.getElementById('sensor-refresh').value = '10';
+				document.getElementById('backup-interval').value = 'daily';
+				document.getElementById('language').value = 'en';
+				document.getElementById('timezone').value = 'UTC-8';
+				document.getElementById('dark-theme').checked = true;
+
+				showNotification('Settings reset to default values');
+			}
+		}
+
+		// System Actions
+		function clearCache() {
+			if (confirm('Are you sure you want to clear the system cache?')) {
+				showNotification('Cache cleared successfully');
+			}
+		}
+
+		function exportData() {
+			showNotification('Data export started. You will receive an email when ready.');
+		}
+
+		function restartSystem() {
+			if (confirm('Are you sure you want to restart the system? This will temporarily interrupt monitoring.')) {
+				showNotification('System restart initiated. Please wait...');
+			}
+		}
+
+		function viewLoginHistory() {
+			showNotification('Login history feature coming soon');
+		}
+
+		function deleteAccountData() {
+			if (confirm('Are you sure you want to delete all account data? This action cannot be undone.')) {
+				if (confirm('This will permanently delete all your data. Type "DELETE" to confirm.')) {
+					showNotification('Account data deletion initiated');
+				}
+			}
+		}
+
+		// Change Password Modal
+		function openChangePasswordModal() {
+			openModal('changePasswordModal');
+		}
+
+		function changePassword() {
+			const currentPassword = document.getElementById('current-password').value;
+			const newPassword = document.getElementById('new-password').value;
+			const confirmPassword = document.getElementById('confirm-password').value;
+			
+			// Basic validation
+			if (!currentPassword || !newPassword || !confirmPassword) {
+				alert('Please fill in all password fields');
+				return;
+			}
+			
+			if (newPassword !== confirmPassword) {
+				alert('New passwords do not match');
+				return;
+			}
+			
+			if (newPassword.length < 8) {
+				alert('Password must be at least 8 characters long');
+				return;
+			}
+			
+			// In a real application, you would validate and save the password
+			showNotification('Password changed successfully!');
+			closeModal(document.getElementById('changePasswordModal'));
+			
+			// Clear the form
+			document.getElementById('current-password').value = '';
+			document.getElementById('new-password').value = '';
+			document.getElementById('confirm-password').value = '';
+		}
+
+		// Modal helpers
+		function openModal(id) {
+			document.getElementById(id).classList.add('open');
+			document.getElementById(id).setAttribute('aria-hidden', 'false');
+		}
+
+		function closeModal(el) {
+			const modal = el.closest('.modal');
+			modal.classList.remove('open');
+			modal.setAttribute('aria-hidden', 'true');
+		}
+
+		// Close modal when clicking outside
+		document.addEventListener('click', function(e) {
+			if (e.target.classList.contains('modal')) {
+				e.target.classList.remove('open');
+				e.target.setAttribute('aria-hidden', 'true');
+			}
+		});
+
+		// Notification system
+		function showNotification(message) {
+			// Create notification element
+			const notification = document.createElement('div');
+			notification.className = 'notification';
+			notification.textContent = message;
+			
+			// Add to page
+			document.body.appendChild(notification);
+			
+			// Show notification
+			setTimeout(() => notification.classList.add('show'), 100);
+			
+			// Remove notification after 3 seconds
+			setTimeout(() => {
+				notification.classList.remove('show');
+				setTimeout(() => notification.remove(), 300);
+			}, 3000);
+		}
+
+	</script>
+	<script src="../JS/auth.js"></script>
+	
+</body>
+</html>

@@ -3,60 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BANTAYGAS - Verify Account</title>
+    <title>BANTAYGAS - Reset Link Sent</title>
     <link rel="stylesheet" href="../CSS/forgot-confirmation.css">
 </head>
 <body>
-    <div class="verification-container">
-        <a href="forgot-password.html" class="back-link">← Forgot Password</a>
-        
-        <div class="shield-icon">
-            <div class="checkmark">✓</div>
+    <div class="confirmation-card">
+        <div class="logo-section">
+            <div class="logo">
+                <img src="../Logos and BG/bantaygas-logo.png" alt="BANTAYGAS Logo" style="width: 120%; height: 120%; object-fit: contain;">
+            </div>
+            <div class="brand-name">BANTAYGAS</div>
         </div>
-        
-        <h1 class="verification-heading">Verify your account</h1>
-        
-        <p class="instruction-text">We just sent a 6 digit code to your email. Enter the code below to confirm your account.</p>
-        
-        <form class="verification-form">
-            <div class="code-inputs">
-                <input type="text" class="code-input" maxlength="1" required>
-                <input type="text" class="code-input" maxlength="1" required>
-                <input type="text" class="code-input" maxlength="1" required>
-                <input type="text" class="code-input" maxlength="1" required>
-                <input type="text" class="code-input" maxlength="1" required>
-                <input type="text" class="code-input" maxlength="1" required>
-            </div>
-            
-            <div class="resend-section">
-                <a href="#" class="resend-link">Resend Code</a>
-            </div>
-            
-            <button type="submit" class="next-btn" onclick="window.location.href='enter-new-password.html'; return false;">Next</button>
-        </form>
-    </div>
 
-    <script>
-        // Auto-focus and auto-advance functionality for code inputs
-        const codeInputs = document.querySelectorAll('.code-input');
-        
-        codeInputs.forEach((input, index) => {
-            input.addEventListener('input', function() {
-                if (this.value.length === 1) {
-                    if (index < codeInputs.length - 1) {
-                        codeInputs[index + 1].focus();
-                    }
-                }
-            });
-            
-            input.addEventListener('keydown', function(e) {
-                if (e.key === 'Backspace' && this.value.length === 0) {
-                    if (index > 0) {
-                        codeInputs[index - 1].focus();
-                    }
-                }
-            });
-        });
-    </script>
+        <div class="confirmation-icon">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+            </svg>
+        </div>
+
+        <h2 class="confirmation-heading">Reset Link Sent</h2>
+        <p class="confirmation-text">We've sent a password reset link to your email address. Please check your inbox and follow the instructions to reset your password.</p>
+
+        <div class="confirmation-actions">
+            <a href="login.html" class="btn btn-primary">Back to Sign In</a>
+        </div>
+
+        <div class="help-section">
+            <p>Didn't receive the email?</p>
+            <a href="forgot-password.html" class="help-link">Try Again</a>
+        </div>
+    </div>
 </body>
 </html>

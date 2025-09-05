@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BANTAYGAS - User Management</title>
-    <link rel="stylesheet" href="../CSS/user_management.css">
+    	<link rel="stylesheet" href="../CSS/user_management.css">
 </head>
 <body>
     <div class="layout">
+
         <!-- Sidebar -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <!-- User Profile Section -->
             <div class="profile">
                 <div class="avatar">
@@ -18,29 +19,29 @@
                 <div class="profile-info">
                     <div class="name">Josh Baguio</div>
                     <div class="role">Admin</div>
-                    <a href="#" class="view-profile">View Profile Info ></a>
+                    <a href="profile.html" class="view-profile">View Profile Info ></a>
                 </div>
             </div>
 
             <!-- Navigation Menu -->
             <nav class="nav">
-                <a href="#" class="nav-item">
+                <a href="monitoring.html" class="nav-item">
                     <span class="icon">🔍</span>
                     <span>Monitoring</span>
                 </a>
-                <a href="#" class="nav-item">
+                <a href="sensors.html" class="nav-item">
                     <span class="icon">📡</span>
                     <span>Sensors</span>
                 </a>
-                <a href="#" class="nav-item">
+                <a href="alert_sections.html" class="nav-item">
                     <span class="icon">⚠️</span>
                     <span>Alert Section</span>
                 </a>
-                <a href="#" class="nav-item active">
+                <a href="user_management.html" class="nav-item active">
                     <span class="icon">👥</span>
                     <span>Staff Management</span>
                 </a>
-                <a href="#" class="nav-item">
+                <a href="settings.html" class="nav-item">
                     <span class="icon">⚙️</span>
                     <span>Settings</span>
                 </a>
@@ -501,6 +502,7 @@
                 event.target.style.display = 'none';
             }
         });
-    </script>
+    	</script>
+	<script src="../JS/auth.js"></script>
 </body>
 </html>

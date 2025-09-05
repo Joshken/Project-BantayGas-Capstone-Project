@@ -7,24 +7,41 @@
     <link rel="stylesheet" href="../CSS/account-created.css">
 </head>
 <body>
-    <div class="account-created-container">
+    <div class="success-card">
         <div class="logo-section">
-            <div class="logo-icon">
-                <div class="shield-circle">
-                    <svg class="shield-flame" width="60" height="60" viewBox="0 0 60 60" fill="none">
-                        <img src="../Logos and BG/bantaygas-logo.png" alt="BANTAYGAS Logo" style="width: 120%; height: 120%; object-fit: contain;">
-                    </svg>
-                </div>
+            <div class="logo">
+                <img src="../Logos and BG/bantaygas-logo.png" alt="BANTAYGAS Logo" style="width: 120%; height: 120%; object-fit: contain;">
             </div>
-            <h2 class="logo-text">BANTAYGAS</h2>
+            <div class="brand-name">BANTAYGAS</div>
         </div>
-        
-        <div class="welcome-section">
-            <h1 class="welcome-heading">Welcome To BantayGas!</h1>
-            <p class="welcome-message">Your account has been created</p>
+
+        <div class="success-icon">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+            </svg>
         </div>
-        
-        <button type="button" class="dashboard-btn" onclick="window.location.href='login.html'">LOGIN</button>
+
+        <h2 class="success-heading">Account Created Successfully!</h2>
+        <p class="success-text">Your BantayGas account has been created and verified. You can now access the gas monitoring system.</p>
+
+        <div class="success-actions">
+            <a href="login.html" class="btn btn-primary">Sign In to Your Account</a>
+        </div>
+
+        <div class="help-section">
+            <p>Need help getting started?</p>
+            <a href="#" class="help-link">View User Guide</a>
+        </div>
     </div>
+
+    <script>
+        // Auto-redirect after 10 seconds
+        setTimeout(() => {
+            if (confirm('Would you like to sign in now?')) {
+                window.location.href = 'login.html';
+            }
+        }, 10000);
+    </script>
 </body>
 </html>

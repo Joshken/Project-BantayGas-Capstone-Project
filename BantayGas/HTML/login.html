@@ -19,11 +19,11 @@
 
         <form>
             <div class="form-group">
-                <input type="email" class="form-input" placeholder="Email" required>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Email" required>
             </div>
 
             <div class="form-group">
-                <input type="password" class="form-input" placeholder="Passworrd" required>
+                <input type="password" id="password" name="password" class="form-input" placeholder="Password" required>
             </div>
 
             <div class="forgot-password">
@@ -32,6 +32,13 @@
 
             <button type="submit" class="signin-btn">Sign in</button>
         </form>
+        
+        <!-- Debug Test Button -->
+        <div style="margin-top: 20px; text-align: center;">
+            <button type="button" onclick="testLogin()" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                Test Login (Auto-fill)
+            </button>
+        </div>
 
         <div class="divider">
             <span>Or</span>
@@ -51,5 +58,65 @@
             <a href="sign-up.html">Sign Up</a>
         </div>
     </div>
+
+    <script>
+        // Temporary account credentials
+        const TEMP_ACCOUNT = {
+            email: 'baguiojosh@gmail.com',
+            password: '123'
+        };
+
+        // Wait for DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Login page loaded');
+            
+            // Handle form submission
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = document.getElementById('email').value.trim();
+                    const password = document.getElementById('password').value.trim();
+                    
+                    console.log('Login attempt:', { email, password });
+                    console.log('Expected:', TEMP_ACCOUNT);
+                    
+                    // Check if credentials match temporary account
+                    if (email === TEMP_ACCOUNT.email && password === TEMP_ACCOUNT.password) {
+                        console.log('Login successful');
+                        
+                        // Store login status in sessionStorage
+                        sessionStorage.setItem('isLoggedIn', 'true');
+                        sessionStorage.setItem('userEmail', email);
+                        sessionStorage.setItem('userName', 'Josh Baguio');
+                        sessionStorage.setItem('userRole', 'Admin');
+                        
+                        // Redirect to monitoring page
+                        console.log('Redirecting to monitoring.html');
+                        window.location.href = 'monitoring.html';
+                    } else {
+                        console.log('Login failed - credentials mismatch');
+                        alert('Invalid email or password. Please try again.\n\nTemporary Account:\nEmail: baguiojosh@gmail.com\nPassword: 123');
+                    }
+                });
+            } else {
+                console.error('Form not found');
+            }
+
+            // Check if user is already logged in
+            if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                console.log('User already logged in, redirecting...');
+                window.location.href = 'monitoring.html';
+            }
+        });
+        
+        // Test function for debugging
+        window.testLogin = function() {
+            document.getElementById('email').value = 'baguiojosh@gmail.com';
+            document.getElementById('password').value = '123';
+            console.log('Test credentials filled');
+        };
+    </script>
 </body>
 </html>

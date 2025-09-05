@@ -29,123 +29,129 @@ body::before {
     z-index: 1;
 }
 
-.account-created-container {
-    background: transparent;
+.success-card {
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+    border: 2px solid #d4af37;
     border-radius: 20px;
     padding: 40px;
     width: 100%;
-    max-width: 400px;
-    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 
 .logo-section {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
-.logo-icon {
-    margin-bottom: 20px;
-}
-
-.shield-circle {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-    background: linear-gradient(145deg, #4a90e2 0%, #357abd 100%);
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    background: linear-gradient(145deg, #4a90e2 0%, #1a1a2e 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+    position: relative;
 }
 
-.shield-flame {
-    width: 70px;
-    height: 70px;
-}
-
-.logo-text {
+.brand-name {
     color: #4a90e2;
     font-size: 28px;
     font-weight: bold;
-    text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
 }
 
-.welcome-section {
-    margin-bottom: 40px;
+.success-icon {
+    color: #10b981;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
 }
 
-.welcome-heading {
-    color: #ffffff;
-    font-size: 32px;
-    font-weight: bold;
+.success-heading {
+    color: #e0e0e0;
+    font-size: 24px;
+    font-weight: 600;
     margin-bottom: 15px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.welcome-message {
-    color: #ffffff;
-    font-size: 18px;
-    line-height: 1.5;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+.success-text {
+    color: #b0b0b0;
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.6;
 }
 
-.dashboard-btn {
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(145deg, #6c757d 0%, #495057 100%);
-    color: white;
-    border: none;
+.success-actions {
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
     border-radius: 10px;
     font-size: 16px;
     font-weight: 600;
-    cursor: pointer;
+    text-decoration: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 8px 20px rgba(108, 117, 125, 0.3);
+    cursor: pointer;
 }
 
-.dashboard-btn:hover {
+.btn-primary {
+    background: linear-gradient(145deg, #4a90e2 0%, #357abd 100%);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(108, 117, 125, 0.4);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
 }
 
-.dashboard-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 6px 15px rgba(108, 117, 125, 0.3);
+.help-section {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+}
+
+.help-section p {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.help-link {
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.help-link:hover {
+    color: #357abd;
+    text-decoration: underline;
 }
 
 /* Responsive design */
 @media (max-width: 480px) {
-    .account-created-container {
+    .success-card {
         margin: 20px;
         padding: 30px 20px;
-        max-width: 100%;
     }
 
-    .welcome-heading {
-        font-size: 28px;
-    }
-
-    .logo-text {
+    .brand-name {
         font-size: 24px;
     }
 
-    .shield-circle {
-        width: 100px;
-        height: 100px;
+    .success-heading {
+        font-size: 20px;
     }
 
-    .shield-flame {
-        width: 60px;
-        height: 60px;
-    }
-
-    .welcome-message {
-        font-size: 16px;
+    .success-text {
+        font-size: 14px;
     }
 }

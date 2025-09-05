@@ -1,334 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>BANTAYGAS - Add Sensor</title>
-	<link rel="stylesheet" href="../CSS/add_sensor.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANTAYGAS - Add Sensor</title>
+    	<link rel="stylesheet" href="../CSS/add_sensor.css">
 </head>
 <body>
-	<div class="layout">
-		<aside class="sidebar">
-			<div class="profile">
-				<div class="avatar"></div>
-				<div class="profile-info">
-					<div class="name">Josh Baguio</div>
-					<div class="role">Admin</div>
-					<a class="view-profile" href="#">View Profile Info</a>
-				</div>
-			</div>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="profile">
+                <div class="avatar"></div>
+                <div class="profile-info">
+                    <div class="name">Josh Baguio</div>
+                    <div class="role">Admin</div>
+                    <a class="view-profile" href="profile.html">View Profile Info</a>
+                </div>
+            </div>
 
-			<nav class="nav">
-				<a class="nav-item" href="#">
-					<span class="icon">🔍</span>
-					<span>Monitoring</span>
-				</a>
-				<a class="nav-item active" href="#">
-					<span class="icon">📡</span>
-					<span>Sensors</span>
-				</a>
-				<a class="nav-item" href="#">
-					<span class="icon">⚠️</span>
-					<span>Alert Section</span>
-				</a>
-				<a class="nav-item" href="#">
-					<span class="icon">👥</span>
-					<span>Staff Management</span>
-				</a>
-				<a class="nav-item" href="#">
-					<span class="icon">⚙️</span>
-					<span>Settings</span>
-				</a>
-			</nav>
+            <nav class="nav">
+                <a class="nav-item" href="monitoring.html">
+                    <span class="icon">🔍</span>
+                    <span>Monitoring</span>
+                </a>
+                <a class="nav-item" href="sensors.html">
+                    <span class="icon">📡</span>
+                    <span>Sensors</span>
+                </a>
+                <a class="nav-item" href="alert_sections.html">
+                    <span class="icon">⚠️</span>
+                    <span>Alert Section</span>
+                </a>
+                <a class="nav-item" href="user_management.html">
+                    <span class="icon">👥</span>
+                    <span>Staff Management</span>
+                </a>
+                <a class="nav-item" href="settings.html">
+                    <span class="icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
 
-			<button class="logout-btn">Logout</button>
-		</aside>
+            <button class="logout-btn">Logout</button>
+        </aside>
 
-		<main class="content">
-			<header class="page-header">
-				<div class="breadcrumb">
-					<a href="sensors.html" class="back-link">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<path d="M19 12H5"/>
-							<path d="M12 19l-7-7 7-7"/>
-						</svg>
-					</a>
-					<div class="header-icon">
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<circle cx="12" cy="12" r="10"/>
-							<circle cx="12" cy="12" r="6"/>
-							<circle cx="12" cy="12" r="2"/>
-						</svg>
-					</div>
-					<h1>Add Sensor</h1>
-				</div>
-			</header>
+        <main class="content">
+            <header class="page-header">
+                <div class="header-left">
+                    <a href="sensors.html" class="back-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15,18 9,12 15,6"/>
+                        </svg>
+                    </a>
+                    <h1>Add New Sensor</h1>
+                </div>
+            </header>
 
-			<div class="main-content">
-				<!-- Add Sensor Form Section -->
-				<section class="form-section">
-					<div class="form-card">
-						<div class="form-header">
-							<h2>Add Sensor</h2>
-						</div>
+            <section class="sensor-form-section">
+                <div class="form-card">
+                    <h2>Sensor Configuration</h2>
+                    
+                    <form class="sensor-form">
+                        <div class="form-group">
+                            <label for="sensorName">Sensor Name *</label>
+                            <input type="text" id="sensorName" placeholder="e.g., Sensor_007" required>
+                        </div>
 
-						<form class="sensor-form" id="sensorForm">
-							<div class="form-group">
-								<label for="sensor-name">Sensor Name</label>
-								<input type="text" id="sensor-name" name="sensorName" placeholder="Enter Sensor Name" required>
-							</div>
+                        <div class="form-group">
+                            <label for="sensorType">Sensor Type *</label>
+                            <select id="sensorType" required>
+                                <option value="">Select Sensor Type</option>
+                                <option value="MQ-7">MQ-7 (Carbon Monoxide)</option>
+                                <option value="MQ-2">MQ-2 (Smoke/LPG)</option>
+                                <option value="MQ-4">MQ-4 (Methane)</option>
+                                <option value="MQ-135">MQ-135 (Air Quality)</option>
+                            </select>
+                        </div>
 
-							<div class="form-group">
-								<label for="sensor-type">Type</label>
-								<input type="text" id="sensor-type" name="sensorType" placeholder="Enter Type" required>
-							</div>
+                        <div class="form-group">
+                            <label for="assignedZone">Assigned Zone *</label>
+                            <input type="text" id="assignedZone" placeholder="e.g., Kitchen Area, Boiler Room" required>
+                        </div>
 
-							<div class="form-group">
-								<label for="floorplan-select">Choose a floorplan</label>
-								<div class="select-wrapper">
-									<select id="floorplan-select" name="floorplan" required>
-										<option value="">Select Floor Plan</option>
-										<option value="ground-floor" selected>Ground Floor</option>
-										<option value="first-floor">First Floor</option>
-										<option value="second-floor">Second Floor</option>
-										<option value="basement">Basement</option>
-									</select>
-									<svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-										<polyline points="6,9 12,15 18,9"/>
-									</svg>
-								</div>
-							</div>
+                        <div class="form-group">
+                            <label for="floor">Floor *</label>
+                            <select id="floor" required>
+                                <option value="">Select Floor</option>
+                                <option value="ground">Ground Floor</option>
+                                <option value="first">First Floor</option>
+                                <option value="second">Second Floor</option>
+                                <option value="basement">Basement</option>
+                            </select>
+                        </div>
 
-							<div class="form-actions">
-								<button type="submit" class="btn btn-primary">
-									Next
-								</button>
-							</div>
-						</form>
-					</div>
-				</section>
+                        <div class="form-group">
+                            <label for="threshold">Alert Threshold (ppm) *</label>
+                            <input type="number" id="threshold" min="0" max="1000" placeholder="e.g., 70" required>
+                            <small>Recommended: MQ-7: 70ppm, MQ-2: 150ppm, MQ-4: 200ppm</small>
+                        </div>
 
-				<!-- Floor Plan Visualization Section -->
-				<section class="floorplan-section">
-					<div class="floorplan-card">
-						<div class="floorplan-header">
-							<h3>Floor Plan Preview</h3>
-							<div class="floorplan-info">
-								<span class="floorplan-name">Ground Floor</span>
-								<span class="sensor-count">3 sensors placed</span>
-							</div>
-						</div>
+                        <div class="form-group">
+                            <label for="sensorLocation">Physical Location</label>
+                            <input type="text" id="sensorLocation" placeholder="e.g., Near entrance, Corner of room">
+                        </div>
 
-						<div class="floorplan-container">
-							<div class="floorplan-image">
-								<img src="../Logos and BG/sample_floorplan.jpg" alt="Floor Plan" class="floorplan-img">
-								
-								<!-- Sensor Indicators -->
-								<div class="sensor-indicator" style="top: 20%; left: 30%;" data-sensor="1">
-									<div class="sensor-dot"></div>
-									<div class="sensor-label">Sensor_001</div>
-								</div>
-								
-								<div class="sensor-indicator" style="top: 45%; left: 65%;" data-sensor="2">
-									<div class="sensor-dot"></div>
-									<div class="sensor-label">Sensor_002</div>
-								</div>
-								
-								<div class="sensor-indicator" style="top: 70%; left: 25%;" data-sensor="3">
-									<div class="sensor-dot"></div>
-									<div class="sensor-label">Sensor_003</div>
-								</div>
+                        <div class="form-group">
+                            <label for="sensorDescription">Description</label>
+                            <textarea id="sensorDescription" placeholder="Additional notes about this sensor..."></textarea>
+                        </div>
 
-								<!-- Room Labels -->
-								<div class="room-label" style="top: 15%; left: 15%;">000</div>
-								<div class="room-label" style="top: 35%; left: 75%;">01001000</div>
-								<div class="room-label" style="top: 60%; left: 10%;">0000</div>
-								<div class="room-label" style="top: 80%; left: 80%;">010101010</div>
-							</div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="enableNotifications" checked>
+                                Enable notifications for this sensor
+                            </label>
+                        </div>
 
-							<div class="floorplan-legend">
-								<div class="legend-item">
-									<div class="legend-dot existing"></div>
-									<span>Existing Sensors</span>
-								</div>
-								<div class="legend-item">
-									<div class="legend-dot new"></div>
-									<span>New Sensor</span>
-								</div>
-								<div class="legend-item">
-									<div class="legend-dot available"></div>
-									<span>Available Areas</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div>
-		</main>
-	</div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="window.location.href='sensors.html'">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Add Sensor</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
 
-	<!-- Sensor Configuration Modal -->
-	<div class="modal" id="sensorConfigModal" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3>Configure Sensor</h3>
-					<button class="close-btn" onclick="closeModal(document.getElementById('sensorConfigModal'))">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<line x1="18" y1="6" x2="6" y2="18"/>
-							<line x1="6" y1="6" x2="18" y2="18"/>
-						</svg>
-					</button>
-				</div>
-				
-				<form class="config-form">
-					<div class="form-group">
-						<label for="config-sensor-name">Sensor Name</label>
-						<input type="text" id="config-sensor-name" readonly>
-					</div>
-					
-					<div class="form-group">
-						<label for="config-sensor-type">Sensor Type</label>
-						<input type="text" id="config-sensor-type" readonly>
-					</div>
-					
-					<div class="form-group">
-						<label for="config-floorplan">Floor Plan</label>
-						<input type="text" id="config-floorplan" readonly>
-					</div>
-					
-					<div class="form-group">
-						<label for="config-location">Location on Floor Plan</label>
-						<div class="location-selector">
-							<button type="button" class="location-btn" data-location="kitchen">Kitchen Area</button>
-							<button type="button" class="location-btn" data-location="living">Living Room</button>
-							<button type="button" class="location-btn" data-location="bedroom">Bedroom</button>
-							<button type="button" class="location-btn" data-location="bathroom">Bathroom</button>
-							<button type="button" class="location-btn" data-location="garage">Garage</button>
-						</div>
-					</div>
-					
-					<div class="form-group">
-						<label for="config-threshold">Alert Threshold (ppm)</label>
-						<input type="number" id="config-threshold" min="0" max="1000" value="50" required>
-					</div>
-				</form>
-				
-				<div class="modal-actions">
-					<button class="btn btn-secondary" onclick="closeModal(document.getElementById('sensorConfigModal'))">Cancel</button>
-					<button class="btn btn-primary" onclick="saveSensor()">Save Sensor</button>
-				</div>
-			</div>
-		</div>
-	</div>
+    <script>
+        document.querySelector('.sensor-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('sensorName').value,
+                type: document.getElementById('sensorType').value,
+                zone: document.getElementById('assignedZone').value,
+                floor: document.getElementById('floor').value,
+                threshold: document.getElementById('threshold').value,
+                location: document.getElementById('sensorLocation').value,
+                description: document.getElementById('sensorDescription').value,
+                notifications: document.getElementById('enableNotifications').checked
+            };
 
-	<!-- Success Modal -->
-	<div class="modal" id="successModal" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="success-icon">
-					<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-						<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-						<polyline points="22,4 12,14.01 9,11.01"/>
-					</svg>
-				</div>
-				<h3>Sensor Added Successfully!</h3>
-				<p>Your new sensor has been configured and is now active on the floor plan.</p>
-				<div class="modal-actions">
-					<button class="btn btn-primary" onclick="window.location.href='sensors.html'">View All Sensors</button>
-					<button class="btn btn-secondary" onclick="closeModal(document.getElementById('successModal'))">Add Another</button>
-				</div>
-			</div>
-		</div>
-	</div>
+            // Validate required fields
+            if (!formData.name || !formData.type || !formData.zone || !formData.floor || !formData.threshold) {
+                alert('Please fill in all required fields');
+                return;
+            }
 
-	<script>
-		// Form submission
-		document.getElementById('sensorForm').addEventListener('submit', function(e) {
-			e.preventDefault();
-			
-			const sensorName = document.getElementById('sensor-name').value;
-			const sensorType = document.getElementById('sensor-type').value;
-			const floorplan = document.getElementById('floorplan-select').value;
-			
-			if (!sensorName || !sensorType || !floorplan) {
-				alert('Please fill in all fields.');
-				return;
-			}
-			
-			// Populate configuration modal
-			document.getElementById('config-sensor-name').value = sensorName;
-			document.getElementById('config-sensor-type').value = sensorType;
-			document.getElementById('config-floorplan').value = document.getElementById('floorplan-select').options[document.getElementById('floorplan-select').selectedIndex].text;
-			
-			// Show configuration modal
-			openModal('sensorConfigModal');
-		});
+            // Validate threshold based on sensor type
+            const thresholds = {
+                'MQ-7': { min: 10, max: 100, recommended: 70 },
+                'MQ-2': { min: 50, max: 300, recommended: 150 },
+                'MQ-4': { min: 100, max: 500, recommended: 200 },
+                'MQ-135': { min: 50, max: 200, recommended: 100 }
+            };
 
-		// Floor plan selection change
-		document.getElementById('floorplan-select').addEventListener('change', function() {
-			const selectedFloor = this.options[this.selectedIndex].text;
-			document.querySelector('.floorplan-name').textContent = selectedFloor;
-			
-			// Update floor plan image based on selection
-			// In a real application, you would load different floor plan images
-			console.log('Floor plan changed to:', selectedFloor);
-		});
+            const threshold = parseInt(formData.threshold);
+            const sensorThreshold = thresholds[formData.type];
+            
+            if (threshold < sensorThreshold.min || threshold > sensorThreshold.max) {
+                if (!confirm(`Threshold ${threshold}ppm is outside recommended range (${sensorThreshold.min}-${sensorThreshold.max}ppm). Continue anyway?`)) {
+                    return;
+                }
+            }
 
-		// Location button selection
-		document.querySelectorAll('.location-btn').forEach(btn => {
-			btn.addEventListener('click', function() {
-				// Remove active class from all buttons
-				document.querySelectorAll('.location-btn').forEach(b => b.classList.remove('active'));
-				// Add active class to clicked button
-				this.classList.add('active');
-			});
-		});
+            // Simulate adding sensor
+            console.log('Adding sensor:', formData);
+            alert('Sensor added successfully!');
+            window.location.href = 'sensors.html';
+        });
 
-		// Sensor indicator click
-		document.querySelectorAll('.sensor-indicator').forEach(indicator => {
-			indicator.addEventListener('click', function() {
-				const sensorName = this.querySelector('.sensor-label').textContent;
-				alert(`Viewing details for ${sensorName}`);
-			});
-		});
-
-		function saveSensor() {
-			const threshold = document.getElementById('config-threshold').value;
-			const selectedLocation = document.querySelector('.location-btn.active');
-			
-			if (!selectedLocation) {
-				alert('Please select a location for the sensor.');
-				return;
-			}
-			
-			// Simulate saving sensor
-			console.log('Saving sensor with threshold:', threshold, 'at location:', selectedLocation.dataset.location);
-			
-			// Close configuration modal and show success
-			closeModal(document.getElementById('sensorConfigModal'));
-			openModal('successModal');
-		}
-
-		// Modal helpers
-		function openModal(id) {
-			document.getElementById(id).classList.add('open');
-			document.getElementById(id).setAttribute('aria-hidden', 'false');
-		}
-
-		function closeModal(el) {
-			const modal = el.closest('.modal');
-			modal.classList.remove('open');
-			modal.setAttribute('aria-hidden', 'true');
-		}
-
-		// Close modal when clicking outside
-		document.addEventListener('click', function(e) {
-			if (e.target.classList.contains('modal')) {
-				e.target.classList.remove('open');
-				e.target.setAttribute('aria-hidden', 'true');
-			}
-		});
-	</script>
+        // Auto-fill threshold based on sensor type
+        document.getElementById('sensorType').addEventListener('change', function() {
+            const thresholds = {
+                'MQ-7': 70,
+                'MQ-2': 150,
+                'MQ-4': 200,
+                'MQ-135': 100
+            };
+            
+            if (thresholds[this.value]) {
+                document.getElementById('threshold').value = thresholds[this.value];
+            }
+        });
+    </script>
+    	<script src="../JS/auth.js"></script>
 </body>
 </html>

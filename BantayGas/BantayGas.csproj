@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">Any CPU</Platform>
@@ -22,53 +21,67 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Any CPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <OutputPath>bin\Debug\</OutputPath>
+    <BaseOutputPath>bin\</BaseOutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Any CPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <OutputPath>bin\Release\</OutputPath>
+    <BaseOutputPath>bin\</BaseOutputPath>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Web" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="CSS\account-created.css" />
+    <Content Include="CSS\add_floorplan.css" />
+    <Content Include="CSS\add_sensor.css" />
+    <Content Include="CSS\alert_sections.css" />
+    <Content Include="CSS\email-otp-verify.css" />
     <Content Include="CSS\enter-new-password.css" />
     <Content Include="CSS\forgot-confirmation.css" />
     <Content Include="CSS\forgot-password.css" />
     <Content Include="CSS\login.css" />
+    <Content Include="CSS\monitoring.css" />
+    <Content Include="CSS\password-update-forgot.css" />
+    <Content Include="CSS\profile.css" />
+    <Content Include="CSS\sensors.css" />
+    <Content Include="CSS\settings.css" />
+    <Content Include="CSS\sign-up.css" />
+    <Content Include="CSS\user_management.css" />
+    <Content Include="HTML\account-created.html" />
+    <Content Include="HTML\add_floorplan.html" />
+    <Content Include="HTML\add_sensor.html" />
+    <Content Include="HTML\alert_sections.html" />
+    <Content Include="HTML\edit_profile.html" />
+    <Content Include="HTML\email-otp-verify.html" />
     <Content Include="HTML\enter-new-password.html" />
     <Content Include="HTML\forgot-confirmation.html" />
     <Content Include="HTML\forgot-password.html" />
     <Content Include="HTML\login.html" />
+    <Content Include="HTML\monitoring.html" />
+    <Content Include="HTML\password-update-forgot.html" />
+    <Content Include="HTML\profile.html" />
+    <Content Include="HTML\sensors.html" />
+    <Content Include="HTML\settings.html" />
+    <Content Include="HTML\sign-up.html" />
+    <Content Include="HTML\user_management.html" />
+    <Content Include="JS\auth.js" />
     <Content Include="Logos and BG\bantaygas-bg.jpg" />
     <Content Include="Logos and BG\bantaygas-logo.png" />
     <Content Include="Logos and BG\facebook.png" />
     <Content Include="Logos and BG\google.png" />
+    <Content Include="Logos and BG\sample_floorplan.jpg" />
+    <Content Include="index.html" />
     <Content Include="Web.config" />
+    <Content Include=".htaccess" />
+    <Content Include="PHP\config\database.php" />
+    <Content Include="PHP\classes\User.php" />
+    <Content Include="PHP\classes\Sensor.php" />
+    <Content Include="PHP\api\login.php" />
+    <Content Include="PHP\api\logout.php" />
+    <Content Include="PHP\api\sensors.php" />
+    <Content Include="PHP\setup_database.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-  </PropertyGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
@@ -87,4 +100,5 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

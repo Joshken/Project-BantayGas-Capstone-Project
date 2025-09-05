@@ -1,0 +1,6 @@
+C:\Users\CHAN\Documents\GitHub\Project-BantayGas-Capstone-Project\BantayGas\bin\Debug\BantayGas.dll
+C:\Users\CHAN\Documents\GitHub\Project-BantayGas-Capstone-Project\BantayGas\bin\Debug\BantayGas.pdb
+C:\Users\CHAN\Documents\GitHub\Project-BantayGas-Capstone-Project\BantayGas\obj\Debug\BantayGas.csproj.AssemblyReference.cache
+C:\Users\CHAN\Documents\GitHub\Project-BantayGas-Capstone-Project\BantayGas\obj\Debug\BantayGas.csproj.CoreCompileInputs.cache
+C:\Users\CHAN\Documents\GitHub\Project-BantayGas-Capstone-Project\BantayGas\obj\Debug\BantayGas.dll
+C:\Users\CHAN\Documents\GitHub\Project-BantayGas-Capstone-Project\BantayGas\obj\Debug\BantayGas.pdb

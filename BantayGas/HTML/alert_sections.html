@@ -3,39 +3,40 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>BANTAYGAS - Alert Section</title>
+    <title>BANTAYGAS - Alert Sections</title>
 	<link rel="stylesheet" href="../CSS/alert_sections.css">
 </head>
 <body>
 	<div class="layout">
-		<aside class="sidebar">
+
+        <aside class="sidebar" id="sidebar">
 			<div class="profile">
 				<div class="avatar"></div>
 				<div class="profile-info">
 					<div class="name">Josh Baguio</div>
 					<div class="role">Admin</div>
-					<a class="view-profile" href="#">View Profile Info</a>
+                    <a class="view-profile" href="profile.html">View Profile Info</a>
 				</div>
 			</div>
 
 			<nav class="nav">
-				<a class="nav-item" href="#">
+                <a class="nav-item" href="monitoring.html">
 					<span class="icon">🔍</span>
 					<span>Monitoring</span>
 				</a>
-				<a class="nav-item" href="#">
+                <a class="nav-item" href="sensors.html">
 					<span class="icon">📡</span>
 					<span>Sensors</span>
 				</a>
-				<a class="nav-item active" href="#">
+                <a class="nav-item active" href="alert_sections.html">
 					<span class="icon">⚠️</span>
 					<span>Alert Section</span>
 				</a>
-				<a class="nav-item" href="#">
+                <a class="nav-item" href="user_management.html">
 					<span class="icon">👥</span>
 					<span>Staff Management</span>
 				</a>
-				<a class="nav-item" href="#">
+                <a class="nav-item" href="settings.html">
 					<span class="icon">⚙️</span>
 					<span>Settings</span>
 				</a>
@@ -47,360 +48,236 @@
 		<main class="content">
 			<header class="page-header">
 				<div class="header-left">
-					<h1>Alert Section</h1>
+                    <h1>Alert Management</h1>
 				</div>
 				<div class="header-right">
-					<div class="alert-summary">
-						<span class="alert-count">All Alerts 12</span>
-					</div>
-					<div class="header-actions">
-						<button class="btn btn-export">
+                    <button class="btn btn-primary" onclick="clearAllAlerts()">
 							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-								<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-								<polyline points="14,2 14,8 20,8"/>
-								<line x1="16" y1="13" x2="8" y2="13"/>
-								<line x1="16" y1="17" x2="8" y2="17"/>
-								<polyline points="10,9 9,9 8,9"/>
+                            <polyline points="3,6 5,6 21,6"/>
+                            <path d="M19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"/>
 							</svg>
-							Export as PDF or Excel
+                        Clear All Alerts
 						</button>
-						<div class="filter-dropdown">
-							<select class="time-filter">
-								<option value="daily">Daily</option>
-								<option value="weekly">Weekly</option>
-								<option value="monthly" selected>Monthly</option>
-								<option value="yearly">Yearly</option>
-							</select>
-							<svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-								<polyline points="6,9 12,15 18,9"/>
-							</svg>
-						</div>
-					</div>
 				</div>
 			</header>
 
-			<section class="alerts-table-section">
-				<div class="table-card">
-					<div class="table-container">
-						<table class="alerts-table">
-							<thead class="table-header">
-								<tr>
-									<th class="th">Action Taken</th>
-									<th class="th">Date And Time</th>
-									<th class="th">Gas Type</th>
-									<th class="th">Location</th>
-									<th class="th">Level (PPM)</th>
-								</tr>
-							</thead>
-							<tbody class="table-body">
-								<tr class="row">
-									<td class="td">
-										<div class="action-cell">
-											<span class="action-text">Manual Inspection</span>
+            <!-- Alert Summary -->
+            <section class="alert-summary">
+                <div class="summary-card critical">
+                    <div class="summary-icon">🚨</div>
+                    <div class="summary-content">
+                        <h3>Critical Alerts</h3>
+                        <div class="summary-count">3</div>
+                        <p>Immediate action required</p>
 										</div>
-									</td>
-									<td class="td">
-										<div class="date-cell">
-											<span class="date-text">June 17, 2025</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="gas-cell">
-											<span class="gas-type">Methane</span>
+                <div class="summary-card warning">
+                    <div class="summary-icon">⚠️</div>
+                    <div class="summary-content">
+                        <h3>Warning Alerts</h3>
+                        <div class="summary-count">5</div>
+                        <p>Monitor closely</p>
 										</div>
-									</td>
-									<td class="td">
-										<div class="location-cell">
-											<span class="location-text">Zone B</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="level-cell">
-											<span class="level-value">120</span>
+                <div class="summary-card info">
+                    <div class="summary-icon">ℹ️</div>
+                    <div class="summary-content">
+                        <h3>Info Alerts</h3>
+                        <div class="summary-count">12</div>
+                        <p>System notifications</p>
 										</div>
-									</td>
-								</tr>
-								<tr class="row">
-									<td class="td">
-										<div class="action-cell">
-											<span class="action-text">Manual Inspection</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="date-cell">
-											<span class="date-text">June 16, 2025</span>
+            </section>
+
+            <!-- Alert Filters -->
+            <section class="alert-filters">
+                <div class="filter-group">
+                    <label for="alertType">Filter by Type:</label>
+                    <select id="alertType">
+                        <option value="">All Alerts</option>
+                        <option value="critical">Critical</option>
+                        <option value="warning">Warning</option>
+                        <option value="info">Info</option>
+                    </select>
 										</div>
-									</td>
-									<td class="td">
-										<div class="gas-cell">
-											<span class="gas-type">Methane</span>
+                <div class="filter-group">
+                    <label for="alertSensor">Filter by Sensor:</label>
+                    <select id="alertSensor">
+                        <option value="">All Sensors</option>
+                        <option value="sensor_001">Sensor_001</option>
+                        <option value="sensor_002">Sensor_002</option>
+                        <option value="sensor_003">Sensor_003</option>
+                    </select>
 										</div>
-									</td>
-									<td class="td">
-										<div class="location-cell">
-											<span class="location-text">Zone B</span>
+                <div class="filter-group">
+                    <label for="alertTime">Time Range:</label>
+                    <select id="alertTime">
+                        <option value="all">All Time</option>
+                        <option value="1h">Last Hour</option>
+                        <option value="24h">Last 24 Hours</option>
+                        <option value="7d">Last 7 Days</option>
+                    </select>
 										</div>
-									</td>
-									<td class="td">
-										<div class="level-cell">
-											<span class="level-value">120</span>
+            </section>
+
+            <!-- Alert List -->
+            <section class="alert-list">
+                <div class="alert-item critical">
+                    <div class="alert-icon">🚨</div>
+                    <div class="alert-content">
+                        <div class="alert-header">
+                            <h3>Critical Gas Level Detected</h3>
+                            <span class="alert-time">2 minutes ago</span>
 										</div>
-									</td>
-								</tr>
-								<tr class="row">
-									<td class="td">
-										<div class="action-cell">
-											<span class="action-text">Manual Inspection</span>
+                        <p class="alert-description">Sensor_001 detected CO levels at 88 ppm (threshold: 70 ppm)</p>
+                        <div class="alert-details">
+                            <span class="alert-sensor">Sensor_001 (MQ-7)</span>
+                            <span class="alert-location">Boiler Room - Ground Floor</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="date-cell">
-											<span class="date-text">June 15, 2025</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="gas-cell">
-											<span class="gas-type">Methane</span>
+                    <div class="alert-actions">
+                        <button class="btn btn-sm btn-primary" onclick="acknowledgeAlert(this)">Acknowledge</button>
+                        <button class="btn btn-sm btn-secondary" onclick="viewDetails(this)">Details</button>
 										</div>
-									</td>
-									<td class="td">
-										<div class="location-cell">
-											<span class="location-text">Zone B</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="level-cell">
-											<span class="level-value">120</span>
+
+                <div class="alert-item critical">
+                    <div class="alert-icon">🚨</div>
+                    <div class="alert-content">
+                        <div class="alert-header">
+                            <h3>Critical Gas Level Detected</h3>
+                            <span class="alert-time">5 minutes ago</span>
 										</div>
-									</td>
-								</tr>
-								<tr class="row">
-									<td class="td">
-										<div class="action-cell">
-											<span class="action-text">Manual Inspection</span>
+                        <p class="alert-description">Sensor_002 detected CO levels at 95 ppm (threshold: 70 ppm)</p>
+                        <div class="alert-details">
+                            <span class="alert-sensor">Sensor_002 (MQ-7)</span>
+                            <span class="alert-location">Kitchen Area - First Floor</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="date-cell">
-											<span class="date-text">June 14, 2025</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="gas-cell">
-											<span class="gas-type">Methane</span>
+                    <div class="alert-actions">
+                        <button class="btn btn-sm btn-primary" onclick="acknowledgeAlert(this)">Acknowledge</button>
+                        <button class="btn btn-sm btn-secondary" onclick="viewDetails(this)">Details</button>
 										</div>
-									</td>
-									<td class="td">
-										<div class="location-cell">
-											<span class="location-text">Zone B</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="level-cell">
-											<span class="level-value">120</span>
+
+                <div class="alert-item warning">
+                    <div class="alert-icon">⚠️</div>
+                    <div class="alert-content">
+                        <div class="alert-header">
+                            <h3>High Temperature Warning</h3>
+                            <span class="alert-time">15 minutes ago</span>
 										</div>
-									</td>
-								</tr>
-								<tr class="row">
-									<td class="td">
-										<div class="action-cell">
-											<span class="action-text">Manual Inspection</span>
+                        <p class="alert-description">Temperature sensor detected 45°C (threshold: 40°C)</p>
+                        <div class="alert-details">
+                            <span class="alert-sensor">Temp_Sensor_001</span>
+                            <span class="alert-location">Server Room - Basement</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="date-cell">
-											<span class="date-text">June 13, 2025</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="gas-cell">
-											<span class="gas-type">Methane</span>
+                    <div class="alert-actions">
+                        <button class="btn btn-sm btn-primary" onclick="acknowledgeAlert(this)">Acknowledge</button>
+                        <button class="btn btn-sm btn-secondary" onclick="viewDetails(this)">Details</button>
 										</div>
-									</td>
-									<td class="td">
-										<div class="location-cell">
-											<span class="location-text">Zone B</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="level-cell">
-											<span class="level-value">120</span>
+
+                <div class="alert-item info">
+                    <div class="alert-icon">ℹ️</div>
+                    <div class="alert-content">
+                        <div class="alert-header">
+                            <h3>Sensor Maintenance Due</h3>
+                            <span class="alert-time">1 hour ago</span>
 										</div>
-									</td>
-								</tr>
-								<tr class="row">
-									<td class="td">
-										<div class="action-cell">
-											<span class="action-text">Manual Inspection</span>
+                        <p class="alert-description">Sensor_004 requires scheduled maintenance</p>
+                        <div class="alert-details">
+                            <span class="alert-sensor">Sensor_004 (MQ-2)</span>
+                            <span class="alert-location">Storage Area - Ground Floor</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="date-cell">
-											<span class="date-text">June 12, 2025</span>
 										</div>
-									</td>
-									<td class="td">
-										<div class="gas-cell">
-											<span class="gas-type">Methane</span>
-										</div>
-									</td>
-									<td class="td">
-										<div class="location-cell">
-											<span class="location-text">Zone B</span>
-										</div>
-									</td>
-									<td class="td">
-										<div class="level-cell">
-											<span class="level-value">120</span>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+                    <div class="alert-actions">
+                        <button class="btn btn-sm btn-primary" onclick="acknowledgeAlert(this)">Acknowledge</button>
+                        <button class="btn btn-sm btn-secondary" onclick="viewDetails(this)">Details</button>
 					</div>
 				</div>
 			</section>
 		</main>
 	</div>
 
-	<!-- Export Options Modal -->
-	<div class="modal" id="exportModal" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3>Export Alerts</h3>
-					<button class="close-btn" onclick="closeModal(document.getElementById('exportModal'))">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<line x1="18" y1="6" x2="6" y2="18"/>
-							<line x1="6" y1="6" x2="18" y2="18"/>
-						</svg>
-					</button>
-				</div>
-				
-				<div class="export-options">
-					<div class="export-option">
-						<div class="option-icon pdf">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-								<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-								<polyline points="14,2 14,8 20,8"/>
-								<line x1="16" y1="13" x2="8" y2="13"/>
-								<line x1="16" y1="17" x2="8" y2="17"/>
-								<polyline points="10,9 9,9 8,9"/>
-							</svg>
-						</div>
-						<div class="option-details">
-							<h4>Export as PDF</h4>
-							<p>Download alerts as a PDF document</p>
-						</div>
-						<button class="btn btn-primary" onclick="exportAsPDF()">Export PDF</button>
-					</div>
-					
-					<div class="export-option">
-						<div class="option-icon excel">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-								<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-								<line x1="9" y1="3" x2="9" y2="21"/>
-								<line x1="15" y1="3" x2="15" y2="21"/>
-								<line x1="3" y1="9" x2="21" y2="9"/>
-								<line x1="3" y1="15" x2="21" y2="15"/>
-							</svg>
-						</div>
-						<div class="option-details">
-							<h4>Export as Excel</h4>
-							<p>Download alerts as an Excel spreadsheet</p>
-						</div>
-						<button class="btn btn-primary" onclick="exportAsExcel()">Export Excel</button>
-					</div>
-				</div>
-				
-				<div class="modal-actions">
-					<button class="btn btn-secondary" onclick="closeModal(document.getElementById('exportModal'))">Cancel</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<script>
-		// Export button click
-		document.querySelector('.btn-export').addEventListener('click', function() {
-			openModal('exportModal');
-		});
+        // Filter functionality
+        document.getElementById('alertType').addEventListener('change', filterAlerts);
+        document.getElementById('alertSensor').addEventListener('change', filterAlerts);
+        document.getElementById('alertTime').addEventListener('change', filterAlerts);
 
-		// Time filter change
-		document.querySelector('.time-filter').addEventListener('change', function() {
-			const selectedPeriod = this.value;
-			console.log('Filtering alerts by:', selectedPeriod);
-			
-			// In a real application, you would filter the table data here
-			// For now, we'll just update the alert count
-			const alertCount = document.querySelector('.alert-count');
-			const counts = {
-				daily: 'All Alerts 3',
-				weekly: 'All Alerts 8',
-				monthly: 'All Alerts 12',
-				yearly: 'All Alerts 45'
-			};
-			alertCount.textContent = counts[selectedPeriod] || 'All Alerts 12';
-		});
+        function filterAlerts() {
+            const typeFilter = document.getElementById('alertType').value;
+            const sensorFilter = document.getElementById('alertSensor').value;
+            const timeFilter = document.getElementById('alertTime').value;
 
-		// Table row click for details
-		document.querySelectorAll('.row').forEach(row => {
-			row.addEventListener('click', function() {
-				const action = this.querySelector('.action-text').textContent;
-				const date = this.querySelector('.date-text').textContent;
-				const gasType = this.querySelector('.gas-type').textContent;
-				const location = this.querySelector('.location-text').textContent;
-				const level = this.querySelector('.level-value').textContent;
-				
-				alert(`Alert Details:\nAction: ${action}\nDate: ${date}\nGas Type: ${gasType}\nLocation: ${location}\nLevel: ${level} PPM`);
-			});
-		});
+            const alerts = document.querySelectorAll('.alert-item');
+            
+            alerts.forEach(alert => {
+                let show = true;
+                
+                // Type filter
+                if (typeFilter && !alert.classList.contains(typeFilter)) {
+                    show = false;
+                }
+                
+                // Sensor filter
+                if (sensorFilter) {
+                    const sensorSpan = alert.querySelector('.alert-sensor');
+                    if (sensorSpan && !sensorSpan.textContent.toLowerCase().includes(sensorFilter.toLowerCase())) {
+                        show = false;
+                    }
+                }
+                
+                alert.style.display = show ? 'flex' : 'none';
+            });
+        }
 
-		// Export functions
-		function exportAsPDF() {
-			console.log('Exporting as PDF...');
-			// In a real application, you would generate and download a PDF
-			alert('PDF export functionality would be implemented here');
-			closeModal(document.getElementById('exportModal'));
-		}
+        function acknowledgeAlert(button) {
+            const alertItem = button.closest('.alert-item');
+            alertItem.style.opacity = '0.6';
+            button.textContent = 'Acknowledged';
+            button.disabled = true;
+            button.classList.remove('btn-primary');
+            button.classList.add('btn-secondary');
+            
+            // Update summary counts
+            updateSummaryCounts();
+        }
 
-		function exportAsExcel() {
-			console.log('Exporting as Excel...');
-			// In a real application, you would generate and download an Excel file
-			alert('Excel export functionality would be implemented here');
-			closeModal(document.getElementById('exportModal'));
-		}
+        function viewDetails(button) {
+            const alertItem = button.closest('.alert-item');
+            const alertTitle = alertItem.querySelector('h3').textContent;
+            const alertDescription = alertItem.querySelector('.alert-description').textContent;
+            
+            alert(`Alert Details:\n\n${alertTitle}\n\n${alertDescription}`);
+        }
 
-		// Modal helpers
-		function openModal(id) {
-			document.getElementById(id).classList.add('open');
-			document.getElementById(id).setAttribute('aria-hidden', 'false');
-		}
+        function clearAllAlerts() {
+            if (confirm('Are you sure you want to clear all alerts? This action cannot be undone.')) {
+                const alerts = document.querySelectorAll('.alert-item');
+                alerts.forEach(alert => {
+                    alert.style.display = 'none';
+                });
+                
+                // Reset summary counts
+                document.querySelector('.summary-card.critical .summary-count').textContent = '0';
+                document.querySelector('.summary-card.warning .summary-count').textContent = '0';
+                document.querySelector('.summary-card.info .summary-count').textContent = '0';
+            }
+        }
 
-		function closeModal(el) {
-			const modal = el.closest('.modal');
-			modal.classList.remove('open');
-			modal.setAttribute('aria-hidden', 'true');
-		}
-
-		// Close modal when clicking outside
-		document.addEventListener('click', function(e) {
-			if (e.target.classList.contains('modal')) {
-				e.target.classList.remove('open');
-				e.target.setAttribute('aria-hidden', 'true');
-			}
-		});
-
-		// Add hover effects to table rows
-		document.querySelectorAll('.row').forEach(row => {
-			row.addEventListener('mouseenter', function() {
-				this.style.backgroundColor = '#f8fafc';
-			});
-			
-			row.addEventListener('mouseleave', function() {
-				this.style.backgroundColor = '';
-			});
-		});
+        function updateSummaryCounts() {
+            const criticalAlerts = document.querySelectorAll('.alert-item.critical:not([style*="display: none"])').length;
+            const warningAlerts = document.querySelectorAll('.alert-item.warning:not([style*="display: none"])').length;
+            const infoAlerts = document.querySelectorAll('.alert-item.info:not([style*="display: none"])').length;
+            
+            document.querySelector('.summary-card.critical .summary-count').textContent = criticalAlerts;
+            document.querySelector('.summary-card.warning .summary-count').textContent = warningAlerts;
+            document.querySelector('.summary-card.info .summary-count').textContent = infoAlerts;
+        }
 	</script>
+	<script src="../JS/auth.js"></script>
 </body>
 </html>
