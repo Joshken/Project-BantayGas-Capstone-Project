@@ -48,6 +48,7 @@
     <Content Include="CSS\settings.css" />
     <Content Include="CSS\sign-up.css" />
     <Content Include="CSS\user_management.css" />
+    <Content Include="CSS\notifications.css" />
     <Content Include="HTML\account-created.html" />
     <Content Include="HTML\add_floorplan.html" />
     <Content Include="HTML\add_sensor.html" />
@@ -66,6 +67,12 @@
     <Content Include="HTML\sign-up.html" />
     <Content Include="HTML\user_management.html" />
     <Content Include="JS\auth.js" />
+    <Content Include="JS\backend.js" />
+    <Content Include="JS\monitoring.js" />
+    <Content Include="JS\settings.js" />
+    <Content Include="JS\sensors.js" />
+    <Content Include="JS\user-management.js" />
+    <Content Include="JS\alerts.js" />
     <Content Include="Logos and BG\bantaygas-bg.jpg" />
     <Content Include="Logos and BG\bantaygas-logo.png" />
     <Content Include="Logos and BG\facebook.png" />
@@ -80,6 +87,10 @@
     <Content Include="PHP\api\login.php" />
     <Content Include="PHP\api\logout.php" />
     <Content Include="PHP\api\sensors.php" />
+    <Content Include="PHP\api\navigation.php" />
+    <Content Include="PHP\api\users.php" />
+    <Content Include="PHP\api\monitoring.php" />
+    <Content Include="PHP\api\alerts.php" />
     <Content Include="PHP\setup_database.sql" />
   </ItemGroup>
   <ProjectExtensions>

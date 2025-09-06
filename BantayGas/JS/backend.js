@@ -1,174 +1,231 @@
-/**
- * Backend Integration for BantayGas
- * Handles all API calls and data management
- */
-
+// Backend API Integration for BantayGas
 class BantayGasAPI {
     constructor() {
-        this.baseURL = '/api';
+        this.baseURL = 'PHP/api';
         this.isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
     }
 
-    /**
-     * Make API request
-     */
-    async makeRequest(endpoint, options = {}) {
-        const url = `${this.baseURL}${endpoint}`;
-        const defaultOptions = {
+    // Generic API call method
+    async apiCall(endpoint, method = 'GET', data = null) {
+        const url = `${this.baseURL}/${endpoint}`;
+        const options = {
+            method: method,
             headers: {
                 'Content-Type': 'application/json',
-            },
+            }
         };
 
-        const config = { ...defaultOptions, ...options };
+        if (data && (method === 'POST' || method === 'PUT')) {
+            options.body = JSON.stringify(data);
+        }
 
         try {
-            const response = await fetch(url, config);
-            const data = await response.json();
+            const response = await fetch(url, options);
+            const result = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.message || 'API request failed');
+                throw new Error(result.message || 'API call failed');
             }
 
-            return data;
+            return result;
         } catch (error) {
             console.error('API Error:', error);
             throw error;
         }
     }
 
-    /**
-     * Authentication methods
-     */
+    // Authentication methods
     async login(email, password) {
-        const response = await this.makeRequest('/login.php', {
-            method: 'POST',
-            body: JSON.stringify({ email, password })
-        });
+        try {
+            const result = await this.apiCall('login.php', 'POST', {
+                email: email,
+                password: password
+            });
 
-        if (response.status === 'success') {
-            sessionStorage.setItem('isLoggedIn', 'true');
-            sessionStorage.setItem('userName', response.user.name);
-            sessionStorage.setItem('userRole', response.user.role);
-            sessionStorage.setItem('userId', response.user.id);
+            if (result.status === 'success') {
+                // Store user data in session storage
+                sessionStorage.setItem('isLoggedIn', 'true');
+                sessionStorage.setItem('userName', result.data.user.first_name + ' ' + result.data.user.last_name);
+                sessionStorage.setItem('userRole', result.data.user.role);
+                sessionStorage.setItem('userId', result.data.user.id);
+                sessionStorage.setItem('userEmail', result.data.user.email);
+                
+                this.isLoggedIn = true;
+                return result;
+            }
+            return result;
+        } catch (error) {
+            throw error;
         }
-
-        return response;
     }
 
     async logout() {
         try {
-            await this.makeRequest('/logout.php', {
-                method: 'POST'
-            });
-        } catch (error) {
-            console.error('Logout error:', error);
-        } finally {
+            await this.apiCall('logout.php', 'POST');
             sessionStorage.clear();
-            window.location.href = 'login.html';
+            this.isLoggedIn = false;
+            return { status: 'success' };
+        } catch (error) {
+            // Even if API call fails, clear local session
+            sessionStorage.clear();
+            this.isLoggedIn = false;
+            throw error;
         }
     }
 
-    /**
-     * User management methods
-     */
-    async getUserProfile() {
-        return await this.makeRequest('/user.php?profile=true');
+    // Navigation methods
+    async getNavigationData() {
+        try {
+            return await this.apiCall('navigation.php');
+        } catch (error) {
+            throw error;
+        }
     }
 
+    async updateActivePage(page) {
+        try {
+            return await this.apiCall('navigation.php', 'POST', {
+                action: 'update_active_page',
+                page: page
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    // User management methods
     async getAllUsers() {
-        return await this.makeRequest('/user.php');
+        try {
+            return await this.apiCall('users.php');
+        } catch (error) {
+            throw error;
+        }
     }
 
-    async updateProfile(firstName, lastName) {
-        return await this.makeRequest('/user.php', {
-            method: 'PUT',
-            body: JSON.stringify({ first_name: firstName, last_name: lastName })
-        });
+    async getUserById(id) {
+        try {
+            return await this.apiCall(`users.php?id=${id}`);
+        } catch (error) {
+            throw error;
+        }
     }
 
-    async changePassword(newPassword) {
-        return await this.makeRequest('/user.php', {
-            method: 'POST',
-            body: JSON.stringify({ new_password: newPassword })
-        });
+    async createUser(userData) {
+        try {
+            return await this.apiCall('users.php', 'POST', userData);
+        } catch (error) {
+            throw error;
+        }
     }
 
-    /**
-     * Sensor management methods
-     */
-    async getAllSensors() {
-        return await this.makeRequest('/sensors.php');
+    async updateUser(id, userData) {
+        try {
+            return await this.apiCall('users.php', 'PUT', { id, ...userData });
+        } catch (error) {
+            throw error;
+        }
     }
 
-    async getSensorById(id) {
-        return await this.makeRequest(`/sensors.php?id=${id}`);
+    async deleteUser(id) {
+        try {
+            return await this.apiCall('users.php', 'DELETE', { id });
+        } catch (error) {
+            throw error;
+        }
     }
 
-    async createSensor(sensorData) {
-        return await this.makeRequest('/sensors.php', {
-            method: 'POST',
-            body: JSON.stringify(sensorData)
-        });
-    }
-
-    async updateSensor(sensorData) {
-        return await this.makeRequest('/sensors.php', {
-            method: 'PUT',
-            body: JSON.stringify(sensorData)
-        });
-    }
-
-    async deleteSensor(id) {
-        return await this.makeRequest('/sensors.php', {
-            method: 'DELETE',
-            body: JSON.stringify({ id })
-        });
-    }
-
-    /**
-     * Monitoring methods
-     */
+    // Monitoring methods
     async getMonitoringData(floorPlanId = null) {
-        const endpoint = floorPlanId ? `/monitoring.php?floor_plan_id=${floorPlanId}` : '/monitoring.php';
-        return await this.makeRequest(endpoint);
+        try {
+            const endpoint = floorPlanId ? `monitoring.php?floor_plan_id=${floorPlanId}` : 'monitoring.php';
+            return await this.apiCall(endpoint);
+        } catch (error) {
+            throw error;
+        }
     }
 
     async updateSensorReading(sensorId, readingValue) {
-        return await this.makeRequest('/monitoring.php', {
-            method: 'POST',
-            body: JSON.stringify({ sensor_id: sensorId, reading_value: readingValue })
-        });
+        try {
+            return await this.apiCall('monitoring.php', 'POST', {
+                sensor_id: sensorId,
+                reading_value: readingValue
+            });
+        } catch (error) {
+            throw error;
+        }
     }
 
-    /**
-     * Alert methods
-     */
-    async getAllAlerts() {
-        return await this.makeRequest('/alerts.php');
+    // Sensor methods
+    async getAllSensors() {
+        try {
+            return await this.apiCall('sensors.php');
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async getSensorById(id) {
+        try {
+            return await this.apiCall(`sensors.php?id=${id}`);
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async createSensor(sensorData) {
+        try {
+            return await this.apiCall('sensors.php', 'POST', sensorData);
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async updateSensor(id, sensorData) {
+        try {
+            return await this.apiCall('sensors.php', 'PUT', { id, ...sensorData });
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async deleteSensor(id) {
+        try {
+            return await this.apiCall('sensors.php', 'DELETE', { id });
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    // Alert methods
+    async getAlerts(status = 'all', limit = 50) {
+        try {
+            return await this.apiCall(`alerts.php?status=${status}&limit=${limit}`);
+        } catch (error) {
+            throw error;
+        }
     }
 
     async createAlert(alertData) {
-        return await this.makeRequest('/alerts.php', {
-            method: 'POST',
-            body: JSON.stringify(alertData)
-        });
+        try {
+            return await this.apiCall('alerts.php', 'POST', alertData);
+        } catch (error) {
+            throw error;
+        }
     }
 
-    async updateAlertStatus(alertId, status) {
-        return await this.makeRequest('/alerts.php', {
-            method: 'PUT',
-            body: JSON.stringify({ alert_id: alertId, status })
-        });
+    async updateAlertStatus(id, status) {
+        try {
+            return await this.apiCall('alerts.php', 'PUT', { id, status });
+        } catch (error) {
+            throw error;
+        }
     }
 }
 
-// Initialize API instance
+// Initialize global API instance
 const api = new BantayGasAPI();
 
-/**
- * Navigation and UI Management
- */
+// Navigation Enhancement
 class NavigationManager {
     constructor() {
         this.currentPage = this.getCurrentPage();
@@ -177,64 +234,28 @@ class NavigationManager {
 
     getCurrentPage() {
         const path = window.location.pathname;
-        const page = path.split('/').pop().replace('.html', '');
-        return page;
+        const filename = path.split('/').pop();
+        return filename.replace('.html', '');
     }
 
-    init() {
-        this.setActiveNavigation();
-        this.setupNavigationHandlers();
-        this.loadUserProfile();
-    }
-
-    setActiveNavigation() {
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            const href = item.getAttribute('href');
-            if (href && href.includes(this.currentPage)) {
-                item.classList.add('active');
-            }
-        });
-    }
-
-    setupNavigationHandlers() {
-        // Handle navigation clicks
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                const href = item.getAttribute('href');
-                if (href && href !== '#') {
-                    window.location.href = href;
-                }
-            });
-        });
-
-        // Handle logout
-        const logoutBtn = document.querySelector('.logout-btn');
-        if (logoutBtn) {
-            logoutBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (confirm('Are you sure you want to logout?')) {
-                    api.logout();
-                }
-            });
-        }
-    }
-
-    async loadUserProfile() {
+    async init() {
         try {
-            const response = await api.getUserProfile();
-            if (response.status === 'success') {
-                const user = response.data;
-                this.updateUserInfo(user);
+            // Load navigation data from backend
+            const navData = await api.getNavigationData();
+            
+            if (navData.status === 'success') {
+                this.updateUserInfo(navData.data.user);
+                this.updateNavigationMenu(navData.data.menu);
+                this.setActiveNavigation();
             }
         } catch (error) {
-            console.error('Failed to load user profile:', error);
-            // Fallback to session storage
-            this.updateUserInfoFromSession();
+            console.error('Failed to load navigation data:', error);
+            // Fallback to static navigation
+            this.setActiveNavigation();
         }
+
+        // Add click handlers to navigation links
+        this.addNavigationHandlers();
     }
 
     updateUserInfo(user) {
@@ -242,148 +263,125 @@ class NavigationManager {
         const roleElement = document.querySelector('.profile .role');
         
         if (nameElement) {
-            nameElement.textContent = `${user.first_name} ${user.last_name}`;
+            nameElement.textContent = `${user.name}`;
         }
         
         if (roleElement) {
-            roleElement.textContent = user.role.charAt(0).toUpperCase() + user.role.slice(1);
+            roleElement.textContent = user.role;
         }
     }
 
-    updateUserInfoFromSession() {
-        const nameElement = document.querySelector('.profile .name');
-        const roleElement = document.querySelector('.profile .role');
-        
-        if (nameElement) {
-            nameElement.textContent = sessionStorage.getItem('userName') || 'Josh Baguio';
-        }
-        
-        if (roleElement) {
-            roleElement.textContent = sessionStorage.getItem('userRole') || 'Admin';
-        }
-    }
-}
+    updateNavigationMenu(menu) {
+        const navContainer = document.querySelector('.nav');
+        if (!navContainer) return;
 
-/**
- * Monitoring Dashboard Manager
- */
-class MonitoringManager {
-    constructor() {
-        this.sensors = [];
-        this.init();
-    }
+        // Clear existing navigation
+        navContainer.innerHTML = '';
 
-    async init() {
-        await this.loadMonitoringData();
-        this.setupFloorSelector();
-        this.startRealTimeUpdates();
-    }
-
-    async loadMonitoringData(floorPlanId = null) {
-        try {
-            const response = await api.getMonitoringData(floorPlanId);
-            if (response.status === 'success') {
-                this.sensors = response.data;
-                this.renderSensors();
-            }
-        } catch (error) {
-            console.error('Failed to load monitoring data:', error);
-            this.showError('Failed to load monitoring data');
-        }
-    }
-
-    renderSensors() {
-        const floorPlanContainer = document.querySelector('.floor-plan');
-        if (!floorPlanContainer) return;
-
-        // Clear existing sensor indicators
-        const existingSensors = floorPlanContainer.querySelectorAll('.sensor');
-        existingSensors.forEach(sensor => sensor.remove());
-
-        // Render new sensors
-        this.sensors.forEach(sensor => {
-            const sensorElement = this.createSensorElement(sensor);
-            floorPlanContainer.appendChild(sensorElement);
+        // Add navigation items based on user permissions
+        menu.forEach(item => {
+            const navItem = document.createElement('a');
+            navItem.className = 'nav-item';
+            navItem.href = item.url;
+            navItem.innerHTML = `
+                <span class="icon">${item.icon}</span>
+                <span>${item.title}</span>
+            `;
+            navContainer.appendChild(navItem);
         });
     }
 
-    createSensorElement(sensor) {
-        const sensorDiv = document.createElement('div');
-        sensorDiv.className = `sensor sensor-${sensor.status}`;
-        sensorDiv.style.top = sensor.position.top;
-        sensorDiv.style.left = sensor.position.left;
-
-        sensorDiv.innerHTML = `
-            <div class="sensor-pin"></div>
-            <div class="sensor-info">
-                <div class="sensor-name">${sensor.sensor_name}</div>
-                <div class="sensor-type">${sensor.sensor_type.toUpperCase()}</div>
-                <div class="sensor-value">${sensor.current_reading} ${this.getUnit(sensor.sensor_type)}</div>
-                <div class="sensor-status ${sensor.status}">Status: ${sensor.status.charAt(0).toUpperCase() + sensor.status.slice(1)}</div>
-            </div>
-        `;
-
-        return sensorDiv;
+    setActiveNavigation() {
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.href.includes(this.currentPage)) {
+                item.classList.add('active');
+            }
+        });
     }
 
-    getUnit(sensorType) {
-        switch (sensorType) {
-            case 'gas': return 'ppm';
-            case 'smoke': return '%';
-            case 'temperature': return '°C';
-            case 'humidity': return '%';
-            default: return '';
-        }
-    }
-
-    setupFloorSelector() {
-        const floorSelect = document.getElementById('floorSelect');
-        if (floorSelect) {
-            floorSelect.addEventListener('change', (e) => {
-                const floorPlanId = e.target.value;
-                this.loadMonitoringData(floorPlanId);
+    addNavigationHandlers() {
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', async (e) => {
+                const href = item.getAttribute('href');
+                if (href && !href.startsWith('#')) {
+                    // Update active page in backend
+                    try {
+                        await api.updateActivePage(this.currentPage);
+                    } catch (error) {
+                        console.error('Failed to update active page:', error);
+                    }
+                }
             });
-        }
-    }
-
-    startRealTimeUpdates() {
-        // Update sensor data every 30 seconds
-        setInterval(() => {
-            this.loadMonitoringData();
-        }, 30000);
-    }
-
-    showError(message) {
-        console.error(message);
-        // You can implement a toast notification here
+        });
     }
 }
 
-/**
- * Initialize the application
- */
-document.addEventListener('DOMContentLoaded', function() {
-    // Check authentication
-    if (sessionStorage.getItem('isLoggedIn') !== 'true') {
-        const currentPage = window.location.pathname;
-        const allowedPages = ['/login.html', '/sign-up.html', '/forgot-password.html', '/forgot-confirmation.html', '/enter-new-password.html', '/password-update-forgot.html', '/account-created.html', '/email-otp-verify.html'];
-        
-        if (!allowedPages.some(page => currentPage.includes(page))) {
-            window.location.href = 'login.html';
-            return;
+// Enhanced Authentication Manager
+class AuthManager {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.checkAuthStatus();
+        this.addLogoutHandler();
+    }
+
+    checkAuthStatus() {
+        if (!api.isLoggedIn) {
+            const currentPage = window.location.pathname;
+            const allowedPages = ['/login.html', '/sign-up.html', '/forgot-password.html', 
+                                '/forgot-confirmation.html', '/enter-new-password.html', 
+                                '/password-update-forgot.html', '/account-created.html', 
+                                '/email-otp-verify.html'];
+            
+            if (!allowedPages.some(page => currentPage.includes(page))) {
+                window.location.href = 'login.html';
+                return;
+            }
         }
     }
 
-    // Initialize navigation
-    new NavigationManager();
+    addLogoutHandler() {
+        const logoutBtn = document.querySelector('.logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', async (e) => {
+                e.preventDefault();
+                if (confirm('Are you sure you want to logout?')) {
+                    try {
+                        await api.logout();
+                        window.location.href = 'login.html';
+                    } catch (error) {
+                        console.error('Logout error:', error);
+                        // Force redirect even if API call fails
+                        window.location.href = 'login.html';
+                    }
+                }
+            });
+        }
+    }
+}
 
-    // Initialize monitoring if on monitoring page
-    if (window.location.pathname.includes('monitoring.html')) {
-        new MonitoringManager();
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize authentication
+    new AuthManager();
+    
+    // Initialize navigation (only if not on login/signup pages)
+    const currentPage = window.location.pathname;
+    const authPages = ['/login.html', '/sign-up.html', '/forgot-password.html', 
+                      '/forgot-confirmation.html', '/enter-new-password.html', 
+                      '/password-update-forgot.html', '/account-created.html', 
+                      '/email-otp-verify.html'];
+    
+    if (!authPages.some(page => currentPage.includes(page))) {
+        new NavigationManager();
     }
 });
 
 // Export for use in other scripts
 window.BantayGasAPI = BantayGasAPI;
-window.NavigationManager = NavigationManager;
-window.MonitoringManager = MonitoringManager;
+window.api = api;

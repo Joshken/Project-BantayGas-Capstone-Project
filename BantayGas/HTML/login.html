@@ -59,8 +59,9 @@
         </div>
     </div>
 
+    <script src="../JS/backend.js"></script>
     <script>
-        // Temporary account credentials
+        // Temporary account credentials (fallback)
         const TEMP_ACCOUNT = {
             email: 'baguiojosh@gmail.com',
             password: '123'
@@ -73,31 +74,53 @@
             // Handle form submission
             const form = document.querySelector('form');
             if (form) {
-                form.addEventListener('submit', function(e) {
+                form.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
                     const email = document.getElementById('email').value.trim();
                     const password = document.getElementById('password').value.trim();
                     
                     console.log('Login attempt:', { email, password });
-                    console.log('Expected:', TEMP_ACCOUNT);
                     
-                    // Check if credentials match temporary account
-                    if (email === TEMP_ACCOUNT.email && password === TEMP_ACCOUNT.password) {
-                        console.log('Login successful');
+                    // Show loading state
+                    const submitBtn = document.querySelector('.signin-btn');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Signing in...';
+                    submitBtn.disabled = true;
+                    
+                    try {
+                        // Try backend login first
+                        const result = await api.login(email, password);
                         
-                        // Store login status in sessionStorage
-                        sessionStorage.setItem('isLoggedIn', 'true');
-                        sessionStorage.setItem('userEmail', email);
-                        sessionStorage.setItem('userName', 'Josh Baguio');
-                        sessionStorage.setItem('userRole', 'Admin');
+                        if (result.status === 'success') {
+                            console.log('Backend login successful');
+                            window.location.href = 'monitoring.html';
+                        } else {
+                            throw new Error(result.message || 'Login failed');
+                        }
+                    } catch (error) {
+                        console.log('Backend login failed, trying fallback:', error);
                         
-                        // Redirect to monitoring page
-                        console.log('Redirecting to monitoring.html');
-                        window.location.href = 'monitoring.html';
-                    } else {
-                        console.log('Login failed - credentials mismatch');
-                        alert('Invalid email or password. Please try again.\n\nTemporary Account:\nEmail: baguiojosh@gmail.com\nPassword: 123');
+                        // Fallback to temporary account
+                        if (email === TEMP_ACCOUNT.email && password === TEMP_ACCOUNT.password) {
+                            console.log('Fallback login successful');
+                            
+                            // Store login status in sessionStorage
+                            sessionStorage.setItem('isLoggedIn', 'true');
+                            sessionStorage.setItem('userEmail', email);
+                            sessionStorage.setItem('userName', 'Josh Baguio');
+                            sessionStorage.setItem('userRole', 'Admin');
+                            
+                            // Redirect to monitoring page
+                            window.location.href = 'monitoring.html';
+                        } else {
+                            console.log('Login failed - credentials mismatch');
+                            alert('Invalid email or password. Please try again.\n\nTemporary Account:\nEmail: baguiojosh@gmail.com\nPassword: 123');
+                        }
+                    } finally {
+                        // Reset button state
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
                     }
                 });
             } else {
