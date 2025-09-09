@@ -495,7 +495,7 @@
                             android:layout_height="24dp"
                             android:src="@drawable/ic_email"
                             android:contentDescription="Email"
-                            android:tint="#1A237E"
+                            app:tint="#1A237E"
                             android:layout_marginEnd="12dp" />
 
                         <TextView
@@ -518,7 +518,7 @@
                             android:layout_height="24dp"
                             android:src="@drawable/ic_phone"
                             android:contentDescription="Phone"
-                            android:tint="#1A237E"
+                            app:tint="#1A237E"
                             android:layout_marginEnd="12dp" />
 
                         <TextView

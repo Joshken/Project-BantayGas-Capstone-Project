@@ -23,18 +23,7 @@
         android:background="#1A237E"
         app:layout_constraintTop_toBottomOf="@id/statusBarMargin">
 
-        <ImageView
-            android:id="@+id/backButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="16dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Back button"
-            android:padding="12dp"
-            android:src="@drawable/ic_back_white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        
 
         <TextView
             android:id="@+id/headerTitle"
@@ -235,6 +224,16 @@
                         app:iconTint="#FFFFFF"
                         app:iconSize="24dp" />
 
+                    <!-- Scanning Loader -->
+                    <ProgressBar
+                        android:id="@+id/scanProgress"
+                        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:visibility="gone" />
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -375,15 +374,17 @@
                             <EditText
                                 android:id="@+id/threshold001EditText"
                                 android:layout_width="80dp"
-                                android:layout_height="36dp"
+                                android:layout_height="40dp"
                                 android:background="@drawable/edittext_rounded_bg"
                                 android:hint="72"
                                 android:inputType="number"
-                                android:padding="8dp"
-                                android:text="72"
+                                android:maxLength="4"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="12dp"
                                 android:textColor="#000000"
                                 android:textSize="14sp"
-                                android:gravity="center" />
+                                android:gravity="center"
+                                android:importantForAutofill="no" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -556,15 +557,17 @@
                             <EditText
                                 android:id="@+id/threshold002EditText"
                                 android:layout_width="80dp"
-                                android:layout_height="36dp"
+                                android:layout_height="40dp"
                                 android:background="@drawable/edittext_rounded_bg"
                                 android:hint="150"
                                 android:inputType="number"
-                                android:padding="8dp"
-                                android:text="150"
+                                android:maxLength="4"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="12dp"
                                 android:textColor="#000000"
                                 android:textSize="14sp"
-                                android:gravity="center" />
+                                android:gravity="center"
+                                android:importantForAutofill="no" />
 
                             <TextView
                                 android:layout_width="wrap_content"

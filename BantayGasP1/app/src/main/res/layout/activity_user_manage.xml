@@ -23,18 +23,7 @@
 		android:background="#1A237E"
 		app:layout_constraintTop_toBottomOf="@id/statusBarMargin">
 
-		<ImageView
-			android:id="@+id/backButton"
-			android:layout_width="48dp"
-			android:layout_height="48dp"
-			android:layout_marginStart="16dp"
-			android:background="?attr/selectableItemBackgroundBorderless"
-			android:contentDescription="Back"
-			android:padding="12dp"
-			android:src="@drawable/ic_back_white"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent" />
+		
 
 		<TextView
 			android:id="@+id/headerTitle"
@@ -274,7 +263,7 @@
 								android:src="@drawable/del_account_icon"
 								android:padding="2dp"
 								android:scaleType="centerInside"
-								android:tint="#FF5722" />
+								app:tint="#FF5722" />
 
 							<ImageButton
 								android:id="@+id/roleButton1"
@@ -286,7 +275,7 @@
 								android:src="@drawable/role_change_icon"
 								android:padding="2dp"
 								android:scaleType="centerInside"
-								android:tint="#2196F3" />
+								app:tint="#2196F3" />
 
 							<ImageButton
 								android:id="@+id/resetButton1"
@@ -297,7 +286,7 @@
 								android:src="@drawable/reset_icon"
 								android:padding="2dp"
 								android:scaleType="centerInside"
-								android:tint="#FF9800" />
+								app:tint="#FF9800" />
 
 						</LinearLayout>
 
@@ -375,7 +364,7 @@
 								android:src="@drawable/del_account_icon"
 								android:padding="2dp"
 								android:scaleType="centerInside"
-								android:tint="#FF5722" />
+								app:tint="#FF5722" />
 
 							<ImageButton
 								android:id="@+id/roleButton2"
@@ -387,7 +376,7 @@
 								android:src="@drawable/role_change_icon"
 								android:padding="2dp"
 								android:scaleType="centerInside"
-								android:tint="#2196F3" />
+								app:tint="#2196F3" />
 
 							<ImageButton
 								android:id="@+id/resetButton2"
@@ -398,7 +387,7 @@
 								android:src="@drawable/reset_icon"
 								android:padding="2dp"
 								android:scaleType="centerInside"
-								android:tint="#FF9800" />
+								app:tint="#FF9800" />
 
 						</LinearLayout>
 
@@ -476,7 +465,7 @@
 								android:src="@drawable/del_account_icon"
 								android:padding="2dp"
 								android:scaleType="centerInside"
-								android:tint="#FF5722" />
+								app:tint="#FF5722" />
 
 							<ImageButton
 								android:id="@+id/roleButton3"
@@ -488,7 +477,7 @@
 								android:src="@drawable/role_change_icon"
 								android:padding="2dp"
 								android:scaleType="centerInside"
-								android:tint="#2196F3" />
+								app:tint="#2196F3" />
 
 							<ImageButton
 								android:id="@+id/resetButton3"
@@ -499,7 +488,7 @@
 								android:src="@drawable/reset_icon"
 								android:padding="2dp"
 								android:scaleType="centerInside"
-								android:tint="#FF9800" />
+								app:tint="#FF9800" />
 
 						</LinearLayout>
 
@@ -577,7 +566,7 @@
 								android:src="@drawable/del_account_icon"
 								android:padding="2dp"
 								android:scaleType="centerInside"
-								android:tint="#FF5722" />
+								app:tint="#FF5722" />
 
 							<ImageButton
 								android:id="@+id/roleButton4"
@@ -589,7 +578,7 @@
 								android:src="@drawable/role_change_icon"
 								android:padding="2dp"
 								android:scaleType="centerInside"
-								android:tint="#2196F3" />
+								app:tint="#2196F3" />
 
 							<ImageButton
 								android:id="@+id/resetButton4"
@@ -600,7 +589,7 @@
 								android:src="@drawable/reset_icon"
 								android:padding="2dp"
 								android:scaleType="centerInside"
-								android:tint="#FF9800" />
+								app:tint="#FF9800" />
 
 						</LinearLayout>
 

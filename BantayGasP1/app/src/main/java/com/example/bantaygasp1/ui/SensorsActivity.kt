@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
+import android.os.Handler
+import android.os.Looper
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +28,7 @@ class SensorsActivity : AppCompatActivity() {
     private var removeSensor001Button: Button? = null
     private var removeSensor002Button: Button? = null
     private var bottomNavigationView: BottomNavigationView? = null
+    private var scanProgress: View? = null
 
     // Track edit mode for each sensor
     private var isSensor001InEditMode = false
@@ -59,6 +62,7 @@ class SensorsActivity : AppCompatActivity() {
         removeSensor001Button = findViewById(R.id.removeSensor001Button)
         removeSensor002Button = findViewById(R.id.removeSensor002Button)
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        scanProgress = findViewById(R.id.scanProgress)
     }
 
     private fun setupClickListeners() {
@@ -353,7 +357,22 @@ class SensorsActivity : AppCompatActivity() {
     }
 
     private fun scanForSensors() {
-        Toast.makeText(this, "Scanning for sensors...", Toast.LENGTH_SHORT).show()
+        try {
+            scanSensorsButton?.isEnabled = false
+            scanProgress?.visibility = View.VISIBLE
+            Toast.makeText(this, "Scanning for sensors...", Toast.LENGTH_SHORT).show()
+
+            Handler(Looper.getMainLooper()).postDelayed({
+                // Simulate found sensors; in real app, trigger actual scan here
+                scanProgress?.visibility = View.GONE
+                scanSensorsButton?.isEnabled = true
+                Toast.makeText(this, "Scan complete. 2 sensors found.", Toast.LENGTH_SHORT).show()
+            }, 2000)
+        } catch (e: Exception) {
+            scanProgress?.visibility = View.GONE
+            scanSensorsButton?.isEnabled = true
+            Toast.makeText(this, "Scan failed: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun removeSensor(sensorName: String) {

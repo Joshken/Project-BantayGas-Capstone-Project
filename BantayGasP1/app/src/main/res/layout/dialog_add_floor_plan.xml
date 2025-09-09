@@ -19,7 +19,7 @@
             android:layout_height="32dp"
             android:src="@drawable/ic_floor_plan"
             android:contentDescription="Floor Plan Icon"
-            android:tint="#1A237E" />
+            app:tint="#1A237E" />
 
         <TextView
             android:layout_width="0dp"

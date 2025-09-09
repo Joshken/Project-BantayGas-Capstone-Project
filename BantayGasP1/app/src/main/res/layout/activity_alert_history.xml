@@ -24,18 +24,7 @@
         android:background="#1A237E"
         app:layout_constraintTop_toBottomOf="@id/statusBarMargin">
 
-        <ImageView
-            android:id="@+id/backButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="16dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Back"
-            android:padding="12dp"
-            android:src="@drawable/ic_back_white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        
 
         <TextView
             android:id="@+id/headerTitle"

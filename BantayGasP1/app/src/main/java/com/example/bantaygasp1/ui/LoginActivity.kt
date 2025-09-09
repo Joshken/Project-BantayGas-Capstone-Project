@@ -2,6 +2,9 @@ package com.example.bantaygasp1.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.view.animation.DecelerateInterpolator
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -35,6 +38,20 @@ class LoginActivity : AppCompatActivity() {
         loginButton = findViewById(R.id.loginButton)
         forgotPasswordText = findViewById(R.id.forgotPasswordTextView)
         signUpText = findViewById(R.id.signUpText)
+
+        // Subtle 3D/standout animation for logo: scale + shadow pulse
+        val logoView = findViewById<android.widget.ImageView>(R.id.logoImageView)
+        logoView.post {
+            val scaleUpX = ObjectAnimator.ofFloat(logoView, "scaleX", 0.95f, 1.0f)
+            val scaleUpY = ObjectAnimator.ofFloat(logoView, "scaleY", 0.95f, 1.0f)
+            val alphaIn = ObjectAnimator.ofFloat(logoView, "alpha", 0.0f, 1.0f)
+            AnimatorSet().apply {
+                interpolator = DecelerateInterpolator()
+                duration = 500
+                playTogether(scaleUpX, scaleUpY, alphaIn)
+                start()
+            }
+        }
     }
     
     private fun setupClickListeners() {
@@ -87,6 +104,9 @@ class LoginActivity : AppCompatActivity() {
             editor.putString("currentUser", username)
             editor.apply()
             
+            // Mark session as logged in
+            SessionManager(this).setLoggedIn(true)
+
             // Always navigate to MonitoringActivity - it will handle content loading based on floor plan status
             val intent = Intent(this, MonitoringActivity::class.java)
             startActivity(intent)
@@ -108,6 +128,9 @@ class LoginActivity : AppCompatActivity() {
             editor.putString("department", "Demo Department")
             editor.apply()
             
+            // Mark session as logged in
+            SessionManager(this).setLoggedIn(true)
+
             // Always navigate to MonitoringActivity - it will handle content loading based on floor plan status
             val intent = Intent(this, MonitoringActivity::class.java)
             startActivity(intent)

@@ -80,7 +80,7 @@
                 android:contentDescription="Profile Image"
                 android:background="@drawable/circle_bg"
                 android:padding="20dp"
-                android:tint="#1A237E" />
+                app:tint="#1A237E" />
 
             <!-- Profile Form Section -->
             <LinearLayout

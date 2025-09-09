@@ -23,13 +23,10 @@
     <string name="password_updated_success">Password Updated</string>
     <string name="password_updated_message">Your password has been updated!</string>
     <string name="action_login">LOGIN</string>
-    <string name="title_sign_up">Sign Up</string>
-    <string name="hint_first_name">Enter first name</string>
-    <string name="hint_last_name">Enter last name</string>
-    <string name="signin_prompt">Already have an account.</string>
+    <string name="action_dashboard">Dashboard</string>
     <string name="welcome_title">Welcome To BantayGas!</string>
     <string name="account_approved_message">Your account has been approved by an admin</string>
-    <string name="action_dashboard">Dashboard</string>
+    
     <string name="title_monitoring">Monitoring</string>
     <string name="no_floor_plan_added">No Floor Plan Added</string>
     <string name="action_upload_floor_plan">Upload Floor Plan</string>
@@ -56,44 +53,12 @@
         <item>Viewer</item>
     </string-array>
 
-    <string-array name="alert_filter_options">
-        <item>All Alerts</item>
-        <item>Critical</item>
-        <item>Warning</item>
-        <item>Info</item>
-        <item>Today</item>
-        <item>This Week</item>
-        <item>This Month</item>
-        <item>Custom Range</item>
-    </string-array>
+    
 
-    <string-array name="monthly_options">
-        <item>Monthly</item>
-        <item>January</item>
-        <item>February</item>
-        <item>March</item>
-        <item>April</item>
-        <item>May</item>
-        <item>June</item>
-        <item>July</item>
-        <item>August</item>
-        <item>September</item>
-        <item>October</item>
-        <item>November</item>
-        <item>December</item>
-    </string-array>
+    
 
     <!-- Profile Information Strings -->
-    <string name="title_profile_information">Profile Information</string>
-    <string name="hint_email_address">Enter email address</string>
-    <string name="hint_phone_number">Enter phone number</string>
-    <string name="hint_role">Enter role</string>
-    <string name="hint_department">Enter department</string>
-    <string name="label_first_name">First Name</string>
-    <string name="label_last_name">Last Name</string>
-    <string name="label_email">Email</string>
-    <string name="label_phone_number">Phone Number</string>
-    <string name="label_role">Role</string>
+    
     <string name="label_department">Department</string>
     <string name="action_edit">Edit</string>
     <string name="action_edit_lowercase">edit</string>

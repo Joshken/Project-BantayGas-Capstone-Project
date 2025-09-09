@@ -85,10 +85,13 @@ class SettingsActivity : AppCompatActivity() {
             // Clear user preferences
             val sharedPrefs = getSharedPreferences("BantayGasPrefs", android.content.Context.MODE_PRIVATE)
             sharedPrefs.edit().clear().apply()
-            
+
+            // Clear session flag
+            SessionManager(this).setLoggedIn(false)
+
             // Show logout message
             Toast.makeText(this, "Logged out successfully!", Toast.LENGTH_SHORT).show()
-            
+
             // Navigate back to login screen
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

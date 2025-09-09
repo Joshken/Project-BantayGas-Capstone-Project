@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <size android:width="200dp" android:height="200dp" />
+            <gradient
+                android:type="radial"
+                android:gradientRadius="100dp"
+                android:centerX="50%"
+                android:centerY="50%"
+                android:startColor="#402196F3"
+                android:centerColor="#1A2196F3"
+                android:endColor="#002196F3" />
+        </shape>
+    </item>
+    <item android:drawable="@drawable/logo" android:width="160dp" android:height="160dp"
+        android:gravity="center"/>
+</layer-list>
+
+

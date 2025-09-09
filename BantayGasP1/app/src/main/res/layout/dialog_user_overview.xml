@@ -35,7 +35,7 @@
                     android:src="@drawable/ic_back"
                     android:padding="8dp"
                     android:contentDescription="Back"
-                    android:tint="#1A237E" />
+                    app:tint="#1A237E" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -75,7 +75,7 @@
                         android:src="@drawable/ic_person"
                         android:padding="16dp"
                         android:scaleType="centerInside"
-                        android:tint="#1A237E" />
+                        app:tint="#1A237E" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -169,7 +169,7 @@
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
                                     android:src="@drawable/ic_person"
-                                    android:tint="#1A237E"
+                                    app:tint="#1A237E"
                                     android:layout_marginEnd="12dp" />
 
                                 <TextView
@@ -320,7 +320,7 @@
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
                                     android:src="@drawable/ic_account"
-                                    android:tint="#1A237E"
+                                    app:tint="#1A237E"
                                     android:layout_marginEnd="12dp" />
 
                                 <TextView
@@ -497,7 +497,7 @@
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
                                     android:src="@drawable/ic_activity"
-                                    android:tint="#1A237E"
+                                    app:tint="#1A237E"
                                     android:layout_marginEnd="12dp" />
 
                                 <TextView

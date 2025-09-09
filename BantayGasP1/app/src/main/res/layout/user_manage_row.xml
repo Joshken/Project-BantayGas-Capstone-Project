@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical">
@@ -63,7 +64,7 @@
 				android:src="@drawable/del_account_icon"
 				android:padding="2dp"
 				android:scaleType="centerInside"
-				android:tint="#FF5722" />
+				app:tint="#FF5722" />
 
 			<ImageButton
 				android:id="@+id/roleButton"
@@ -75,7 +76,7 @@
 				android:src="@drawable/role_change_icon"
 				android:padding="2dp"
 				android:scaleType="centerInside"
-				android:tint="#2196F3" />
+				app:tint="#2196F3" />
 
 			<ImageButton
 				android:id="@+id/resetButton"
@@ -86,7 +87,7 @@
 				android:src="@drawable/reset_icon"
 				android:padding="2dp"
 				android:scaleType="centerInside"
-				android:tint="#FF9800" />
+				app:tint="#FF9800" />
 
 		</LinearLayout>
 
