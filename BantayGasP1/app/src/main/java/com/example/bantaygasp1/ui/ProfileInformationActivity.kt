@@ -138,7 +138,7 @@ class ProfileInformationActivity : AppCompatActivity() {
 
             editButton.setOnClickListener {
                 Log.d("ProfileInformation", "Edit button clicked")
-                val intent = Intent(this, EditProfileInformationActivity::class.java)
+                val intent = Intent(this, EditProfileActivity::class.java)
                 startActivity(intent)
             }
 

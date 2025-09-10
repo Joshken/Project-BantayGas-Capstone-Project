@@ -104,7 +104,9 @@ class SensorsActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.navigation_monitoring -> {
                     try {
+                        if (bottomNavigationView?.selectedItemId == R.id.navigation_monitoring) return@setOnItemSelectedListener true
                         val intent = Intent(this, MonitoringActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                         startActivity(intent)
                         // Don't call finish() - preserve activity stack
                     } catch (e: Exception) {
@@ -115,7 +117,9 @@ class SensorsActivity : AppCompatActivity() {
                 R.id.navigation_sensors -> true
                 R.id.navigation_alerts -> {
                     try {
+                        if (bottomNavigationView?.selectedItemId == R.id.navigation_alerts) return@setOnItemSelectedListener true
                         val intent = Intent(this, AlertHistoryActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                         startActivity(intent)
                         // Don't call finish() - preserve activity stack
                     } catch (e: Exception) {
@@ -125,7 +129,9 @@ class SensorsActivity : AppCompatActivity() {
                 }
                 R.id.navigation_users -> {
                     try {
+                        if (bottomNavigationView?.selectedItemId == R.id.navigation_users) return@setOnItemSelectedListener true
                         val intent = Intent(this, UserManageActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                         startActivity(intent)
                         // Don't call finish() - preserve activity stack
                     } catch (e: Exception) {
@@ -135,7 +141,9 @@ class SensorsActivity : AppCompatActivity() {
                 }
                 R.id.navigation_settings -> {
                     try {
+                        if (bottomNavigationView?.selectedItemId == R.id.navigation_settings) return@setOnItemSelectedListener true
                         val intent = Intent(this, SettingsActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                         startActivity(intent)
                         // Don't call finish() - preserve activity stack
                     } catch (e: Exception) {
@@ -146,10 +154,12 @@ class SensorsActivity : AppCompatActivity() {
                 else -> false
             }
         }
-        
-        // Explicitly mark sensors as selected
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Ensure correct highlight when activity is brought to front
         bottomNavigationView?.selectedItemId = R.id.navigation_sensors
-        bottomNavigationView?.menu?.findItem(R.id.navigation_sensors)?.isChecked = true
     }
 
     private fun setViewMode() {

@@ -18,7 +18,6 @@ import android.widget.Toast
 
 class UserManageActivity : AppCompatActivity() {
 
-    private lateinit var backButton: ImageView
     private lateinit var searchEditText: EditText
     private lateinit var roleSpinner: Spinner
     private lateinit var bottomNavigationView: BottomNavigationView
@@ -34,37 +33,43 @@ class UserManageActivity : AppCompatActivity() {
     }
 
     private fun initializeViews() {
-        backButton = findViewById(R.id.backButton)
+        // backButton removed from layout; no-op
         searchEditText = findViewById(R.id.searchEditText)
         roleSpinner = findViewById(R.id.roleSpinner)
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
     }
 
     private fun setupListeners() {
-        backButton.setOnClickListener { finish() }
+        // no back button
         
         // Setup dialog listeners for action buttons
         setupDialogListeners()
     }
     
     private fun setupNavigation() {
-        // Set the selected item first
-        bottomNavigationView.selectedItemId = R.id.navigation_users
-        
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_monitoring -> {
-                    startActivity(Intent(this, MonitoringActivity::class.java))
+                    if (bottomNavigationView.selectedItemId == R.id.navigation_monitoring) return@setOnItemSelectedListener true
+                    val intent = Intent(this, MonitoringActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                    startActivity(intent)
                     // Don't call finish() - preserve activity stack
                     true
                 }
                 R.id.navigation_sensors -> {
-                    startActivity(Intent(this, SensorsActivity::class.java))
+                    if (bottomNavigationView.selectedItemId == R.id.navigation_sensors) return@setOnItemSelectedListener true
+                    val intent = Intent(this, SensorsActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                    startActivity(intent)
                     // Don't call finish() - preserve activity stack
                     true
                 }
                 R.id.navigation_alerts -> {
-                    startActivity(Intent(this, AlertHistoryActivity::class.java))
+                    if (bottomNavigationView.selectedItemId == R.id.navigation_alerts) return@setOnItemSelectedListener true
+                    val intent = Intent(this, AlertHistoryActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                    startActivity(intent)
                     // Don't call finish() - preserve activity stack
                     true
                 }
@@ -73,19 +78,22 @@ class UserManageActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_settings -> {
-                    startActivity(Intent(this, SettingsActivity::class.java))
+                    if (bottomNavigationView.selectedItemId == R.id.navigation_settings) return@setOnItemSelectedListener true
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                    startActivity(intent)
                     // Don't call finish() - preserve activity stack
                     true
                 }
                 else -> false
             }
         }
-        
-        // Ensure the users item is checked
-        bottomNavigationView.post {
-            bottomNavigationView.selectedItemId = R.id.navigation_users
-            bottomNavigationView.menu.findItem(R.id.navigation_users)?.isChecked = true
-        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Ensure correct highlight when activity is brought to front
+        bottomNavigationView.selectedItemId = R.id.navigation_users
     }
     
     private fun setupDialogListeners() {

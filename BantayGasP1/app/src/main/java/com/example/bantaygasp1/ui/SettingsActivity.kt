@@ -13,7 +13,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SettingsActivity : AppCompatActivity() {
 
-    private lateinit var backButton: ImageView
     private lateinit var searchEditText: EditText
     private lateinit var profileInfoLayout: LinearLayout
     private lateinit var languageLayout: LinearLayout
@@ -35,7 +34,6 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun initializeViews() {
-        backButton = findViewById(R.id.backButton)
         searchEditText = findViewById(R.id.searchEditText)
         profileInfoLayout = findViewById(R.id.profileInfoLayout)
         languageLayout = findViewById(R.id.languageLayout)
@@ -48,10 +46,7 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() {
-        backButton.setOnClickListener { 
-            // Go back to previous activity instead of finishing
-            onBackPressed()
-        }
+        // backButton removed from layout; no-op
         
         profileInfoLayout.setOnClickListener {
             val intent = Intent(this, ProfileInformationActivity::class.java)
@@ -101,28 +96,37 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun setupNavigation() {
-        // Set the selected item first
-        bottomNavigationView.selectedItemId = R.id.navigation_settings
-        
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_monitoring -> {
-                    startActivity(Intent(this, MonitoringActivity::class.java))
+                    if (bottomNavigationView.selectedItemId == R.id.navigation_monitoring) return@setOnItemSelectedListener true
+                    val intent = Intent(this, MonitoringActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                    startActivity(intent)
                     // Don't call finish() - preserve activity stack
                     true
                 }
                 R.id.navigation_sensors -> {
-                    startActivity(Intent(this, SensorsActivity::class.java))
+                    if (bottomNavigationView.selectedItemId == R.id.navigation_sensors) return@setOnItemSelectedListener true
+                    val intent = Intent(this, SensorsActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                    startActivity(intent)
                     // Don't call finish() - preserve activity stack
                     true
                 }
                 R.id.navigation_alerts -> {
-                    startActivity(Intent(this, AlertHistoryActivity::class.java))
+                    if (bottomNavigationView.selectedItemId == R.id.navigation_alerts) return@setOnItemSelectedListener true
+                    val intent = Intent(this, AlertHistoryActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                    startActivity(intent)
                     // Don't call finish() - preserve activity stack
                     true
                 }
                 R.id.navigation_users -> {
-                    startActivity(Intent(this, UserManageActivity::class.java))
+                    if (bottomNavigationView.selectedItemId == R.id.navigation_users) return@setOnItemSelectedListener true
+                    val intent = Intent(this, UserManageActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                    startActivity(intent)
                     // Don't call finish() - preserve activity stack
                     true
                 }
@@ -133,11 +137,11 @@ class SettingsActivity : AppCompatActivity() {
                 else -> false
             }
         }
-        
-        // Ensure the settings item is checked with a small delay
-        bottomNavigationView.post {
-            bottomNavigationView.selectedItemId = R.id.navigation_settings
-            bottomNavigationView.menu.findItem(R.id.navigation_settings)?.isChecked = true
-        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Ensure correct highlight when activity is brought to front
+        bottomNavigationView.selectedItemId = R.id.navigation_settings
     }
 }

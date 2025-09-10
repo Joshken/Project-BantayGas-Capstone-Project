@@ -78,33 +78,39 @@ class MonitoringActivity : AppCompatActivity() {
     }
     
     private fun setupNavigation() {
-        bottomNavigationView.selectedItemId = R.id.navigation_monitoring
-        
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.navigation_monitoring -> {
                     true
                 }
                 R.id.navigation_sensors -> {
+                    if (bottomNavigationView.selectedItemId == R.id.navigation_sensors) return@setOnItemSelectedListener true
                     val intent = Intent(this, SensorsActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                     startActivity(intent)
                     // Don't call finish() - preserve activity stack
                     true
                 }
                 R.id.navigation_alerts -> {
+                    if (bottomNavigationView.selectedItemId == R.id.navigation_alerts) return@setOnItemSelectedListener true
                     val intent = Intent(this, AlertHistoryActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                     startActivity(intent)
                     // Don't call finish() - preserve activity stack
                     true
                 }
                 R.id.navigation_users -> {
+                    if (bottomNavigationView.selectedItemId == R.id.navigation_users) return@setOnItemSelectedListener true
                     val intent = Intent(this, UserManageActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                     startActivity(intent)
                     // Don't call finish() - preserve activity stack
                     true
                 }
                 R.id.navigation_settings -> {
+                    if (bottomNavigationView.selectedItemId == R.id.navigation_settings) return@setOnItemSelectedListener true
                     val intent = Intent(this, SettingsActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                     startActivity(intent)
                     // Don't call finish() - preserve activity stack
                     true
@@ -112,5 +118,11 @@ class MonitoringActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Ensure correct highlight when activity is brought to front
+        bottomNavigationView.selectedItemId = R.id.navigation_monitoring
     }
 }

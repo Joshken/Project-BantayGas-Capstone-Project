@@ -17,8 +17,8 @@
         android:paddingBottom="8dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="70dp"
-        android:layout_marginStart="16dp"/>
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"/>
 
     <com.example.bantaygasp1.ui.InteractiveFloorPlanView
         android:id="@+id/interactiveFloorPlan"
@@ -30,11 +30,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.95"
-        app:layout_constraintHeight_percent="0.7"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="60dp"/>
+        android:layout_marginTop="6dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

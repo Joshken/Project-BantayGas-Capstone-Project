@@ -3,6 +3,14 @@
 
     <style name="Theme.BantayGasP1" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
 
+    <!-- Theme for UCrop to prevent overlay issues and give visual top space -->
+    <style name="Theme.BantayGasP1.UCrop" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">#1A237E</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
     <!-- Dialog theme for UserOverviewActivity -->
     <style name="Theme.BantayGasP1.Dialog" parent="Theme.MaterialComponents.DayNight.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
