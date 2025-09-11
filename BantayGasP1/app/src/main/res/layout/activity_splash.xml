@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_bg">
+    android:background="@drawable/bg_splash_grad_1">
 
     
 
@@ -28,6 +28,63 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Background blobs for depth -->
+    <ImageView
+        android:id="@+id/blobBlue"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:src="@drawable/blob_blue"
+        android:alpha="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="-40dp"
+        android:layout_marginTop="-10dp" />
+
+    <ImageView
+        android:id="@+id/blobCyan"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/blob_cyan"
+        android:alpha="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="-30dp"
+        android:layout_marginBottom="-20dp" />
+
+    <!-- Gentle parallax drifting sparkles -->
+    <ImageView
+        android:id="@+id/sparkle1"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_sparkle"
+        android:alpha="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="120dp" />
+
+    <ImageView
+        android:id="@+id/sparkle2"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_sparkle"
+        android:alpha="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="200dp" />
+
+    <ImageView
+        android:id="@+id/sparkle3"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_sparkle"
+        android:alpha="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="140dp" />
 
     
 
@@ -86,6 +143,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp" />
+
+    <!-- Shimmer sweep overlay (moved during animation) -->
+    <View
+        android:id="@+id/shimmerSweep"
+        android:layout_width="160dp"
+        android:layout_height="20dp"
+        android:background="@drawable/shimmer_sweep"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="@id/logoImageView"
+        app:layout_constraintStart_toStartOf="@id/logoImageView" />
+
+    <!-- Ripple ring behind logo at mid timeline -->
+    <ImageView
+        android:id="@+id/rippleRing"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:src="@drawable/ripple_ring"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="@id/logoImageView"
+        app:layout_constraintStart_toStartOf="@id/logoImageView" />
+
+    <!-- Overlay used for circular reveal exit -->
+    <View
+        android:id="@+id/revealOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

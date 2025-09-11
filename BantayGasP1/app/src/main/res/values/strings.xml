@@ -23,7 +23,29 @@
     <string name="password_updated_success">Password Updated</string>
     <string name="password_updated_message">Your password has been updated!</string>
     <string name="action_login">LOGIN</string>
-    <string name="action_dashboard">Dashboard</string>
+    <!-- Removed unused: action_dashboard -->
+    
+    <!-- Edit Profile screen strings -->
+    <string name="back">Back</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="save">Save</string>
+    <string name="profile_image">Profile Image</string>
+    <string name="edit_photo">Edit photo</string>
+    <string name="first_name_label">First Name</string>
+    <string name="first_name_hint">Enter first name</string>
+    <string name="last_name_label">Last Name</string>
+    <string name="last_name_hint">Enter last name</string>
+    <string name="email_label">Email</string>
+    <string name="email_hint">Enter email address</string>
+    <string name="phone_label">Phone Number</string>
+    <string name="phone_hint">Enter phone number</string>
+    <string name="address_label">Address</string>
+    <string name="address_hint">Enter address</string>
+    <string name="role_label">Role</string>
+    <string name="role_hint">Enter role</string>
+    <string name="role_note">Role cannot be changed</string>
+    <string name="department_label">Department</string>
+    <string name="department_hint">Enter department</string>
     <string name="welcome_title">Welcome To BantayGas!</string>
     <string name="account_approved_message">Your account has been approved by an admin</string>
     
@@ -58,14 +80,4 @@
     
 
     <!-- Profile Information Strings -->
-    
-    <string name="label_department">Department</string>
-    <string name="action_edit">Edit</string>
-    <string name="action_edit_lowercase">edit</string>
-    <string name="action_cancel">Cancel</string>
-    <string name="action_save_changes">Save Changes</string>
-    <string name="message_profile_updated">Profile updated successfully!</string>
-    <string name="message_required_fields">First name and last name are required</string>
-    <string name="message_invalid_email">Please enter a valid email address</string>
-    <string name="message_profile_image_coming_soon">Profile image picker coming soon!</string>
 </resources>

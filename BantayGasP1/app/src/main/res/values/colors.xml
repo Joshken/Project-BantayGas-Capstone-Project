@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+    <!-- Material color tokens used by layouts -->
+    <color name="primary">#1A237E</color>
+    <color name="primaryVariant">#111B5E</color>
+    <color name="secondary">#00AEEF</color>
+    <color name="backgroundLight">#FFFFFF</color>
+    <color name="onBackgroundLight">#000000</color>
+    <color name="outlineDark">#404040</color>
+    <color name="onSurfaceDark">#E0E0E0</color>
+    <color name="sparkleColor">#FFFFFF</color>
+    <color name="splashBackground">#0A1A4A</color>
 </resources>

@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.BantayGasP1" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+    <style name="Theme.BantayGasP1" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <!-- App-level splash theme for Android 12 SplashScreen API -->
+    <style name="Theme.BantayGasP1.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splashBackground</item>
+        <!-- Use adaptive launcher icon with insets to avoid clipping on system splash -->
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.BantayGasP1</item>
+    </style>
 
     <!-- Theme for UCrop to prevent overlay issues and give visual top space -->
     <style name="Theme.BantayGasP1.UCrop" parent="Theme.MaterialComponents.DayNight.NoActionBar">

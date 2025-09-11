@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.yalantis.ucrop.UCrop
 import android.graphics.Color
 import com.example.bantaygasp1.R
@@ -35,6 +37,11 @@ class EditProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile_information)
         supportActionBar?.hide()
+
+        // Make status bar area transparent and use dark icons for visibility on light bg
+        WindowCompat.setDecorFitsSystemWindows(window, true)
+        window.statusBarColor = Color.TRANSPARENT
+        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
 
         initializeViews()
         setupClickListeners()

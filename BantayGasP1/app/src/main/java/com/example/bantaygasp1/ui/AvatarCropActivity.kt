@@ -25,9 +25,10 @@ class AvatarCropActivity : AppCompatActivity(), UCropFragmentCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_avatar_crop)
-
-        // Keep system bars visible (revert fullscreen change)
+        // Transparent status bar with light icons over dark header
         WindowCompat.setDecorFitsSystemWindows(window, true)
+        window.statusBarColor = Color.TRANSPARENT
+        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = false
 
         val btnClose: android.widget.ImageView = findViewById(R.id.btnClose)
         val btnDone: android.widget.TextView = findViewById(R.id.btnDone)

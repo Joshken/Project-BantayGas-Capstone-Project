@@ -17,7 +17,6 @@ class LoginActivity : AppCompatActivity() {
     
     private lateinit var usernameEditText: EditText
     private lateinit var passwordEditText: EditText
-    private lateinit var passwordToggleButton: ImageButton
     private lateinit var loginButton: Button
     private lateinit var forgotPasswordText: TextView
     private lateinit var signUpText: TextView
@@ -34,7 +33,6 @@ class LoginActivity : AppCompatActivity() {
     private fun initializeViews() {
         usernameEditText = findViewById(R.id.usernameEditText)
         passwordEditText = findViewById(R.id.passwordEditText)
-        passwordToggleButton = findViewById(R.id.passwordToggleButton)
         loginButton = findViewById(R.id.loginButton)
         forgotPasswordText = findViewById(R.id.forgotPasswordTextView)
         signUpText = findViewById(R.id.signUpText)
@@ -69,9 +67,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
         
-        passwordToggleButton.setOnClickListener {
-            togglePasswordVisibility()
-        }
+        // TextInputLayout handles the password toggle end icon
     }
     
     private fun performLogin() {
@@ -140,19 +136,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     
-    private fun togglePasswordVisibility() {
-        if (passwordEditText.inputType == android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD) {
-            // Show password
-            passwordEditText.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-            passwordToggleButton.setImageResource(R.drawable.ic_visibility)
-        } else {
-            // Hide password
-            passwordEditText.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
-            passwordToggleButton.setImageResource(R.drawable.ic_visibility_off)
-        }
-        // Move cursor to end of text
-        passwordEditText.setSelection(passwordEditText.text.length)
-    }
+    // Password visibility is handled by TextInputLayout's endIconMode; no custom toggle needed
 }
 
 
